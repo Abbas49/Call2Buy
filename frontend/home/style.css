@@ -1,0 +1,20 @@
+#products-con{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    margin: 10px;
+    border: solid 2px black;
+    padding: 20px;
+}
+
+.product p{
+    width: fit-content;
+}

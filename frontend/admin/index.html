@@ -13,12 +13,24 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="products-con">
-        <div class="product">
-            <p> name: test1 </p>
-            <p> rate: 1 </p>
-            <p> price: 1 </p>
-        </div>
+    <div id="input-con">
+        <h1>Enter product</h1>
+        <form>
+            <div>
+                <label for="name">name:</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="name">price:</label>
+                <input type="number" name="price">
+            </div>
+            <div>
+                <label for="name">rate:</label>
+                <input type="number" name="rate">
+            </div>
+            <p id="response-message"></p>
+            <button>Add Product</button>
+        </form>
     </div>
     <script src="script.js"></script>
 </body>
