@@ -1,4 +1,3 @@
-
 import { createClient } from '@supabase/supabase-js'
 import 'dotenv/config'
 
@@ -18,6 +17,14 @@ export async function fetchProduct(){
     .from('products')
     .select()
     return response
+}
+
+export async function uploadProductImage(file){
+    const { data, error } = await supabase.storage
+    .from('product-images')
+    .upload('public/avatar1.png', file)
+    console.log(data);
+    console.log(error);
 }
 
 async function run(){

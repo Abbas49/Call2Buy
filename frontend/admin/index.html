@@ -17,16 +17,20 @@
         <h1>Enter product</h1>
         <form>
             <div>
-                <label for="name">name:</label>
+                <label for="name">Name:</label>
                 <input type="text" name="name">
             </div>
             <div>
-                <label for="name">price:</label>
+                <label for="price">Price:</label>
                 <input type="number" name="price">
             </div>
             <div>
-                <label for="name">rate:</label>
+                <label for="rate">Rate:</label>
                 <input type="number" name="rate">
+            </div>
+            <div style="width: 200px;">
+                <label for="product-image">Product Image:</label>
+                <input type="file" id="product-image" name="image" id="img" accept="image/*">
             </div>
             <p id="response-message"></p>
             <button>Add Product</button>
