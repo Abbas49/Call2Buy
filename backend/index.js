@@ -31,11 +31,11 @@ app.get("/products", async (req, res)=>{
 })
 
 app.post("/addProduct", upload.single("image"), async (req, res)=>{
-    const {name, rate, price} = req.body;
+    const {name, price, rate} = req.body;
     console.log(name)
     console.log(rate)
     console.log(price)
-    const error = await insertProduct(name, rate, price, req.file);
+    const error = await insertProduct(name, price, rate, req.file);
     if(error){
         res.send("Error happend");
     }else{

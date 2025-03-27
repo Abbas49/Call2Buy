@@ -1,10 +1,15 @@
-function addProduct(name, price, rate){
+function addProduct(name, price, image){
+    if(!image){
+        image = "https://placehold.co/250x164"
+    }
     let element = document.createElement("div");
     element.classList.add("product");
     element.innerHTML = `
-        <p> name: ${name} </p>
-        <p> rate: ${rate} </p>
-        <p> price: ${price} </p>
+        <a href="#">
+            <img src="${image}"/>
+            <p> ${name} </p>
+            <p class="price"> ${price}$ </p>
+        </a>
     `
     document.getElementById("products-con").appendChild(element);
 }
@@ -12,6 +17,6 @@ function addProduct(name, price, rate){
 fetch("http://localhost:3000/products").then((e)=> e.json()).then((e)=>{
     console.log(e);
     e.forEach(element => {
-        addProduct(element.name, element.price, element.rate);
+        addProduct(element.name, element.price, element.image);
     });
 })

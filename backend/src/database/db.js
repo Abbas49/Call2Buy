@@ -7,7 +7,12 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 
 async function uploadFile(file) {
-    const fileName = `${Date.now()}-${file.originalname}`;
+    if(!file){
+        console.log("test");
+        "Failed to upload image"
+        return null;
+    }
+    const fileName = `${Date.now()}-${file.originalname||null}`;
     const { data, error } = await supabase.storage.from('product-images').upload(fileName, file.buffer);
     if (error) {
         console.error("Failed to upload image");
