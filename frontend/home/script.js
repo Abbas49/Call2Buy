@@ -18,6 +18,7 @@ function addProduct(name, price, image){
 
 fetch("http://localhost:3000/products").then((e)=> e.json()).then((e)=>{
     console.log(e);
+    e.reverse();
     e.forEach(element => {
         addProduct(element.name, element.price, element.image);
     });
