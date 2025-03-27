@@ -7,8 +7,10 @@ function addProduct(name, price, image){
     element.innerHTML = `
         <a href="#">
             <img src="${image}"/>
-            <p> ${name} </p>
-            <p class="price"> ${price}$ </p>
+            <div class="info-con">
+                <p> ${name} </p>
+                <p class="price"> ${price}$ </p>
+            </div>
         </a>
     `
     document.getElementById("products-con").appendChild(element);
