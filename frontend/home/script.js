@@ -6,7 +6,9 @@ function addProduct(name, price, image){
     element.classList.add("product");
     element.innerHTML = `
         <a href="#">
-            <img src="${image}"/>
+            <div class="img-con">
+                <img src="${image}"/>
+            </div>
             <div class="info-con">
                 <p> ${name} </p>
                 <p class="price"> ${price}$ </p>
