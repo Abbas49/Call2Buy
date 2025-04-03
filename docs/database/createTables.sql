@@ -1,3 +1,9 @@
+-- CREATE TYPE visibility_status AS ENUM(
+--     'public',     -- Listed on the website and accessible via link
+--     'unlisted',   -- Not listed on the website, but accessible via direct link
+--     'private'     -- Only visible to the seller (owner of the product)
+--   );
+
 create table users (
   user_id serial primary key,
   email text unique not null,
@@ -18,7 +24,8 @@ create table products (
   seller int,
   views int default 0,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  foreign key (seller) references users(user_id) on delete set null
+  foreign key (seller) references users(user_id) on delete set null,
+  visibility visibility_status DEFAULT 'public'
 );
 
 create table categories (
