@@ -6,6 +6,7 @@ import morgan from "morgan"
 import cookieParser from "cookie-parser"
 
 import authRoutes from "./routes/authRoutes.js"
+import productRoutes from "./routes/productRoutes.js"
 import cookieJwtAuth from "./middlewares/cookieJwtAuth.js"
 
 dotenv.config();
@@ -23,6 +24,8 @@ app.use(cookieParser());
 
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/products", productRoutes);
+
 app.get("/", cookieJwtAuth, (req, res)=>{
     res.send("Hello "+req.user.full_name);
 })
