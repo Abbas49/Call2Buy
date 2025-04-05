@@ -42,6 +42,14 @@
     background-color: #14b6e2;
     
 }
+a{
+    color:black;
+    transition: color 0.5s;
+    text-decoration: none;
+}
+a:visited{
+    color:red
+}
 .submit:hover,.signup:hover {
     background-color: #0e8bb5; 
 }
