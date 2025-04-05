@@ -43,12 +43,10 @@
     
 }
 a{
-    color:black;
-    transition: color 0.5s;
-    text-decoration: none;
+    color:rgb(35, 17, 227);
 }
 a:visited{
-    color:red
+    color:black;
 }
 .submit:hover,.signup:hover {
     background-color: #0e8bb5; 

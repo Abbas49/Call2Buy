@@ -42,3 +42,10 @@ input {
     background-color: red;
     color: red;
 }
+a{
+    color:rgb(35, 17, 227);
+
+}
+a:visited{
+    color:black
+}
