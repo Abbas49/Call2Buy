@@ -12,6 +12,12 @@
     top: 15%;
     left: 30%; 
 } 
+.chekbox {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
 .submit ,
 .reset {
     display: inline-block;
@@ -19,6 +25,8 @@
     background-color: #f6f6f6;
     cursor: pointer;
     border:none;
+    margin-right: 10px;
+    transition: 1s;
 }
 input {
     display: block;

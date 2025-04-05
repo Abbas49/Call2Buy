@@ -14,8 +14,10 @@
 }
 .submit {
     padding: 10px 20px;
-    background-color: #14b6e2;
+    background-color: #eeeff0;
     margin-left: 10px; 
+    cursor: pointer;
+    transition: 1s;
 }
 .username_style {
     padding: 10px;
@@ -33,4 +35,7 @@
     width: 250px; 
     background-color: #14b6e2;
     
+}
+.submit:hover {
+    background-color: #0e8bb5; /* لون مختلف عند التمرير */
 }
