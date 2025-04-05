@@ -12,13 +12,19 @@
     top: 30%; 
     left: 30%; /
 }
-.submit {
+.chekbox{
+    display: flex;
+    justify-content: space-between;
+
+}
+.submit,.signup {
     padding: 10px 20px;
     background-color: #eeeff0;
-    margin-left: 10px; 
+    margin-left: 5px; 
     cursor: pointer;
     transition: 1s;
 }
+
 .username_style {
     padding: 10px;
     font-size: 16px;  
@@ -36,6 +42,6 @@
     background-color: #14b6e2;
     
 }
-.submit:hover {
+.submit:hover,.signup:hover {
     background-color: #0e8bb5; 
 }

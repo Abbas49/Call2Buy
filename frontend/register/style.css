@@ -38,3 +38,7 @@ input {
 .reset:hover {
     background-color: #0e8bb5; 
 }
+::selection{
+    background-color: red;
+    color: red;
+}
