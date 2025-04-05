@@ -8,8 +8,8 @@
     border-radius: 10px;
     background-color: #14b6e2;
     width: 500px;
-    position: absolute; /* لجعل العنصر قابلًا للتحريك */
-    top: 30%; /* وضع العنصر في منتصف الصفحة عموديًا */
+    position: absolute;
+    top: 30%; 
     left: 30%; /
 }
 .submit {
@@ -37,5 +37,5 @@
     
 }
 .submit:hover {
-    background-color: #0e8bb5; /* لون مختلف عند التمرير */
+    background-color: #0e8bb5; 
 }

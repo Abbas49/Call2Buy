@@ -24,7 +24,6 @@
     padding: 10px 20px;
     background-color: #f6f6f6;
     cursor: pointer;
-    border:none;
     margin-right: 10px;
     transition: 1s;
 }
@@ -37,5 +36,5 @@ input {
 }
 .submit:hover,
 .reset:hover {
-    background-color: #0e8bb5; /* لون مختلف عند التمرير */
+    background-color: #0e8bb5; 
 }
