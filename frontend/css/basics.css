@@ -1,3 +1,6 @@
+:root{
+  --Basic: #14b6e2;
+}
 /* Global Rules */
 *{
     -webkit-box-sizing: border-box;

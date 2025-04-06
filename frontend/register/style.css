@@ -6,7 +6,7 @@
     padding: 20px;
     border: 4px solid #ccc;
     border-radius: 10px;
-    background-color: #14b6e2;
+    background-color: var(--Basic);
     width: 600px;
     position: absolute;
     top: 15%;
@@ -37,10 +37,6 @@ input {
 .submit:hover,
 .reset:hover {
     background-color: #0e8bb5; 
-}
-::selection{
-    background-color: red;
-    color: red;
 }
 a{
     color:rgb(35, 17, 227);
