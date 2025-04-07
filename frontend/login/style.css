@@ -51,3 +51,20 @@ a:visited{
 .submit:hover,.signup:hover {
     background-color: #0e8bb5; 
 }
+nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--Basic);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--Basic);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 700px;
+    
+}
