@@ -67,6 +67,9 @@ nav{
     border-radius: 10px;
     margin-top: 10px;
 }
+nav a{
+    text-decoration: none;
+}
 footer{
     display: flex;
     justify-content: space-around;
