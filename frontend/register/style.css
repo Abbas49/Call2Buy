@@ -16,6 +16,9 @@ body{
     left: 30%; 
   top: 12%;
 } 
+.titel{
+    color: white;
+}
 .chekbox {
     display: flex;
     justify-content: center;
