@@ -34,7 +34,7 @@
     
 }
 a{
-    color:rgb(35, 17, 227);
+    color:var(--Basic);
 }
 a:visited{
     color:#FFFFFF;
