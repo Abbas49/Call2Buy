@@ -57,6 +57,9 @@ nav{
     border-radius: 10px;
     padding: 10px;
 }
+nav a{
+    text-decoration: none;
+}
 footer{
     display: flex;
     justify-content: space-around;
@@ -66,9 +69,10 @@ footer{
     padding: 10px;
     border-radius: 10px;
 }
-nav a{
-    text-decoration: none;
+footer .social_media a{
+    color: var(--Basic);
 }
+
 p{
     color: white;
 }
