@@ -62,24 +62,42 @@ a:visited{
 }
 nav{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     background-color: var(--Back-color);
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
-    display: none;
+    
 }
-nav .icon span {
-    color: red;
+
+nav .icon  {
     width: 30px;
     display: flex;
     flex-wrap: wrap;
-    position: relative;
-background-color: red;
-
+    
 }
-nav a{
+nav .icon span {
+    background-color: var(--Basic);
+    margin-bottom: 5px;
+    height: 2px;
+    width: 100%;
+}
+nav .icon span:nth-child(2){
+width: 60%;
+}
+nav ul a{
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+nav ul{
+    display: none;
+    flex-direction: column;
+}
+nav .icon:hover + ul{
+    display: block;
 }
 footer{
     display: flex;
