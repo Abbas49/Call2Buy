@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,16 @@
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <div class="parent">
         <div class="container">
 
-            <nav>
+            <nav style="display:none;">
                 <a href="">link 1</a>
                 <a href="">link 1</a>
                 <a href="">link 1</a>
@@ -25,46 +28,47 @@
                 <a href="">link 1</a>
             </nav>
             <form action="">
-            <div class="style">
-            <div class="username_style">
+                <div class="style">
+                    <h1 class="title">Login</h1>
+                    <div class="username_style">
 
-            <label for="username">username</label><br>
-            <input type="text" id="username" required autofocus>
-        </div>
-        <br>    
-            <div class="password_style">
+                        <label for="username">Email</label><br>
+                        <input type="email" id="username" required autofocus>
+                    </div>
+                    <br>
+                    <div class="password_style">
 
-            <label for="password">password</label><br>
-            <input type="password" id="password" required>
+                        <label for="password">Password</label><br>
+                        <input type="password" id="password" required>
+                    </div>
+                    <br>
+                    <div class="chekbox">
+                        <input type="submit" class="submit" value="Login">
+                    </div>
+                    <br>
+                    <div class="remember">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label><br>
+                    </div>
+                    <br>
+                        <p class="sign-up">Don't have an account? <a href="/register">Sign up</a></p>
+                </div>
+            </form>
+            <footer style="display: none;">
+                <div class="footer_style">
+                    <p>Copyright &copy; 2023</p>
+                    <p>All rights reserved</p>
+                </div>
+                <div class="social_media">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </footer>
         </div>
-        <br>
-        <div class="chekbox">
-            <input type="submit" class="submit" value="Login">
-            <input type="button" value="sign up" class="signup" onclick="">
-        </div>
-        <br>
-    <div class="remember">
-        <input type="checkbox" id="remember">
-        <label for="remember">Remember me</label><br>
     </div>
-    <br>
-    <a href="#">forget password</a> 
-        </div>
-    </form>
-    <footer>
-        <div class="footer_style">
-            <p>Copyright &copy; 2023</p>
-            <p>All rights reserved</p>
-        </div>
-        <div class="social_media">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
-    </footer>
-    </div>
-    </div>
-    
+
 </body>
+
 </html>
