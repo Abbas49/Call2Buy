@@ -2,12 +2,13 @@ import express from "express"
 import multer from "multer"
 import { getProducts, createProduct, updateProduct, deleteProduct } from "../controllers/productController.js";
 import cookieJwtAuth from "../middlewares/cookieJwtAuth.js";
+import validateCreateProduct from "../middlewares/validators/validateCreateProduct.js";
 
 const router = express.Router();
-const upload = multer({ dest: multer.memoryStorage() })
+const upload = multer({ storage: multer.memoryStorage() })
 
 router.get("/", getProducts);
-router.post("/", cookieJwtAuth, upload.array("photos", 8),createProduct);
+router.post("/", cookieJwtAuth, upload.array("photos", 8), validateCreateProduct, createProduct);
 router.put("/", updateProduct);
 router.delete("/", deleteProduct);
 
