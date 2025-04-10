@@ -8,7 +8,7 @@ const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() })
 
 router.get("/", getProducts);
-router.post("/", cookieJwtAuth, upload.array("photos", 8), validateCreateProduct, createProduct);
+router.post("/", cookieJwtAuth, upload.array("photo", 8), validateCreateProduct, createProduct);
 router.put("/", updateProduct);
 router.delete("/", deleteProduct);
 

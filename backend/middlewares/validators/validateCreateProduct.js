@@ -7,6 +7,12 @@ const validateCreateProdcut = async (req, res, next)=>{
         const seller = req.user.user_id;
         const photos = req.files;
         // check if product data is valid
+        if(photos.length == 0){
+            throw createError("At least one product image is required to create a product. Please upload an image and try again.", 400)
+        }
+        if(!price || !title){
+            throw createError("Missing required information: 'price' and 'title' must be included.", 400)
+        }
         if(!categories){
             throw createError("You need to add at least one category to the product", 400);
         }

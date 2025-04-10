@@ -16,7 +16,7 @@ export const createProduct = async (req, res)=>{
             product_address: product_address,
             title: title,
             price: price,
-            phone: phone,
+            phone: phone || req.user.phone,
             visibility: visibility,
         }).select();
         const product_id = product.data[0].product_id;
