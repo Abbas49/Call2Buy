@@ -2,7 +2,24 @@ import { supabase } from "../config/db.js"
 import createError from "../utils/createError.js";
 
 export const getProducts = async (req, res)=>{
+    try{
+        const {product_id, search_query, min_price, max_price } = req.body;
 
+        const {data: products, error: titleSearchError}= await supabase.from("products").select(`*, users(full_name), categories(category_name)`).eq("visibility", "public").gte("price", min_price).lte("price", max_price);
+        if(titleSearchError){
+            throw createError(titleSearchError, 500);
+        }
+
+        products.forEach((product)=>{
+            delete product.views;
+            delete product.seller;
+
+            product.categories = product.categories.map((e) => e.category_name);
+        })
+        res.json({products: products});
+    }catch(err){
+        next(err);
+    }
 }
 
 export const createProduct = async (req, res)=>{
@@ -36,7 +53,7 @@ export const createProduct = async (req, res)=>{
             if(error){
                 throw createError(error.message, 500);
             }
-            const URL = await supabase.storage.from("product-images").getPublicUrl(fileName).data.publicUrl;
+            const URL = (await supabase.storage.from("product-images").getPublicUrl(fileName)).data.publicUrl;
             URLs.push({image_url: URL, product_id: product_id, image_index: index});
         }
 
@@ -48,7 +65,7 @@ export const createProduct = async (req, res)=>{
 
         res.json({message:"done"});
     }catch(err){
-        res.status(err.statusCode || 500).json({message: err.message});
+        next(err);
     }
 }
 

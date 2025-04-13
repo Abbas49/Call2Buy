@@ -7,7 +7,8 @@ import cookieParser from "cookie-parser"
 
 import authRoutes from "./routes/authRoutes.js"
 import productRoutes from "./routes/productRoutes.js"
-import cookieJwtAuth from "./middlewares/cookieJwtAuth.js"
+import { requireAuth } from "./middlewares/cookieJwtAuth.js"
+import errorHandler from "./middlewares/errorHandler.js"
 
 dotenv.config();
 
@@ -21,12 +22,13 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
+app.use(errorHandler);
 
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/products", productRoutes);
 
-app.get("/", cookieJwtAuth, (req, res)=>{
+app.get("/", requireAuth , (req, res)=>{
     res.send("Hello "+req.user.full_name);
 })
 
