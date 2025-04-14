@@ -1,148 +1,82 @@
 body{
-    background-color: #212121;
+background-color:rgb(17,24,40) ;
 }
-
-form{
-    max-width: 400px;
-    width: 95%;
-    position: absolute;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--Back-color);
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-}
-
-
-.title{
-    color: white;
-}
-
-.style{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    width: 90%;
-}
-.chekbox{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.submit,.signup {
-    padding: 10px 20px;
-    background-color:var(--Basic);
-    margin-left: 5px; 
-    border-radius: 10px;
-}
-
-.username_style,
-.password_style {
-    padding: 10px 0px;
-    font-size: 16px;  
-    width: 250px; 
-    color:white;
-    width: 100%;
-    
-}
-a{
-    color:var(--Basic);
-}
-a:visited{
-    color:#FFFFFF;
-}
-.submit:hover,.signup:hover {
-    background-color: royalblue; 
-    border:none;
-}
-nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: var(--Basic);
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-height: 50px;
-;
-    
-}
-nav .links a {
-text-decoration: none;
-position: relative;
-color: black;
-}
-nav .links{
+.form_style{
 display: flex;
-justify-content: space-around;
-position: relative;
-}
-nav .links  ul{
-display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+margin: 0;
+padding: 0;
+width: 450px;
+height: 600px;
 position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+background-color: rgb(32,41,56);
+color: white;
+border-radius: 20px;
+}
+
+
+.form_style .title{
+position: absolute;
+display: flex;
+padding: 20px;
+justify-content: flex-start;
+top: 20px;
+padding: 10px;
+}
+
+
+.form_style .feld{
+display: flex;
 flex-direction: column;
-display: none;
+position: relative;
+margin-top: 50px;
+}
+.form_style .feld label{
+position: absolute;
+left: 60px;
+}
+.form_style .feld input {
+     width: 300px;
+height: 35px;
+border-radius: 6px;
+background-color:rgb(17,24,40);
+border: 1px solid white;
+margin-top: 15px;
+}
+.form_style .feld input::placeholder {
+padding: 10px;
+}
+.form_style .forget {
+position: absolute;
+color: var(--Basic);
+margin-top: 10px;
+left: 56%;
+
+} 
+.form_style .forget a{
+color: var(--Basic);
 
 }
-/* nav .links .link1:hover + .first {
-display: flex;
 
-}
-nav .links .link2:hover + .secound {
-display: flex;
-
-}
-nav .links .link3:hover + .third {
-display: flex;
-
-}
-nav .links .link4:hover + .fourth {
-display: flex;
-
-} */
-
-
-footer{
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--Back-color);
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 700px;
-    
-}
-input{
-    background-color: #333333;
-    color:white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    width: 100%;
-    font-size: 20px !important;
-}
-.remember{
-    color:#FFFFFF;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-#remember{
-    width: auto;
-    margin: 0px 10px;
+.form_style .chekbox input{
+width: 300px;
+height: 40px;
+border-radius:10px;
+background-color: var(--Basic);
+margin-top: 60px;
 }
 
-.center-childs{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
+.form_style .remember{
+position: absolute;
+left: 80px;
+margin-top:20px ;
 }
 
-.sign-up{
-    color: white;
+.form_style p a {
+color: var(--Basic);
 }
