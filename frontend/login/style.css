@@ -1,5 +1,5 @@
 body{
-background-color:rgb(17,24,40) ;
+background-color:var(--Back-color) ;
 }
 .form_style{
 display: flex;
@@ -48,7 +48,7 @@ left: 60px;
 width: 75%;
 height: 35px;
 border-radius: 6px;
-background-color:rgb(17,24,40);
+background-color:var(--Back-color);
 border: 1px solid white;
 margin-top: 15px;
 }
