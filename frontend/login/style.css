@@ -22,8 +22,36 @@ border-radius: 20px;
     .form_style{
 width: 80%
 }
-
   }
+nav{
+display: flex;
+justify-content: space-between;
+color: white;
+background-color: var(--feld-color);
+width: 100%;
+}
+nav h2 {
+padding-left: 80px;
+color: #6366f1;
+}
+nav .links {
+padding-right: 70px;
+padding-top: 30px;
+display: flex;
+
+}
+nav .links span {
+margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+
 .form_style .title{
 position: absolute;
 display: flex;
