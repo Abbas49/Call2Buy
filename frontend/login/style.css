@@ -22,10 +22,10 @@ border-radius: 20px;
     .form_style{
 width: 80%
 }
+.form_style .chekbox input{
+width: 70%;
+}
   }
-
-
-
 .form_style .title{
 position: absolute;
 display: flex;
@@ -34,8 +34,6 @@ justify-content: flex-start;
 top: 20px;
 padding: 10px;
 }
-
-
 .form_style .feld{
 display: flex;
 flex-direction: column;
@@ -62,13 +60,10 @@ position: absolute;
 color: var(--Basic);
 margin-top: 10px;
 left: 56%;
-
 } 
 .form_style .forget a{
 color: var(--Basic);
-
 }
-
 .form_style .chekbox input{
 width: 75%;
 height: 40px;
@@ -76,13 +71,11 @@ border-radius:10px;
 background-color: var(--Basic);
 margin-top: 60px;
 }
-
 .form_style .remember{
 position: absolute;
 left: 80px;
 margin-top:20px ;
 }
-
 .form_style p a {
 color: var(--Basic);
 }
