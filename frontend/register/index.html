@@ -13,71 +13,44 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="parent">
-        <div class="container">
-          
-          <nav style="display: none;">
-            <a href="">link 1</a>
-            <a href="">link 1</a>
-            <a href="">link 1</a>
-            <a href="">link 1</a>
-            <a href="">link 1</a>
-            <a href="">link 1</a>
-        </nav>   
+    <div class="main">
+      <div class="container">
         <form action="">
-            <div class="main">
-              <h1 class="titel">Register</h1>
+              <h1 class="titel">Create Account</h1>
+            <div class="feld">
                 <div>
-                  <label for="first">First Name</label>
-                  <input type="text" id="first" required autofocus>
-                </div>
-                <br>
-                <div>
-                  <label for="last">Last Name</label>
-                  <input type="text" id="last" >
+                  <label for="first">Full Name</label>
+                  <input type="text" id="first" placeholder="Enter your full name" required autofocus>
                 </div>
                 <br>
                 <div>
                   <label for="mail">email</label >
-                  <input type="email" id="mail" required>
+                  <input type="email" id="mail" placeholder="Enter your email address" required>
                 </div>
                 <br>
                 <div>
                   <label for="username">username</label>
-                  <input type="text" id="username" required>
+                  <input type="text" id="username" placeholder="Crate a username" required>
                 </div>
                 <br>
                 <div>
                   <label for="password">password</label >
-                  <input type="password" id="password" required minlength="6">
+                  <input type="password" id="password" placeholder="Create a password" required minlength="6">
                 </div>
                 <br>
                 <div>
                   <label for="confirm">confirm password</label>
-                  <input type="password" id="confirm" required> 
+                  <input type="password" id="confirm" placeholder="Confirm your password" required> 
                 </div>
+             </div>
                 <br>
                 <div class="chekbox">
                   <input type="submit" class="submit" value="Register">
               </div>
               <br>
               <p>Already have an acount ? <a href="#" class="sign">login</a></p>
-            </div>
-         
         </form>
-        <footer style="display: none;">
-          <div class="footer_style">
-              <p>Copyright &copy; 2023</p>
-              <p>All rights reserved</p>
-          </div>
-          <div class="social_media">
-              <a href="#"><i class="fa-brands fa-facebook"></i></a>
-              <a href="#"><i class="fa-brands fa-twitter"></i></a>
-              <a href="#"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          </div>
-      </footer>
-        </div>
+      </div>
     </div>
 </body>
 </html>

@@ -14,7 +14,7 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
-background-color: rgb(32,41,56);
+background-color: var(--feld-color);
 color: white;
 border-radius: 20px;
 }
@@ -22,9 +22,7 @@ border-radius: 20px;
     .form_style{
 width: 80%
 }
-.form_style .chekbox input{
-width: 70%;
-}
+
   }
 .form_style .title{
 position: absolute;
