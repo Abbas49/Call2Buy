@@ -2,8 +2,12 @@ body{
   background-color: var(--background);
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
+}
+
+.form-con{
+  margin-top: 150px;
+  height: fit-content;
 }
 
 form .description{
@@ -35,7 +39,6 @@ form .form-group:first-of-type{
 }
 
 #remember-me{
-  transform: scale(1.5);
   accent-color: var(--accent);
   margin-right: 5px;
 }
