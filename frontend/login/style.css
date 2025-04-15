@@ -1,91 +1,50 @@
-body {
+body{
   background-color: var(--background);
-}
-
-.form_style {
   display: flex;
-  align-items: center;
-  text-align: center;
   justify-content: center;
-  margin: 0;
-  padding: 0;
-  width: 30%;
-  height: 60%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--feld-color);
-  color: white;
-  border-radius: 20px;
+  align-items: center;
+  min-height: 100vh;
 }
 
-@media (max-width: 768px) {
-  .form_style {
-    width: 80%
-  }
-
+form .description{
+  color: var(--text-secondary)
 }
 
-.form_style .title {
-  position: absolute;
-  display: flex;
-  padding: 20px;
-  justify-content: flex-start;
-  top: 20px;
-  padding: 10px;
-}
-
-.form_style .feld {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+form .form-group:first-of-type{
   margin-top: 50px;
 }
 
-.form_style .feld label {
-  position: absolute;
-  left: 60px;
+.register-msg{
+  color: var(--text-secondary);
+  text-align: center;
+}
+.register-msg a{
+  color: var(--accent);
+  font-weight: 600;
 }
 
-.form_style .feld input {
-  width: 75%;
-  height: 35px;
-  border-radius: 6px;
-  background-color: var(--Back-color);
-  border: 1px solid white;
+.forget-password{
+  display: block;
+  margin: 10px;
+  text-align: right;
+  color: var(--accent);
+}
+
+.remember-me-group{
+  margin-top: 30px;
+}
+
+#remember-me{
+  transform: scale(1.5);
+  accent-color: var(--accent);
+  margin-right: 5px;
+}
+
+.remember-me-group label{
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.submit-btn{
   margin-top: 15px;
-}
-
-.form_style .feld input::placeholder {
-  padding: 10px;
-}
-
-.form_style .forget {
-  position: absolute;
-  color: var(--Basic);
-  margin-top: 10px;
-  left: 56%;
-}
-
-.form_style .forget a {
-  color: var(--Basic);
-}
-
-.form_style .chekbox input {
-  width: 75%;
-  height: 40px;
-  border-radius: 10px;
-  background-color: var(--Basic);
-  margin-top: 60px;
-}
-
-.form_style .remember {
-  position: absolute;
-  left: 80px;
-  margin-top: 20px;
-}
-
-.form_style p a {
-  color: var(--Basic);
 }
