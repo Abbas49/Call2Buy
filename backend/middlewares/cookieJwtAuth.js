@@ -1,18 +1,56 @@
 import jwt from "jsonwebtoken"
+import { supabase } from "../config/db.js";
 import dotenv from "dotenv"
+import createError from "../utils/createError.js";
 dotenv.config();
 
-const cookieJwtAuth = async (req, res, next) =>{
+export const requireAuth = async (req, res, next) =>{
     try{
         const token = req.cookies.token;
-        const user = jwt.verify(token, process.env.JWT_SECRET);
+        let JWTerror;
+        const decoded = jwt.verify(token, process.env.JWT_SECRET, (err, decoded)=>{
+            JWTerror = err;
+            return decoded;
+        });
+        if(JWTerror){
+            throw createError("Unauthorized access. Please log in again.", 401);
+        }
+        const user = (await supabase.from("users").select().eq("email", decoded.email)).data.at(0);
+        if(!user){
+            throw createError("User no longer exists", 400);
+        }
+
         req.user = user;
         next();
     } catch(err){
         res.clearCookie("token");
-        res.status(401).json({message: "Unauthorized access. Please log in again."});
+        next(err);
     }
 }
 
-
-export default cookieJwtAuth;
+export const optionalAuth = async (req, res, next) =>{
+    try{
+        const token = req.cookies.token;
+        if(token){
+            let JWTerror;
+            const decoded = jwt.verify(token, process.env.JWT_SECRET, (err, decoded)=>{
+                JWTerror = err;
+                return decoded;
+            });
+            // go next even if it's not a valid user, because user is optional
+            if(JWTerror){
+                next();
+                return;
+            }
+            const user = (await supabase.from("users").select().eq("email", decoded.email)).data.at(0);
+            if(!user){
+                throw createError("User no longer exists", 400);
+            }
+            req.user = user;
+        }
+        next();
+    } catch(err){
+        res.clearCookie("token");
+        next(err);
+    }
+}

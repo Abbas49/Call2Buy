@@ -46,9 +46,13 @@ export const login = async (req, res) =>{
         if(!match){
             throw createError("Wrong email or password", 401);
         }
-        delete user.password_hash;
-
-        const token = jwt.sign(user, process.env.JWT_SECRET, {expiresIn: "30d"})
+        
+        const token = jwt.sign({
+            user_id: user.user_id,
+            email: user.email,
+            full_name: user.full_name
+        }, process.env.JWT_SECRET, {expiresIn: "30d"})
+        
         if(remember_me){
             res.cookie("token", token, {
                 httpOnly: true, 
