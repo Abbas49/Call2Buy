@@ -1,8 +1,45 @@
-:root{
-  --Basic:#6366f1 ;
-  --Back-color:rgb(17,24,40);
-  --feld-color: rgb(32,41,56);
+:root {
+  /* Light mode variables */
+  --background: #f8fafc;
+  --text-primary: #1a202c;
+  --text-secondary: #4b5563;
+  --card-bg: white;
+  --card-border: #f1f5f9;
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --header-shadow: rgba(0, 0, 0, 0.06);
+  --input-bg: #f8fafc;
+  --input-border: #e2e8f0;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: rgba(124, 58, 237, 0.08);
+  --accent-light-active: rgba(124, 58, 237, 0.12);
+  --skeleton-bg: #e2e8f0;
+  --footer-bg: #1e293b;
+  --footer-text: #cbd5e1;
+  --footer-border: #334155;
 }
+
+[data-theme="dark"] {
+  /* Dark mode variables */
+  --background: #111827;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --card-bg: #1f2937;
+  --card-border: #374151;
+  --header-bg: rgba(31, 41, 55, 0.95);
+  --header-shadow: rgba(0, 0, 0, 0.16);
+  --input-bg: #111827;
+  --input-border: #374151;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-light: rgba(99, 102, 241, 0.15);
+  --accent-light-active: rgba(99, 102, 241, 0.25);
+  --skeleton-bg: #374151;
+  --footer-bg: #111827;
+  --footer-text: #9ca3af;
+  --footer-border: #374151;
+}
+
 /* Global Rules */
 *{
     -webkit-box-sizing: border-box;
@@ -10,7 +47,7 @@
     box-sizing: border-box;
 }
 body{
-    font-family: "work sans", sans-serif;
+  font-family: 'Inter'
 }
 /* End Global Rules */
 
