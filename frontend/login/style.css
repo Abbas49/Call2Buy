@@ -1,18 +1,50 @@
-/* Global Rules */
-*{
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 body{
-    font-family: "work sans", sans-serif;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
-/* End Global Rules */
-.parent{
-    background-color: #eee;
+
+form .description{
+  color: var(--text-secondary)
 }
-.container{
-    background-color: #aaa;
-   width: 600px;
-   margin: auto;
+
+form .form-group:first-of-type{
+  margin-top: 50px;
+}
+
+.register-msg{
+  color: var(--text-secondary);
+  text-align: center;
+}
+.register-msg a{
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.forget-password{
+  display: block;
+  margin: 10px;
+  text-align: right;
+  color: var(--accent);
+}
+
+.remember-me-group{
+  margin-top: 30px;
+}
+
+#remember-me{
+  transform: scale(1.5);
+  accent-color: var(--accent);
+  margin-right: 5px;
+}
+
+.remember-me-group label{
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.submit-btn{
+  margin-top: 15px;
 }

@@ -13,18 +13,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Our products</h1>
-    <div id="products-con">
-        
-        <!-- <div class="product">
-            <a href="#">
-                <img src="https://placehold.co/250x164">
-                <div class="info-con">
-                    <p>this is the first product</p>
-                    <p class="price">500$</p>
-                </div>
-            </a>
-        </div> -->
+    <div id="input-con">
+        <h1>Enter product</h1>
+        <form>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" name="price">
+            </div>
+            <div style="width: 200px;">
+                <label for="product-image">Product Image:</label>
+                <input type="file" id="product-image" name="image" id="img" accept="image/*">
+            </div>
+            <p id="response-message"></p>
+            <button>Add Product</button>
+        </form>
     </div>
     <script src="script.js"></script>
 </body>

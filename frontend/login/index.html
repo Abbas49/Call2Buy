@@ -1,22 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/form-styles.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../css/basics.css">
     <link rel="stylesheet" href="../css/normlize.css">
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Login</title>
 </head>
+
 <body>
-    <div class="parent">
-        <div class="container">
-            test
+    <nav>
+        <div class="nav-con">
+            <div class="logo">Pay&Pray</div>
+            <div class="right-side">
+                <input type="checkbox" id="bars" class="nav-checkbox">
+                <ul>
+                    <li>
+                        <a href="/home">
+                            🏠Home
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            📦Sell Item
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            🔑Login
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            📃Register
+                        </a>
+                    </li>
+                </ul>
+                <button class="toggle-theme">🔆</button>
+                    <label for="bars" class="bars-icon">
+                        <i class="fa-solid fa-bars bars"></i>
+                    </label>
+            </div>
         </div>
+    </nav>
+    <div class="form-con">
+        <form target="/register.html">
+            <h1 class="form-title">Login</h1>
+            <p class="description">Welcome back! Log in to access your account</p>
+            <div class="form-group">
+                <label for="email-input">Email</label>
+                <input type="email" id="email-input" class="text-input" required>
+            </div>
+            <div class="form-group">
+                <label for="password-input">password</label>
+                <input type="passowrd" id="password-input" class="text-input" required>
+            </div>
+            <a class="forget-password">Forgot password?</a>
+            <div class="remember-me-group">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <p class="register-msg">Don't have an account? <a>Register here</a></p>
+        </form>
     </div>
+    <script src="../js/toggle-theme.js"></script>
 </body>
+
 </html>
