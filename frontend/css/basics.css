@@ -2,7 +2,9 @@
   --Basic:#6366f1 ;
   --Back-color:rgb(17,24,40);
   --feld-color: rgb(32,41,56);
+
 }
+
 /* Global Rules */
 *{
     -webkit-box-sizing: border-box;
