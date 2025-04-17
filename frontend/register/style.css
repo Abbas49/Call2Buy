@@ -25,6 +25,7 @@ color: var(--text-secondary);
 .terms-checkbox #terms {
   transform: scale(.5);
   width: 10%;
+  accent-color: var(--accent);
   /* margin-right: 5px; */
     
 }
