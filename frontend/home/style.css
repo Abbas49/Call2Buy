@@ -29,7 +29,7 @@ aside .ti{
 aside .filter-cat{
 margin: 30px;
 }
-aside .filter-cat h2 {
+aside .filter-cat h3 {
 color: var(--text-secondary);
 }
 aside .filter-cat select{
@@ -44,7 +44,7 @@ border: 2px solid var(--input-border);
 aside .price{
     margin: 30px;    
 }
-aside .price h2{
+aside .price h3{
     color: var(--text-secondary);
 }
 aside .price .num input{
@@ -60,14 +60,15 @@ aside .submit-btn{
     width: 80%;
     margin: 30px;
 }
+
 .ser{
     background-color: var(--card-bg);
     color: var(--text-primary);
     height: fit-content;
     border-radius: 15px;
 }
-.ser h1{
-margin: 30px;
+.content .ser h2{
+padding:20px 0px 0px 35px ;
 }
 .ser input{
 margin: 0px 30px 30px ;
