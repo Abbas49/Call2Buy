@@ -1,7 +1,7 @@
 body{
     background-color: var(--background);
 }
-.cont{
+.content-container{
     margin-top: 100px;
     display: grid;
     grid-template-columns:280px 1fr ;
@@ -9,7 +9,7 @@ body{
     gap: 20px;
 }
 @media (max-width: 730px){
-    .cont{
+    .content-container{
         grid-template-columns: 1fr;
     }
     aside{
@@ -20,24 +20,30 @@ aside{
     background-color: var(--card-bg);
      border-radius: 15px;
 }
-aside .ti{
+aside .filter-title{
    margin: 30px;
    color: var(--text-primary); 
 }
-aside .filter-cat{
+aside .filter-categores{
 margin: 30px;
 }
-aside .filter-cat h3 {
+aside .filter-categores h3 {
 color: var(--text-secondary);
 }
-aside .filter-cat select{
+aside .filter-categores select{
 width: 100%;
 background-color: var(--input-bg);
 color: var(--text-primary);
 height: 50px;
-border-radius: 10px;
+border-radius: 15px;
 padding: 10px;
 border: 2px solid var(--input-border);
+transition: .3s;
+}
+aside .filter-categores select:focus{
+    outline: none;
+    border-color: var(--accent);
+
 }
 aside .price{
     margin: 30px;    
@@ -57,6 +63,11 @@ aside .price .num input{
     border-radius: 15px;
     color: var(--text-primary);
     padding: 10px;
+    transition: .3s;
+}
+aside .price .num input:focus{
+    outline: none;
+    border-color: var(--accent);
 }
 aside .submit-btn{
     width: 80%;
@@ -71,7 +82,7 @@ aside .submit-btn{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid var(--input-border);
+    border: 2px solid var(--input-border);
 }
 .content .ser h2{
 padding:20px 0px 0px 35px;
@@ -80,10 +91,15 @@ align-self: flex-start;
 .ser input{
 margin: 0px 30px 30px ;
 background-color: var(--input-bg);
-border: 1px solid var(--input-border);
+border: 2px solid var(--input-border);
 border-radius: 15px;
 height: 50px;
 width: 90%;
 padding: 20px;
 color: var(--text-primary);
+transition: .3s;
+}
+.ser input:focus{
+    outline: none;
+    border-color: var(--accent);
 }
