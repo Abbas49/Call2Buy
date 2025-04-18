@@ -45,33 +45,34 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-    <aside>
-        <h2 class="title">Filters</h2>
-        <div class="filter-section">
-        <h3 class="sup-title">Categories</h3>
-        <input list="categories"/>
-        <datalist id="categories">
-            <option value="Electronics"></option>
-            <option value="Books"></option>
-            <option value="Clothing"></option>
-            <option value="Furniture"></option>
-        </datalist>
+<div class="cont">
+  <aside>
+    <h1 class="ti">Filters</h1>
+    <div class="filter-cat">
+      <h2>Categories</h2>
+      <select name="All Categories" id="">
+        <option value="All Categories">All Categories</option>
+        <option value="Electroncs">Electroncs</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Books">Books</option>
+        <option value="Furniture">Furniture</option>
+      </select>
     </div>
-    <div class="filter-section">
-        <h3 class="sup-title">Price Range</h3>
-        <div class="f">
+    <div class="price">
+      <h2>Price Range</h2>
+      <div class="num">
         <input type="number">
         <input type="number">
+      </div>
     </div>
     <button class="submit-btn">Apply Filters</button>
-    </div>
-    </aside>
-    <div class="search">
-        <h2 class="title">Search Products</h2>
-        <input type="search" class="text-input" placeholder="Search for items...">
-    </div>
+  </aside>
+  <div class="ser">
+    <h1>Search Products</h1>
+    <input type="search" placeholder="Search for items...">
+  </div>
 </div>
+
     <script src="../js/toggle-theme.js"></script>
   </body>
 </html>
