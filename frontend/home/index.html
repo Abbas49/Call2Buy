@@ -1,31 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../css/basics.css">
-    <link rel="stylesheet" href="../css/normlize.css">
-    <link rel="stylesheet" href="../css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/form-styles.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/basics.css" />
+    <link rel="stylesheet" href="../css/normlize.css" />
+    <link rel="stylesheet" href="../css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Document</title>
-</head>
-<body>
-    <h1 style="text-align: center;">Our products</h1>
-    <div id="products-con">
-        
-        <!-- <div class="product">
-            <a href="#">
-                <img src="https://placehold.co/250x164">
-                <div class="info-con">
-                    <p>this is the first product</p>
-                    <p class="price">500$</p>
-                </div>
-            </a>
-        </div> -->
+  </head>
+  <body>
+    <nav>
+      <div class="nav-con">
+        <div class="logo">Pay&Pray</div>
+        <div class="right-side">
+          <input type="checkbox" id="bars" class="nav-checkbox" />
+          <ul>
+            <li>
+              <a href="../home"> 🏠Home </a>
+            </li>
+            <li>
+              <a> 📦Sell Item </a>
+            </li>
+            <li>
+              <a href="../login"> 🔑Login </a>
+            </li>
+            <li>
+              <a href="../register"> 📃Register </a>
+            </li>
+          </ul>
+          <button class="toggle-theme">🔆</button>
+          <label for="bars" class="bars-icon">
+            <i class="fa-solid fa-bars bars"></i>
+          </label>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+    <aside>
+        <h2 class="title">Filters</h2>
+        <div class="filter-section">
+        <h3 class="sup-title">Categories</h3>
+        <input list="categories"/>
+        <datalist id="categories">
+            <option value="Electronics"></option>
+            <option value="Books"></option>
+            <option value="Clothing"></option>
+            <option value="Furniture"></option>
+        </datalist>
     </div>
-    <script src="script.js"></script>
-</body>
+    <div class="filter-section">
+        <h3 class="sup-title">Price Range</h3>
+        <div class="f">
+        <input type="number">
+        <input type="number">
+    </div>
+    <button class="submit-btn">Apply Filters</button>
+    </div>
+    </aside>
+    <div class="search">
+        <h2 class="title">Search Products</h2>
+        <input type="search" class="text-input" placeholder="Search for items...">
+    </div>
+</div>
+    <script src="../js/toggle-theme.js"></script>
+  </body>
 </html>
