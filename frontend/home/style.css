@@ -19,7 +19,6 @@ body{
 }
 aside{
     background-color: var(--card-bg);
-    color: white;
 
     border-radius: 15px;
 }
@@ -54,7 +53,7 @@ aside .price .num input{
     border: 2px solid var(--input-border);
     height: 40px;
     border-radius: 15px;
-    color: white;
+    color: var(--text-primary);
     padding: 10px;
 }
 aside .submit-btn{
