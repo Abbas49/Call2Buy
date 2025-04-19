@@ -146,7 +146,6 @@ grid-template-columns: 1fr;
 }
 .one-proudct .proimg{
     height: 220px;
-    /* object-fit: cover; */
 }
 .one-proudct .proimg img {
     height: 100%;
@@ -154,8 +153,7 @@ grid-template-columns: 1fr;
     object-fit: cover;
 }
 .one-proudct .proinfo{
-    margin: 10px;
-    height: 50%;
+    margin-left: 15px;
 }
 .one-proudct .prometa{
     display: flex;
@@ -167,12 +165,12 @@ background-color: white;
 color: var(--accent);
 }
 .one-proudct .pric{
-    margin-left: 10px;
+    margin-left: 15px;
 }
 .one-proudct .submit-btn{
-  width: 80%;
+  width: 90%;
   /* height: 80px; */
-  margin: 30px;
+  margin-bottom: 30px;
   align-self: center;
 }
 
