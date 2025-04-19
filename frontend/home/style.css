@@ -8,24 +8,26 @@ body{
     padding: 20px;
     gap: 20px;
 }
+aside{
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    
+}
 @media (max-width: 767px){
     .content-container{
         grid-template-columns: 1fr;
     }
+
     aside{
         margin: 20px;
+         position: static;
     }
 }
-aside{
-    background-color: var(--card-bg);
-     border-radius: 15px;
-     height: fit-content;
-     position: sticky;
-     top: 100px;
-     
-}
 aside .filter-title{
-   margin: 30px;
+    margin: 30px;
    color: var(--text-primary); 
 }
 aside .filter-categores{
