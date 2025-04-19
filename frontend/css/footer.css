@@ -1,0 +1,13 @@
+.contact{
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: row;
+ justify-content: space-around;
+ margin-top: 100px;
+ margin-bottom: 50px;
+}
+footer{
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 30px;
+}

@@ -20,6 +20,9 @@ aside{
     background-color: var(--card-bg);
      border-radius: 15px;
      height: fit-content;
+     position: sticky;
+     top: 100px;
+     
 }
 aside .filter-title{
    margin: 30px;
