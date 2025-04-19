@@ -80,6 +80,10 @@ aside .submit-btn{
     width: 80%;
     margin: 30px;
     cursor: pointer;
+    transition: .5s;
+}
+aside .submit-btn:hover{
+transform: translatey(-5px);
 }
 .content{
     height: fit-content;
@@ -157,6 +161,7 @@ grid-template-columns: 1fr;
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 10%;
 }
 .one-proudct .proinfo{
     margin-left: 15px;
@@ -183,5 +188,10 @@ font-weight: 500;
   /* height: 80px; */
   margin-bottom: 30px;
   align-self: center;
+  cursor: pointer;
+  transition: .5s;
+}
+.one-proudct .submit-btn:hover{
+transform: translateY(-5px);
 }
 
