@@ -123,6 +123,16 @@ grid-template-columns: 1fr 1fr;
 grid-template-columns: 1fr;
 }   
 }
+@media (max-width:767px) {
+.proudcts{
+grid-template-columns: 1fr 1fr;
+}   
+}
+@media (max-width:660px) {
+.proudcts{
+grid-template-columns: 1fr;
+}   
+}
 .one-proudct{
     display: flex;
     flex-direction: column;
