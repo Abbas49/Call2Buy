@@ -1,80 +1,220 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/nav.css" />
-    <link rel="stylesheet" href="../css/form-styles.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="../css/basics.css" />
-    <link rel="stylesheet" href="../css/normlize.css" />
-    <link rel="stylesheet" href="../css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
 
-    <title>Document</title>
-  </head>
-  <body>
-    <nav>
-      <div class="nav-con">
-        <div class="logo">Pay&Pray</div>
-        <div class="right-side">
-          <input type="checkbox" id="bars" class="nav-checkbox" />
-          <ul>
-            <li>
-              <a href="../home"> 🏠Home </a>
-            </li>
-            <li>
-              <a> 📦Sell Item </a>
-            </li>
-            <li>
-              <a href="../login"> 🔑Login </a>
-            </li>
-            <li>
-              <a href="../register"> 📃Register </a>
-            </li>
-          </ul>
-          <button class="toggle-theme">🔆</button>
-          <label for="bars" class="bars-icon">
-            <i class="fa-solid fa-bars bars"></i>
-          </label>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <link rel="stylesheet" href="../css/form-styles.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../css/basics.css" />
+  <link rel="stylesheet" href="../css/normlize.css" />
+  <link rel="stylesheet" href="../css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <title>Document</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-con">
+      <div class="logo">Pay&Pray</div>
+      <div class="right-side">
+        <input type="checkbox" id="bars" class="nav-checkbox" />
+        <ul>
+          <li>
+            <a href="../home"> 🏠Home </a>
+          </li>
+          <li>
+            <a> 📦Sell Item </a>
+          </li>
+          <li>
+            <a href="../login"> 🔑Login </a>
+          </li>
+          <li>
+            <a href="../register"> 📃Register </a>
+          </li>
+        </ul>
+        <button class="toggle-theme">🔆</button>
+        <label for="bars" class="bars-icon">
+          <i class="fa-solid fa-bars bars"></i>
+        </label>
+      </div>
+    </div>
+  </nav>
+  <div class="content-container">
+    <aside>
+      <h2 class="filter-title">Filters</h2>
+      <form action="">
+      <div class="filter-categores">
+        <h3>Categories</h3>
+        <select name="" id="">
+          <option value="All Categories">All Categories</option>
+          <option value="Electroncs">Electroncs</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Books">Books</option>
+          <option value="Furniture">Furniture</option>
+        </select>
+      </div>
+      <div class="price">
+        <h3>Price Range</h3>
+        <div class="num">
+          <input type="number" placeholder="Min" />
+          <input type="number" placeholder="Max" />
         </div>
       </div>
-    </nav>
-    <div class="content-container">
-      <aside>
-        <h2 class="filter-title">Filters</h2>
-        <div class="filter-categores">
-          <h3>Categories</h3>
-          <select name="" id="">
-            <option value="All Categories">All Categories</option>
-            <option value="Electroncs">Electroncs</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Books">Books</option>
-            <option value="Furniture">Furniture</option>
-          </select>
-        </div>
-        <div class="price">
-          <h3>Price Range</h3>
-          <div class="num">
-            <input type="number" placeholder="Min" />
-            <input type="number" placeholder="Max" />
-          </div>
-        </div>
-        <button class="submit-btn">Apply Filters</button>
-      </aside>
-      <div class="content">
-        <div class="ser">
+      <button class="submit-btn">Apply Filters</button>
+    </form>
+    </aside>
+    <div class="content">
+      <div class="search">
         <h2>Search Products</h2>
         <input type="search" placeholder="Search for items..." />
       </div>
+      <div class="proudcts">
+            <div class="one-proudct">
+              <div class="proimg">
+              <img src="../2025-bmw-3-series-117-66562dd23a1b8.webp" alt="">
+            </div>
+            <div class="proinfo">
+              <h3>Designer Sunglasses</h3>
+              <div class="prometa">
+                <div class="e">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </div>
+                <div class="pric">
+                  <h4>$79.99</h4>
+                </div>
+                <button class="submit-btn">Buy Now</button>
+            </div>
+            <div class="one-proudct">
+              <div class="proimg">
+              <img src="../2025-bmw-3-series-117-66562dd23a1b8.webp" alt="" width="300px">
+            </div>
+            <div class="proinfo">
+              <h3>Designer Sunglasses</h3>
+              <div class="prometa">
+                <div class="e">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </div>
+                <div class="pric">
+                  <h4>$79.99</h4>
+                </div>
+                <button class="submit-btn">Buy Now</button>
+            </div>
+            <div class="one-proudct">
+              <div class="proimg">
+              <img src="../2025-bmw-3-series-117-66562dd23a1b8.webp" alt="">
+            </div>
+            <div class="proinfo">
+              <h3>Designer Sunglasses</h3>
+              <div class="prometa">
+                <div class="e">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </div>
+                <div class="pric">
+                  <h4>$79.99</h4>
+                </div>
+                <button class="submit-btn">Buy Now</button>
+            </div>
+            <div class="one-proudct">
+              <div class="proimg">
+              <img src="../2025-bmw-3-series-117-66562dd23a1b8.webp" alt="" width="300px">
+            </div>
+            <div class="proinfo">
+              <h3>Designer Sunglasses</h3>
+              <div class="prometa">
+                <div class="e">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </div>
+                <div class="pric">
+                  <h4>$79.99</h4>
+                </div>
+                <button class="submit-btn">Buy Now</button>
+            </div>
+            <div class="one-proudct">
+              <div class="proimg">
+              <img src="../2025-bmw-3-series-117-66562dd23a1b8.webp" alt="" width="300px">
+            </div>
+            <div class="proinfo">
+              <h3>Designer Sunglasses</h3>
+              <div class="prometa">
+                <div class="e">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </div>
+                <div class="pric">
+                  <h4>$79.99</h4>
+                </div>
+                <button class="submit-btn">Buy Now</button>
+            </div>
+            <div class="one-proudct">
+              <div class="proimg">
+              <img src="../2025-bmw-3-series-117-66562dd23a1b8.webp" alt="" width="300px">
+            </div>
+            <div class="proinfo">
+              <h3>Designer Sunglasses</h3>
+              <div class="prometa">
+                <div class="e">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </div>
+                <div class="pric">
+                  <h4>$79.99</h4>
+                </div>
+                <button class="submit-btn">Buy Now</button>
+            </div>
+            <div class="one-proudct">
+              <div class="proimg">
+              <img src="../2025-bmw-3-series-117-66562dd23a1b8.webp" alt="" width="300px">
+            </div>
+            <div class="proinfo">
+              <h3>Designer Sunglasses</h3>
+              <div class="prometa">
+                <div class="e">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </div>
+                <div class="pric">
+                  <h4>$79.99</h4>
+                </div>
+                <button class="submit-btn">Buy Now</button>
+            </div>
+            <div class="one-proudct">
+              <div class="proimg">
+              <img src="../2025-bmw-3-series-117-66562dd23a1b8.webp" alt="" width="300px">
+            </div>
+            <div class="proinfo">
+              <h3>Designer Sunglasses</h3>
+              <div class="prometa">
+                <div class="e">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </div>
+                <div class="pric">
+                  <h4>$79.99</h4>
+                </div>
+                <button class="submit-btn">Buy Now</button>
+            </div>
       </div>
     </div>
+  </div>
 
-    <script src="../js/toggle-theme.js"></script>
-  </body>
+  <script src="../js/toggle-theme.js"></script>
+</body>
+
 </html>

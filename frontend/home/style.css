@@ -8,7 +8,7 @@ body{
     padding: 20px;
     gap: 20px;
 }
-@media (max-width: 730px){
+@media (max-width: 767px){
     .content-container{
         grid-template-columns: 1fr;
     }
@@ -19,6 +19,7 @@ body{
 aside{
     background-color: var(--card-bg);
      border-radius: 15px;
+     height: fit-content;
 }
 aside .filter-title{
    margin: 30px;
@@ -56,7 +57,7 @@ aside .price .num{
     justify-content: space-around;
 }
 aside .price .num input{
-    width: 40%;
+    width: 45%;
     background-color: var(--input-bg);
     border: 2px solid var(--input-border);
     height: 40px;
@@ -74,7 +75,10 @@ aside .submit-btn{
     margin: 30px;
     cursor: pointer;
 }
-.ser{
+.content{
+    height: fit-content;
+}
+.search{
     background-color: var(--card-bg);
     color: var(--text-primary);
     height: fit-content;
@@ -84,11 +88,11 @@ aside .submit-btn{
     align-items: center;
     border: 2px solid var(--input-border);
 }
-.content .ser h2{
+.content .search h2{
 padding:20px 0px 0px 35px;
 align-self: flex-start;
 }
-.ser input{
+.search input{
 margin: 0px 30px 30px ;
 background-color: var(--input-bg);
 border: 2px solid var(--input-border);
@@ -99,7 +103,66 @@ padding: 20px;
 color: var(--text-primary);
 transition: .3s;
 }
-.ser input:focus{
+.search input:focus{
     outline: none;
     border-color: var(--accent);
 }
+.proudcts{
+ margin-top: 20px;
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ 
+}
+@media (max-width:1029px) {
+.proudcts{
+grid-template-columns: 1fr 1fr;
+}   
+}
+@media (max-width:925px) {
+.proudcts{
+grid-template-columns: 1fr;
+}   
+}
+.one-proudct{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    background-color: var(--card-bg);
+    /* height: 450px; */
+    height: fit-content;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 20px;
+}
+.one-proudct .proimg{
+    height: 220px;
+    /* object-fit: cover; */
+}
+.one-proudct .proimg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.one-proudct .proinfo{
+    margin: 10px;
+    height: 50%;
+}
+.one-proudct .prometa{
+    display: flex;
+    justify-content: space-between;
+}
+.one-proudct .prometa .e p{
+border: 6px solid white;
+background-color: white;
+color: var(--accent);
+}
+.one-proudct .pric{
+    margin-left: 10px;
+}
+.one-proudct .submit-btn{
+  width: 80%;
+  /* height: 80px; */
+  margin: 30px;
+  align-self: center;
+}
+
