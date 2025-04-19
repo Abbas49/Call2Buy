@@ -161,7 +161,7 @@ grid-template-columns: 1fr;
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 10%;
+    border-radius: 10% 10% 0 0;
 }
 .one-proudct .proinfo{
     margin-left: 15px;
