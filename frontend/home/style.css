@@ -141,7 +141,7 @@ grid-template-columns: 1fr;
     /* height: 450px; */
     height: fit-content;
     border-radius: 20px;
-    color: white;
+    color: var(--text-primary);
     margin-bottom: 20px;
 }
 .one-proudct .proimg{
@@ -155,17 +155,22 @@ grid-template-columns: 1fr;
 .one-proudct .proinfo{
     margin-left: 15px;
 }
+.one-proudct .proinfo h3{
+font-weight: 700;
+}
 .one-proudct .prometa{
     display: flex;
     justify-content: space-between;
 }
 .one-proudct .prometa .e p{
-border: 6px solid white;
-background-color: white;
+background-color: #e9f1ff;
+padding: 6px;
 color: var(--accent);
+font-weight: 500;
 }
 .one-proudct .pric{
     margin-left: 15px;
+    font-weight: 800;
 }
 .one-proudct .submit-btn{
   width: 90%;
