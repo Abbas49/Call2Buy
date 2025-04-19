@@ -1,12 +1,14 @@
 body{
   background-color: var(--background);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   min-height: 100vh;
 }
 
 .form-con{
   margin-top: 150px;
+  align-self: center;
   height: fit-content;
 }
 
