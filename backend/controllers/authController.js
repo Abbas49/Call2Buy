@@ -70,3 +70,8 @@ export const login = async (req, res) =>{
         res.status(err.statusCode || 500).json({message: err.message});
     }
 }
+
+export const logout = async (req, res)=>{
+    res.clearCookie("token");
+    res.json({message: "Done"});
+}

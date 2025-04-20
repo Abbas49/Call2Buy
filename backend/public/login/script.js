@@ -39,7 +39,8 @@ form.addEventListener("submit", (event)=>{
         if(result.status != 200){
             throw new Error(result.message);
         }
-        // window.location.href = domain + "/frontend/home";
+        alert("Welcome!");
+        window.location.href = domain + "/home";
     })
     .catch(error =>{
         alert(error.message);
