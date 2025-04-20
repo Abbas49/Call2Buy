@@ -84,6 +84,7 @@ aside .submit-btn{
 }
 aside .submit-btn:hover{
 transform: translatey(-5px);
+background-color: var(--accent-hover);
 }
 .content{
     height: fit-content;
@@ -193,5 +194,6 @@ font-weight: 500;
 }
 .one-proudct .submit-btn:hover{
 transform: translateY(-5px);
+background-color: var(--accent-hover);
 }
 
