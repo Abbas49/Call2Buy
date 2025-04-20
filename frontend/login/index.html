@@ -34,12 +34,12 @@
                             📦Sell Item
                         </a>
                     </li>
-                    <li>
+                    <li id="nav-login">
                         <a href="../login">
                             🔑Login
                         </a>
                     </li>
-                    <li>
+                    <li id="nav-register">
                         <a href="../register">
                             📃Register
                         </a>
@@ -62,14 +62,14 @@
             </div>
             <div class="form-group">
                 <label for="password-input">password</label>
-                <input type="passowrd" id="password-input" class="text-input" required>
+                <input type="password" id="password-input" class="text-input" required>
             </div>
             <a class="forget-password">Forgot password?</a>
             <div class="remember-me-group">
                 <input type="checkbox" id="remember-me">
                 <label for="remember-me">Remember me</label>
             </div>
-            <button type="submit" class="submit-btn">Login</button>
+            <button type="submit" class="submit-btn" id="login-btn">Login</button>
             <p class="register-msg">Don't have an account? <a href="../register">Register here</a></p>
         </form>
     </div>
@@ -99,6 +99,7 @@
     
     <script src="../js/toggle-theme.js"></script>
     <script src="script.js"></script>
+    <script src="../js/nav.js"></script>
 </body>
 
 </html>
