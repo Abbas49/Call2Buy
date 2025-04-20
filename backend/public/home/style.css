@@ -17,16 +17,6 @@ aside{
     top: 100px;
     
 }
-@media (max-width: 767px){
-    .content-container{
-        grid-template-columns: 1fr;
-    }
-
-    aside{
-        margin: 20px;
-         position: static;
-    }
-}
 aside .filter-title{
     margin: 30px;
    color: var(--text-primary); 
@@ -138,6 +128,14 @@ grid-template-columns: 1fr;
 .proudcts{
 grid-template-columns: 1fr 1fr;
 }   
+.content-container{
+    grid-template-columns: 1fr;
+}
+
+aside{
+    margin: 20px;
+     position: static;
+}
 }
 @media (max-width:660px) {
 .proudcts{
