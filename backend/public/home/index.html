@@ -21,30 +21,47 @@
 <body>
   <nav>
     <div class="nav-con">
-      <div class="logo">Pay&Pray</div>
-      <div class="right-side">
-        <input type="checkbox" id="bars" class="nav-checkbox" />
-        <ul>
-          <li>
-            <a href="../home"> 🏠Home </a>
-          </li>
-          <li>
-            <a> 📦Sell Item </a>
-          </li>
-          <li>
-            <a href="../login"> 🔑Login </a>
-          </li>
-          <li>
-            <a href="../register"> 📃Register </a>
-          </li>
-        </ul>
-        <button class="toggle-theme">🔆</button>
-        <label for="bars" class="bars-icon">
-          <i class="fa-solid fa-bars bars"></i>
-        </label>
-      </div>
+        <div class="logo">Pay&Pray</div>
+        <div class="right-side">
+            <input type="checkbox" id="bars" class="nav-checkbox">
+            <ul>
+                <li>
+                    <a href="../home">
+                        🏠Home
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        📦Sell Item
+                    </a>
+                </li>
+                <li id="nav-login">
+                    <a href="../login">
+                        🔑Login
+                    </a>
+                </li>
+                <li id="nav-register">
+                    <a href="../register">
+                        📃Register
+                    </a>
+                </li>
+                <li id="nav-username" style="display: none;">
+                    <a href="#">
+                    </a>
+                </li>
+                <li id="nav-logout" style="display: none;">
+                    <a href="#">
+                        🚪Logout
+                    </a>
+                </li>
+            </ul>
+            <button class="toggle-theme">🔆</button>
+                <label for="bars" class="bars-icon">
+                    <i class="fa-solid fa-bars bars"></i>
+                </label>
+        </div>
     </div>
-  </nav>
+</nav>
   <div class="content-container">
     <aside>
       <h2 class="filter-title">Filters</h2>
@@ -239,6 +256,7 @@
   </footer>
 
   <script src="../js/toggle-theme.js"></script>
+  <script src="../js/nav.js"></script>
 </body>
 
 </html>
