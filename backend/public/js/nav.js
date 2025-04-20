@@ -1,6 +1,7 @@
+(()=>{
 console.log("nav");
 
-
+const domain = window.location.origin;
 const navLoginBtn = document.getElementById("nav-login");
 const navRegisterBtn = document.getElementById("nav-register");
 const navLogoutBtn = document.getElementById("nav-logout");
@@ -41,3 +42,4 @@ navLogoutBtn.addEventListener("click", (event)=>{
     })
     
 })
+})();
