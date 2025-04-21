@@ -77,7 +77,6 @@ hr{
   /* display: none; */
 }
 .right-container .seller-card .contact-btn .num p:first-child {
-  /* margin: 10px; */
   padding-top: 20px;
   color: var(--text-primary);
 }
@@ -87,8 +86,6 @@ hr{
 }
 .right-container .seller-card .safty {
   width: 100%;
-  /* background-color: var(--background); */
-  /* margin: 20px; */
   padding: 20px;
 }
 .right-container .seller-card .safty ul {
@@ -177,5 +174,4 @@ color: var(--text-secondary);
     .main-container{
         grid-template-columns: 1fr;
     }
-    
 }
