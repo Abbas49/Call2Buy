@@ -67,7 +67,7 @@ max-width: 1400px;
   margin: 20px;
   cursor: pointer;
 }
-.right-container .seller-card .contact-btn .number {
+.right-container .seller-card .contact-btn .num {
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -77,11 +77,11 @@ max-width: 1400px;
   text-align: center;
   display: none;
 }
-.right-container .seller-card .contact-btn .number p:first-child {
+.right-container .seller-card .contact-btn .num p:first-child {
   padding-top: 20px;
   color: var(--text-primary);
 }
-.right-container .seller-card .contact-btn .number p:last-child {
+.right-container .seller-card .contact-btn .num p:last-child {
   margin-bottom: 30px;
   color: var(--accent);
 }
