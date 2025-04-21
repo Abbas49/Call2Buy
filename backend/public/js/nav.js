@@ -11,7 +11,6 @@ window.addEventListener("DOMContentLoaded", (e)=>{
     var requestOptions = {
         method: 'GET',
     };
-
     fetch("http://localhost:3000/", requestOptions)
     .then(response =>{
         if(response.status != 200){
@@ -21,7 +20,6 @@ window.addEventListener("DOMContentLoaded", (e)=>{
     })
     .then(result =>{
         const name = result.message.split(" ")[0];
-
         navLoginBtn.style.display = "none";
         navRegisterBtn.style.display = "none";
         navUsername.innerText = `👤${name}`
