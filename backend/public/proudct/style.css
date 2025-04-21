@@ -66,7 +66,13 @@ max-width: 1400px;
   width: 90%;
   margin: 20px;
   cursor: pointer;
+  transition: .5s;
 }
+.right-container .seller-card .contact-btn .submit-btn:hover {
+transform: translateY(-5px);
+background-color: var(--accent-hover);
+}
+
 .right-container .seller-card .contact-btn .num {
   display: flex;
   flex-direction: column;
