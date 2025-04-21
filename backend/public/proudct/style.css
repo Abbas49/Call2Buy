@@ -111,6 +111,9 @@ background-color: var(--accent-hover);
     background-color: var(--card-bg);
     justify-content: space-between;
 }
+.right-container .id-card a{
+text-decoration: none;
+}
 .right-container .id-card p{
 margin: 30px;
 }
@@ -177,7 +180,7 @@ padding-right: 50px;
 .left-container .details table tr td:first-of-type{
 color: var(--text-secondary);
 }
-@media (max-width:900px) {
+@media (max-width:800px) {
     .main-container{
         grid-template-columns: 1fr;
     }
