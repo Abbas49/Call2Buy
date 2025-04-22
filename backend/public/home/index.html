@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <link rel="stylesheet" href="../css/form-styles.css" />
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../css/basics.css" />
+  <link rel="stylesheet" href="../css/normlize.css" />
+  <link rel="stylesheet" href="../css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <title>Document</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-con">
+      <div class="logo">Pay&Pray</div>
+      <div class="right-side">
+        <input type="checkbox" id="bars" class="nav-checkbox">
+        <ul>
+          <li>
+            <a href="../home">
+              🏠Home
+            </a>
+          </li>
+          <li>
+            <a>
+              📦Sell Item
+            </a>
+          </li>
+          <li id="nav-login">
+            <a href="../login">
+              🔑Login
+            </a>
+          </li>
+          <li id="nav-register">
+            <a href="../register">
+              📃Register
+            </a>
+          </li>
+          <li id="nav-username" style="display: none;">
+            <a href="#">
+            </a>
+          </li>
+          <li id="nav-logout" style="display: none;">
+            <a href="#">
+              🚪Logout
+            </a>
+          </li>
+        </ul>
+        <button class="toggle-theme">🔆</button>
+        <label for="bars" class="bars-icon">
+          <i class="fa-solid fa-bars bars"></i>
+        </label>
+      </div>
+    </div>
+  </nav>
+  <div class="content-container">
+    <aside>
+      <h2 class="filter-title">Filters</h2>
+      <form action="">
+        <div class="filter-categores">
+          <h3>Categories</h3>
+          <select name="" id="">
+            <option value="All Categories">All Categories</option>
+            <option value="Electroncs">Electroncs</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Books">Books</option>
+            <option value="Furniture">Furniture</option>
+            <option value="BMW">BMW</option>
+          </select>
+        </div>
+        <div class="price">
+          <h3>Price Range</h3>
+          <div class="num">
+            <input type="number" placeholder="Min" />
+            <input type="number" placeholder="Max" />
+          </div>
+        </div>
+        <button class="submit-btn">Apply Filters</button>
+      </form>
+    </aside>
+    <div class="content">
+      <div class="search">
+        <h2>Search Products</h2>
+        <input type="search" placeholder="Search for items..." />
+      </div>
+      <div class="proudcts">
+        <div class="one-proudct">
+          <div class="proimg">
+            <img src="../imges/post_05070_158352.webp" alt="">
+          </div>
+          <div class="proinfo">
+            <h3>Designer Sunglasses</h3>
+            <div class="prometa">
+              <div class="e">
+                <p>Excellent</p>
+              </div>
+            </div>
+          </div>
+          <div class="pric">
+            <h4>$79.99</h4>
+          </div>
+          <button class="submit-btn">Buy Now</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="contact">
+      <div class="About">
+        <h3>About Us</h2>
+          <p>About used Market</p>
+          <p>How it Works</p>
+      </div>
+      <div class="Support">
+        <h3>Support</h2>
+          <p>Contact Us</p>
+          <p>FAQ</p>
+      </div>
+      <div class="legal">
+        <h3>Legal</h2>
+          <p>Terms of Service</p>
+          <p>Privacy Policy</p>
+      </div>
+    </div>
+    <hr>
+    <div class="copyright">
+      <p>&copy; 2025 Used Market. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/toggle-theme.js"></script>
+  <script src="../js/nav.js"></script>
+</body>
+
+</html>

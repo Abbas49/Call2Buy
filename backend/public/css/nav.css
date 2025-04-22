@@ -22,6 +22,7 @@ nav{
     display: flex;
     align-items: center;
     gap: 10px
+
 }
 
 nav, nav *{
@@ -76,7 +77,9 @@ nav a{
 
 nav ul li:hover, .toggle-theme:hover{
     background-color: var(--accent-light);
-    color: var(--accent)
+    color: var(--accent);
+    transform: translateY(-5px);
+    
 }
 
 

@@ -1,0 +1,187 @@
+body {
+  background-color: var(--background);
+}
+hr{
+    width: 90%;
+    border-color: var(--text-secondary);
+}
+.main-container {
+max-width: 1400px;
+  display: grid;
+  margin: 150px auto;
+  color: var(--text-primary);
+  grid-template-columns: 1.5fr 2.5fr;
+}
+.right-container{
+    display: flex;
+    flex-direction: column;
+}
+.right-container .price-card {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  margin: 20px;
+  border: 2px solid var(--card-border);
+}
+.right-container .price-card .proudct-price {
+  color: var(--accent);
+  margin: 20px;
+  padding-top: 20px;
+}
+.right-container .price-card .proudct-title {
+  margin: 20px;
+  color: var(--text-primary);
+}
+.right-container .price-card .listing-data {
+  color: var(--text-secondary);
+  margin: 20px;
+  padding-bottom: 30px;
+}
+.right-container .seller-card {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  margin: 20px;
+  border: 2px solid var(--card-border);
+}
+.right-container .seller-card .seller-title {
+  margin: 20px;
+  padding-top: 20px;
+  color: var(--text-primary);
+}
+.right-container .seller-card .seller-profile {
+  display: flex;
+  margin: 20px;
+}
+.right-container .seller-card .seller-profile .photo {
+  justify-content: center;
+  align-self: center;
+  margin: 20px;
+}
+.right-container .seller-card .seller-profile .discription h3 {
+  color: var(--text-primary);
+}
+.right-container .seller-card .seller-profile .discription p {
+  color: var(--text-secondary);
+}
+.right-container .seller-card .contact-btn .submit-btn {
+  width: 90%;
+  margin: 20px;
+  cursor: pointer;
+  transition: .5s;
+}
+.right-container .seller-card .contact-btn .submit-btn:hover {
+transform: translateY(-5px);
+background-color: var(--accent-hover);
+}
+
+.right-container .seller-card .contact-btn .num {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background-color: var(--background);
+  margin: 20px;
+  border-radius: 20px;
+  text-align: center;
+  display: none;
+}
+.right-container .seller-card .contact-btn .num p:first-child {
+  padding-top: 20px;
+  color: var(--text-primary);
+}
+.right-container .seller-card .contact-btn .num p:last-child {
+  margin-bottom: 30px;
+  color: var(--accent);
+}
+.right-container .seller-card .safty {
+  width: 100%;
+  padding: 20px;
+}
+.right-container .seller-card .safty ul {
+  background-color: var(--background);
+  padding: 50px;
+  border-radius: 20px;
+  list-style-type: none;
+}
+.right-container .seller-card .safty ul li {
+  padding: 10px;
+}
+.right-container .id-card{
+    border-radius: 20px;
+    display: flex;
+    margin: 20px;
+    background-color: var(--card-bg);
+    justify-content: space-between;
+}
+.right-container .id-card a{
+text-decoration: none;
+}
+.right-container .id-card p{
+margin: 30px;
+}
+.right-container .id-card a{
+    margin: 30px;
+    color: var(--accent);
+}
+.left-container{
+    display: flex;
+    flex-direction: column;
+}
+.left-container .pictures {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    background-color: var(--card-bg);
+    text-align: center;
+    border-radius: 20px;
+}
+.left-container .pictures .main-img img{
+width: 90%;
+height: 90%;
+    object-fit: cover;
+    align-self: center;
+    margin: 20px;
+    border-radius: 20px;
+}
+.left-container .pictures .some {
+display: flex;
+text-align: center;
+margin: 20px;
+}
+.left-container .pictures .some img {
+width: 10%;
+margin: 10px;
+border-radius: 20px;
+}
+.left-container .description{
+    background-color: var(--card-bg);
+    margin: 20px;
+    border-radius: 20px;
+}
+.left-container .description h2{
+    margin-left: 40px;
+}
+.left-container .description p{
+    margin-left: 40px;
+}
+.left-container .details{
+    background-color: var(--card-bg);
+    margin: 20px;
+    border-radius: 20px;
+}
+.left-container .details h2{
+margin-left: 40px;
+}
+.left-container .details table{
+margin-left: 40px;
+}
+.left-container .details table tr td{
+padding-right: 50px;
+
+}
+.left-container .details table tr td:first-of-type{
+color: var(--text-secondary);
+}
+@media (max-width:800px) {
+    .main-container{
+        grid-template-columns: 1fr;
+    }
+}
