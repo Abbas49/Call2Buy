@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/form-styles.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/basics.css" />
+    <link rel="stylesheet" href="../css/normlize.css" />
+    <link rel="stylesheet" href="../css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-con">
+        <div class="logo">Pay&Pray</div>
+        <div class="right-side">
+          <input type="checkbox" id="bars" class="nav-checkbox" />
+          <ul>
+            <li>
+              <a href="../home"> 🏠Home </a>
+            </li>
+            <li>
+              <a> 📦Sell Item </a>
+            </li>
+            <li id="nav-login">
+              <a href="../login"> 🔑Login </a>
+            </li>
+            <li id="nav-register">
+              <a href="../register"> 📃Register </a>
+            </li>
+            <li id="nav-username" style="display: none">
+              <a href="#"> </a>
+            </li>
+            <li id="nav-logout" style="display: none">
+              <a href="#"> 🚪Logout </a>
+            </li>
+          </ul>
+          <button class="toggle-theme">🔆</button>
+          <label for="bars" class="bars-icon">
+            <i class="fa-solid fa-bars bars"></i>
+          </label>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <form action="">
+        <
+        <h1 class="title">sell Your Product</h1>
+        <p class="container-p">
+          Fill out the form below to list your item for sale on Pay&pray.
+        </p>
+        <div class="imgs">
+          <h3>📸 Product Images</h3>
+          <p>
+            Upload up to 4 images of your product. First image will be the main
+            display image.
+          </p>
+        </div>
+        <div class="product-information">
+          <h2>📝 Product Information</h2>
+
+          <div class="product-title" id="same">
+            <label for="">Product Title</label>
+            <input
+              type="text"
+              placeholder="Enter a descriptive title for your product"
+              class="input-proudct"
+            />
+          </div>
+          <div class="product-discription" id="same">
+            <label for="">Product Description</label>
+            <input
+              type="text"
+              placeholder="Enter a descriptive title for your product"
+              class="input-proudct"
+            />
+          </div>
+          <div class="product-Category" id="same">
+            <label for="">Product Category</label>
+            <select class="input-proudct">
+              <option value="">Electronics</option>
+              <option value="">Cars</option>
+              <option value="">Clothes</option>
+              <option value="">Tools</option>
+              <option value="">Books</option>
+              <option value="">Sports</option>
+              <option value="">Art</option>
+              <option value="">other</option>
+            </select>
+          </div>
+          <div class="product-condition" id="same">
+            <label for="">Product Condition</label>
+            <select class="input-proudct">
+              <option value="">New</option>
+              <option value="">Used-like New</option>
+              <option value="">Used-Good</option>
+              <option value="">Used - Acceptable</option>
+              <option value="">For Parts or Not Working</option>
+            </select>
+          </div>
+          <div class="product-price" id="same">
+            <label for="">Price</label>
+            <input
+              type="text"
+              placeholder="Enter Your Price"
+              class="input-proudct"
+            />
+          </div>
+        </div>
+        <div class="Seller-Contact-Information">
+          <h3>📍Seller Contact Information</h3>
+
+          <div class="address" id="same">
+            <label for="">Address</label>
+            <input
+              type="text"
+              placeholder="Enter your address or genral location"
+              class="input-proudct"
+            />
+          </div>
+          <div class="phone-num" id="same">
+            <label for="">Phone Number</label>
+            <input
+              type="text"
+              placeholder="Enter your address or genral location"
+              class="input-proudct"
+            />
+          </div>
+        </div>
+        <button class="submit-btn">List Your Product</button>
+      </form>
+    </div>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/toggle-theme.js"></script>
+  </body>
+</html>

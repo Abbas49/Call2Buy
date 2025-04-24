@@ -1,0 +1,113 @@
+body{
+    background-color: var(--background);
+    display: flex;
+}
+.container{
+margin: 100px auto;
+background-color: var(--card-bg);
+color: white;
+display: flex;
+flex-direction: column;
+border-radius: 20px;
+max-width: 800px;
+}
+@media (max-width:767px) {
+.container{
+margin: 100px ;
+
+}    
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.container form .title{
+    margin: 20px;
+    color: var(--text-primary);
+    padding-top:20px;
+}
+.container form .container-p{
+margin: 0px 20px 20px 20px;
+color: var(--text-secondary);
+}
+.container form .imgs{
+    background-color: var(--background);
+    margin: 30px;
+    border-radius: 20px;
+}
+.container form .imgs h3{
+    margin: 20px;
+    color: var(--text-primary);
+}
+.container form .imgs p{
+margin: 20px;
+color: var(--text-secondary);
+}
+.container form .product-information{
+background-color: var(--background);
+margin: 30px;
+border-radius: 20px;
+}
+.container form .product-information h2{
+margin: 20px;
+color: var(--text-primary);
+}
+.container form .product-information{
+display: flex;
+flex-direction: column;
+padding-bottom: 30px;
+}
+.container form .product-information label{
+margin: 0px 20px 20px 20px;
+}
+.container form .product-information .input-proudct{
+    height: 60px;
+    border-radius: 15px;
+    background-color: var(--background);
+    border: 2px solid var(--input-border);
+    padding: 20px;
+    margin: 0px 20px 0px 20px;
+    color: var(--text-primary);
+}
+.container form .product-information .input-proudct:focus{
+outline: none;
+border-color: var(--accent);
+}
+.container form #same{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.container form select {
+    color: var(--text-primary);
+}
+.container form .Seller-Contact-Information {
+background-color: var(--background);
+margin: 20px;
+border-radius: 15px;
+padding: 10px 0 40px 0;
+}
+.container form .Seller-Contact-Information h3 {
+margin: 20px;
+}
+.container form .Seller-Contact-Information label{
+    margin: 0px 20px 20px 20px;
+}
+.container form .Seller-Contact-Information .input-proudct{
+    height: 60px;
+    border-radius: 15px;
+    background-color: var(--background);
+    border: 2px solid var(--input-border);
+    padding: 20px;
+    margin: 0px 20px 0px 20px;
+    color: var(--text-primary);
+}
+.container form .Seller-Contact-Information .input-proudct:focus{
+outline: none;
+border-color: var(--accent);
+}
+.container form .submit-btn{
+    width: 90%;
+    margin: 30px;
+    align-self: center;
+}
