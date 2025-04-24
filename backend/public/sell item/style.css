@@ -43,6 +43,10 @@ color: var(--text-secondary);
 margin: 20px;
 color: var(--text-secondary);
 }
+.container form .imgs .addimg{
+    
+}
+
 .container form .product-information{
 background-color: var(--background);
 margin: 30px;
