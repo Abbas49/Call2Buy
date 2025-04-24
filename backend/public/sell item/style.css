@@ -51,7 +51,7 @@ color: var(--text-secondary);
 .container form .imgs .addimg label{
 border: 2px dashed var(--input-border);
 padding: 10px;
-margin: 10px;
+margin: 5px;
 height: 150px;
 transition: .3s;
 border-radius: 10px;
