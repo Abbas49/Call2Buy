@@ -13,7 +13,7 @@ max-width: 800px;
 }
 @media (max-width:767px) {
 .container{
-margin: 100px ;
+margin: 100px 20px;
 
 }    
 }
@@ -34,6 +34,7 @@ color: var(--text-secondary);
     background-color: var(--background);
     margin: 30px;
     border-radius: 20px;
+    padding-bottom: 20px;
 }
 .container form .imgs h3{
     margin: 20px;
@@ -43,8 +44,26 @@ color: var(--text-secondary);
 margin: 20px;
 color: var(--text-secondary);
 }
+.container form .imgs .addimg input{
+    display: none;
+
+}
 .container form .imgs .addimg{
+    display: grid;
+    grid-template-columns: auto auto auto;
     
+}
+.container form .imgs .addimg label{
+border: 2px dashed var(--input-border);
+padding: 10px;
+margin: 10px;
+height: 150px;
+transition: .5s;
+border-radius: 10px;
+}
+.container form .imgs .addimg label:hover{
+outline: none;
+border-color: var(--accent);
 }
 
 .container form .product-information{
@@ -76,6 +95,11 @@ margin: 0px 20px 20px 20px;
 .container form .product-information .input-proudct:focus{
 outline: none;
 border-color: var(--accent);
+}
+.container form .product-information .product-discription textarea{
+    overflow: auto;
+    padding: 10px;
+    height: 150px;
 }
 .container form #same{
     display: flex;
