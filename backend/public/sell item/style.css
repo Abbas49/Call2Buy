@@ -11,7 +11,6 @@ flex-direction: column;
 border-radius: 20px;
 max-width: 800px;
 }
-
 form{
     display: flex;
     flex-direction: column;
@@ -41,23 +40,18 @@ color: var(--text-secondary);
 }
 .container form .imgs .addimg input{
     display: none;
-
 }
 .container form .imgs .addimg{
     display: grid;
-    grid-template-columns: auto auto auto;
-    
+    grid-template-columns: auto auto auto;   
 }
 .container form .imgs .addimg label{
 border: 2px dashed var(--input-border);
-padding: 10px;
 margin: 5px;
 height: 150px;
 transition: .3s;
 border-radius: 10px;
-display: flex;
-justify-content: center;
-
+padding: 60px;
 }
 .container form .imgs .addimg label:hover{
 outline: none;
@@ -142,7 +136,6 @@ border-color: var(--accent);
     margin: 100px 20px;
     }    
     .container form .imgs .addimg{
-        grid-template-columns:1fr 1fr;
-        
+        grid-template-columns:1fr 1fr;   
     }
     }
