@@ -1,6 +1,7 @@
 body{
     background-color: var(--background);
     display: flex;
+    flex-direction: column;
 }
 .container{
 margin: 100px auto;
