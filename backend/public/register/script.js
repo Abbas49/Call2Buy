@@ -39,7 +39,7 @@ form.addEventListener("submit", (event)=>{
             throw new Error(result.message);
         }
         alert("Welcome!");
-        window.location.href = domain + "/frontend/login";
+        window.location.href = domain + "/login";
     })
     .catch(error =>{
         alert(error.message);
