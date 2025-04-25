@@ -93,7 +93,7 @@ form {
 }
 
 .container form .product-information .input-proudct {
-    height: 60px;
+    height: 70px;
     border-radius: 15px;
     background-color: var(--background);
     border: 2px solid var(--input-border);
