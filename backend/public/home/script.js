@@ -25,3 +25,6 @@ fetch("http://localhost:3000/products").then((e)=> e.json()).then((e)=>{
         addProduct(element.name, element.price, element.image);
     });
 })
+
+
+
