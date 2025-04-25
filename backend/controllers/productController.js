@@ -1,11 +1,25 @@
 import { supabase } from "../config/db.js"
 import createError from "../utils/createError.js";
 
-export const getProducts = async (req, res)=>{
+export const getProducts = async (req, res, next)=>{
     try{
         const {product_id, search_query, min_price, max_price } = req.body;
 
-        const {data: products, error: titleSearchError}= await supabase.from("products").select(`*, users(full_name), categories(category_name)`).eq("visibility", "public").gte("price", min_price).lte("price", max_price);
+        let query = supabase.from("products").select(`*, users(full_name), categories(category_name), images(image_url)`).eq("visibility", "public");
+
+        if(product_id){
+            query.eq("product_id", product_id);
+        }else{
+            if(min_price) query.lte("price", max_price);
+            if(max_price) query.gte("price", min_price);
+            if(search_query){
+                query.textSearch('title', search_query, {
+                    type: 'websearch',
+                    config: 'english'
+                })
+            }
+        }
+        const {data: products, error: titleSearchError}= await query;
         if(titleSearchError){
             throw createError(titleSearchError, 500);
         }
@@ -15,6 +29,7 @@ export const getProducts = async (req, res)=>{
             delete product.seller;
 
             product.categories = product.categories.map((e) => e.category_name);
+            product.images = product.images.map((e) => e.image_url);
         })
         res.json({products: products});
     }catch(err){
@@ -22,7 +37,7 @@ export const getProducts = async (req, res)=>{
     }
 }
 
-export const createProduct = async (req, res)=>{
+export const createProduct = async (req, res, next)=>{
     try{
         const {product_description, product_address, title, price, phone, visibility, categories} = JSON.parse(req.body.data);
         const seller = req.user.user_id;
