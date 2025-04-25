@@ -94,6 +94,7 @@ border-color: var(--accent);
     overflow: auto;
     padding: 10px;
     height: 150px;
+    resize: vertical;
 }
 .container form #same{
     display: flex;
