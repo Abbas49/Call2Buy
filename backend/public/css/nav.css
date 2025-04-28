@@ -93,6 +93,10 @@ nav ul li:hover, .toggle-theme:hover{
 }
 
 
+#nav-username, #nav-logout{
+    display: none;
+}
+
 nav .nav-checkbox{
     display: none;
 }
