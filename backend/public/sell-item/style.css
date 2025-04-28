@@ -118,6 +118,15 @@ form {
     resize: vertical;
 }
 
+.container form .product-information .product-discription .ai-btn {
+display: flex;
+position: absolute;
+background-color: var(--accent);
+border-radius: 15px;
+right: 25%;
+margin-top: 50px;
+cursor: pointer;
+}
 .container form #same {
     display: flex;
     flex-direction: column;
