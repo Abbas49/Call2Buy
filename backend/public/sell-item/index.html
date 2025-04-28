@@ -97,19 +97,21 @@
           <div class="product-Category" id="same">
             <label for="">Product Category</label>
             <select class="input-proudct">
-              <option value="">Electronics</option>
-              <option value="">Cars</option>
-              <option value="">Clothes</option>
-              <option value="">Tools</option>
-              <option value="">Books</option>
-              <option value="">Sports</option>
-              <option value="">Art</option>
-              <option value="">other</option>
+              <option value="" disabled selected>Select product category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Cars">Cars</option>
+              <option value="Clothes">Clothes</option>
+              <option value="Tools">Tools</option>
+              <option value="Books">Books</option>
+              <option value="Sports">Sports</option>
+              <option value="Art">Art</option>
+              <option value="other">other</option>
             </select>
           </div>
           <div class="product-condition" id="same">
             <label for="">Product Condition</label>
             <select class="input-proudct">
+              <option value="" disabled selected>Select product condition</option>
               <option value="">New</option>
               <option value="">Used-like New</option>
               <option value="">Used-Good</option>
@@ -120,10 +122,10 @@
           <div class="product-price" id="same">
             <label for="">Price</label>
             <input
-              type="text"
+              type="number"
               placeholder="Enter Your Price"
               class="input-proudct"
-              value="$ "
+              step="0.01"
             />
           </div>
         </div>
