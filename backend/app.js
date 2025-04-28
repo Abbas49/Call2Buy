@@ -65,6 +65,19 @@ app.get("/products/:id", async (req, res, next)=>{
     }
 })
 
+app.get("/api/v1/categories", async (req, res, next)=>{
+    try{
+        const {data, err} = await supabase.from("categories").select();
+        if(err){
+            throw createError(err.message);
+        }
+        const categories = data.map((e)=> e.category_name);
+        console.log(categories);
+        res.json({message: categories})
+    }catch(err){
+        next(err);
+    }
+})
 
 app.use(errorHandler);
 
