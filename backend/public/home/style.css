@@ -15,6 +15,7 @@ aside{
     height: fit-content;
     position: sticky;
     top: 100px;
+    z-index: -1;
     
 }
 aside .filter-title{
