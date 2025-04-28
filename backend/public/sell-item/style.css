@@ -65,6 +65,9 @@ form {
     padding: 60px;
     color: var(--text-secondary);
     cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
 }
 
 .container form .imgs .addimg label:hover {
@@ -162,6 +165,19 @@ form {
     align-self: center;
     cursor: pointer;
 transition: .5s;
+}
+
+.remove-image-btn{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
 }
 
 .container form .submit-btn:hover {

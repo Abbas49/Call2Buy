@@ -19,6 +19,7 @@
 
         var requestOptions = {
             method: 'GET',
+            cache: 'no-store'
         };
         fetch("http://localhost:3000/", requestOptions)
             .then(response => {
