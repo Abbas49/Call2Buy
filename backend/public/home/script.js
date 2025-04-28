@@ -1,5 +1,6 @@
 (() => {
     const domain = window.location.origin;
+
     function listProduct(product) {
         let element = document.createElement("div");
         element.classList.add("one-proudct");
@@ -108,4 +109,7 @@
         document.getElementById("products-container").innerHTML = "";
         loadProducts();
     })
+
+    
+
 })()

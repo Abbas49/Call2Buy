@@ -181,14 +181,14 @@ hr {
 }
 
 .left-container .pictures .some img {
-  /* width: 15%; */
+  width: 20%;
   margin: 0px 10px ;
   border-radius: 20px;
   aspect-ratio: 1/1;
   transition-duration: 0.2s;
   object-fit: cover;
   background: var(--background);
-  width: 150px;
+  /* width: 150px; */
 }
 
 .left-container .pictures .some img:hover{
@@ -207,7 +207,7 @@ hr {
   margin-left: 40px;
 }
 
-.left-container .description p {
+.left-container .description pre {
   margin-left: 40px;
 }
 

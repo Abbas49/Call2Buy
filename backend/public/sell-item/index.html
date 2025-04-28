@@ -78,7 +78,7 @@
 
         <div class="product-title" id="same">
           <label for="">Product Title</label>
-          <input type="text" placeholder="Enter a descriptive title for your product" class="input-proudct" />
+          <input type="text" placeholder="Enter a descriptive title for your product" class="input-proudct" id="title-input" />
         </div>
         <div class="product-discription" id="same">
           <label for="textarea">Product Description</label>
@@ -104,18 +104,18 @@
         </div>
         <div class="product-condition" id="same">
           <label for="">Product Condition</label>
-          <select class="input-proudct">
+          <select class="input-proudct" id="select-condition">
             <option value="" disabled selected>Select product condition</option>
-            <option value="">New</option>
-            <option value="">Used-like New</option>
-            <option value="">Used-Good</option>
-            <option value="">Used - Acceptable</option>
-            <option value="">For Parts or Not Working</option>
+            <option value="New">New</option>
+            <option value="Used-like New">Used-like New</option>
+            <option value="Used-Good">Used-Good</option>
+            <option value="Used - Acceptable">Used - Acceptable</option>
+            <option value="For Parts or Not Working">For Parts or Not Working</option>
           </select>
         </div>
         <div class="product-price" id="same">
           <label for="">Price</label>
-          <input type="number" placeholder="Enter Your Price" class="input-proudct" step="0.01" />
+          <input type="number" placeholder="Enter Your Price" class="input-proudct" step="0.01" id="price-input" />
         </div>
       </div>
       <div class="Seller-Contact-Information">
@@ -123,14 +123,14 @@
 
         <div class="address" id="same">
           <label for="">Address</label>
-          <input type="text" placeholder="Enter your address or genral location" class="input-proudct" />
+          <input type="text" placeholder="Enter your address or genral location" class="input-proudct" id="address-input" />
         </div>
         <div class="phone-num" id="same">
           <label for="">Phone Number</label>
-          <input type="text" placeholder="Enter your address or genral location" class="input-proudct" />
+          <input type="text" placeholder="Enter your address or genral location" class="input-proudct" pattern="[+[0-9]]*" id="phone-input" />
         </div>
       </div>
-      <button class="submit-btn">List Your Product</button>
+      <button class="submit-btn" id="list-product-btn">List Your Product</button>
     </form>
   </div>
   <footer>
