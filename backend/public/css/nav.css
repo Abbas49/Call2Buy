@@ -8,6 +8,7 @@ nav{
     padding: 0 30px;
     width: 100%;
     top:0px;
+    z-index: 5;
 }
 
 .nav-con{

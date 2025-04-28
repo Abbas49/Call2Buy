@@ -22,7 +22,7 @@ export const getProducts = async (req, res, next)=>{
                 })
             }
         }
-        const {data: products, error: titleSearchError}= await query;
+        const {data: products, error: titleSearchError}= await query.order("created_at", {ascending: false});
         if(titleSearchError){
             throw createError(titleSearchError.message, 500);
         }
