@@ -21,7 +21,7 @@
   <body>
     <nav>
       <div class="nav-con">
-        <div class="logo">Pay&Pray</div>
+        <div class="logo"><a href="../home">Pay&Pray</a></div>
         <div class="right-side">
           <input type="checkbox" id="bars" class="nav-checkbox" />
           <ul>
@@ -29,7 +29,7 @@
               <a href="../home"> 🏠Home </a>
             </li>
             <li>
-              <a> 📦Sell Item </a>
+              <a href="../sell item"> 📦Sell Item </a>
             </li>
             <li id="nav-login">
               <a href="../login"> 🔑Login </a>
@@ -53,7 +53,6 @@
     </nav>
     <div class="container">
       <form action="">
-        
         <h1 class="title">sell Your Product</h1>
         <p class="container-p">
           Fill out the form below to list your item for sale on Pay&pray.
@@ -64,6 +63,16 @@
             Upload up to 4 images of your product. First image will be the main
             display image.
           </p>
+          <div class="addimg">
+            <label for="file">Upload Image</label>
+            <input type="file" id="file" />
+            <label for="file1">Upload Image</label>
+            <input type="file" id="file1" />
+            <label for="file2">Upload Image</label>
+            <input type="file" id="file2" />
+            <label for="file3">Upload Image</label>
+            <input type="file" id="file3" />
+          </div>
         </div>
         <div class="product-information">
           <h2>📝 Product Information</h2>
@@ -77,12 +86,13 @@
             />
           </div>
           <div class="product-discription" id="same">
-            <label for="">Product Description</label>
-            <input
-              type="text"
-              placeholder="Enter a descriptive title for your product"
+            <label for="textarea">Product Description</label>
+            <textarea
+              name=""
+              id="textarea"
               class="input-proudct"
-            />
+              placeholder="Describe your product in detail - condition,features,reason"
+            ></textarea>
           </div>
           <div class="product-Category" id="same">
             <label for="">Product Category</label>
@@ -113,6 +123,7 @@
               type="text"
               placeholder="Enter Your Price"
               class="input-proudct"
+              value="$ "
             />
           </div>
         </div>

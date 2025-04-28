@@ -38,7 +38,7 @@ nav ul{
     user-select: none;
 }
 
-nav .logo{
+nav .logo a{
     font-weight: 800;
     font-size: 25px;
     background: linear-gradient(120deg, var(--accent), #7c3aed);
