@@ -11,7 +11,7 @@
             <h3>${product.title}</h3>
             <div class="prometa">
               <div class="e">
-                <p>Excellent</p>
+                <p ${!product.condition?"style='visibility: hidden;'":""}>${product.condition}</p>
               </div>
             </div>
           </div>

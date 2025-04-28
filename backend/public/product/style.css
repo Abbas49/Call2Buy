@@ -177,14 +177,18 @@ hr {
   display: flex;
   text-align: center;
   margin: 20px;
+
 }
 
 .left-container .pictures .some img {
-  width: 15%;
+  /* width: 15%; */
   margin: 0px 10px ;
   border-radius: 20px;
   aspect-ratio: 1/1;
   transition-duration: 0.2s;
+  object-fit: cover;
+  background: var(--background);
+  width: 150px;
 }
 
 .left-container .pictures .some img:hover{

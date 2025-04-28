@@ -18,6 +18,7 @@ create table products (
   product_id UUID default gen_random_uuid() primary key,
   product_description text,
   product_address text,
+  condition text,
   title text not null,
   price NUMERIC(15,2) not null,
   phone VARCHAR(15),

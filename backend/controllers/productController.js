@@ -42,7 +42,7 @@ export const getProducts = async (req, res, next)=>{
 
 export const createProduct = async (req, res, next)=>{
     try{
-        const {product_description, product_address, title, price, phone, visibility, categories} = JSON.parse(req.body.data);
+        const {product_description, product_address, title, price, phone, visibility, condition, categories} = JSON.parse(req.body.data);
         const seller = req.user.user_id;
         const images = req.files;
         const product = await supabase.from("products").insert({
@@ -53,6 +53,7 @@ export const createProduct = async (req, res, next)=>{
             price: price,
             phone: phone || req.user.phone,
             visibility: visibility,
+            condition: condition
         }).select();
         const product_id = product.data[0].product_id;
         let product_categories = [];
