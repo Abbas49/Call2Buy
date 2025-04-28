@@ -80,19 +80,19 @@
         <div class="price">
           <h3>Price Range</h3>
           <div class="num">
-            <input type="number" placeholder="Min" />
-            <input type="number" placeholder="Max" />
+            <input type="number" placeholder="Min" id="min-price" />
+            <input type="number" placeholder="Max" id="max-price" />
           </div>
         </div>
-        <button class="submit-btn">Apply Filters</button>
+        <button class="submit-btn" id="filter-btn">Apply Filters</button>
       </form>
     </aside>
     <div class="content">
       <div class="search">
         <h2>Search Products</h2>
-        <input type="search" placeholder="Search for items..." />
+        <input id="search-query" type="search" placeholder="Search for items..." />
       </div>
-      <div class="proudcts">
+      <div class="proudcts" id="products-container">
         <div class="one-proudct">
           <div class="proimg">
             <img src="../imges/post_05070_158352.webp" alt="">
@@ -140,6 +140,7 @@
 
   <script src="../js/toggle-theme.js"></script>
   <script src="../js/nav.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

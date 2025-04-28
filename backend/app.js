@@ -9,6 +9,7 @@ import authRoutes from "./routes/authRoutes.js"
 import productRoutes from "./routes/productRoutes.js"
 import { requireAuth } from "./middlewares/cookieJwtAuth.js"
 import errorHandler from "./middlewares/errorHandler.js"
+import allowExternalImages from "./utils/allowExternalImages.js"
 
 dotenv.config();
 
@@ -16,19 +17,15 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // middlewares
+
 app.use(helmet());
-app.use(express.static("public"));
+app.use(allowExternalImages ,express.static("public"));
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
-app.use(errorHandler);
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; img-src *;font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com;");
-  next();
-});
-
 app.set('view engine', 'ejs');
+
 // app.use(cors({
 //   origin: true,          // reflect request Origin header — allows any origin
 //   credentials: true,     // allow Set‑Cookie and Cookie headers
@@ -68,6 +65,8 @@ app.get("/products/:id", async (req, res, next)=>{
     }
 })
 
+
+app.use(errorHandler);
 
 app.listen(port, ()=>{
     console.log("Listening on port " + port);

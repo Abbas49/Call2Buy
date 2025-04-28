@@ -3,15 +3,18 @@ import createError from "../utils/createError.js";
 
 export const getProducts = async (req, res, next)=>{
     try{
-        const {product_id, search_query, min_price, max_price } = req.body;
+        if(req.query["min_price"]) req.query["min_price"] = parseInt(req.query["min_price"]);
+        if(req.query["max_price"]) req.query["max_price"] = parseInt(req.query["max_price"]);
+        const {product_id, search_query, min_price, max_price } = req.query;
+        console.log(req.query);
 
         let query = supabase.from("products").select(`*, users(full_name), categories(category_name), images(image_url)`).eq("visibility", "public");
 
         if(product_id){
             query.eq("product_id", product_id);
         }else{
-            if(min_price) query.lte("price", max_price);
-            if(max_price) query.gte("price", min_price);
+            if(max_price) query.lte("price", max_price);
+            if(min_price) query.gte("price", min_price);
             if(search_query){
                 query.textSearch('title', search_query, {
                     type: 'websearch',
@@ -21,7 +24,7 @@ export const getProducts = async (req, res, next)=>{
         }
         const {data: products, error: titleSearchError}= await query;
         if(titleSearchError){
-            throw createError(titleSearchError, 500);
+            throw createError(titleSearchError.message, 500);
         }
 
         products.forEach((product)=>{
