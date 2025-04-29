@@ -117,6 +117,7 @@ form {
 }
 
 .container form .product-information .ai {
+    display: flex;
     position: relative;
 }
 
@@ -133,7 +134,7 @@ form {
     position: absolute;
     background-color: var(--accent);
     border-radius: 7px;
-    right: 5%;
+    right: 33px;
     top: 0;
     margin-top: 10px;
     cursor: pointer;
