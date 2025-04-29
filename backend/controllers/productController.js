@@ -5,7 +5,7 @@ export const getProducts = async (req, res, next)=>{
     try{
         if(req.query["min_price"]) req.query["min_price"] = parseInt(req.query["min_price"]);
         if(req.query["max_price"]) req.query["max_price"] = parseInt(req.query["max_price"]);
-        const {product_id, search_query, min_price, max_price } = req.query;
+        const {product_id, search_query, min_price, max_price, category } = req.query;
         console.log(req.query);
 
         let query = supabase.from("products").select(`*, users(full_name), categories(category_name), images(image_url)`).eq("visibility", "public");
@@ -15,6 +15,7 @@ export const getProducts = async (req, res, next)=>{
         }else{
             if(max_price) query.lte("price", max_price);
             if(min_price) query.gte("price", min_price);
+            if(category) query.eq("categories.category_name", category)
             if(search_query){
                 query.textSearch('title', search_query, {
                     type: 'websearch',

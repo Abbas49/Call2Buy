@@ -1,6 +1,7 @@
 (() => {
     const domain = window.location.origin;
     const form = document.querySelector("form");
+    const aiBtn = document.getElementById("ai-btn");
 
     function createRemoveImageButton(target, input) {
         const button = document.createElement("button");
@@ -29,7 +30,7 @@
         })
     });
 
-    function createOption(name){
+    function createOption(name) {
         const element = document.createElement("option");
         element.value = name;
         element.innerText = name;
@@ -58,7 +59,7 @@
                 if (result.status != 200) {
                     throw new Error(result.message);
                 }
-                result.message.forEach((category)=>{
+                result.message.forEach((category) => {
                     selectCategory.appendChild(createOption(category));
                 })
             })
@@ -68,7 +69,7 @@
             });
     })
 
-    form.addEventListener("submit", (e)=>{
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
         const images = document.querySelectorAll(".image-input");
         const titleInput = document.getElementById("title-input").value;
@@ -78,7 +79,7 @@
         const priceInput = document.getElementById("price-input").value;
         const addressInput = document.getElementById("address-input").value;
         const phoneInput = document.getElementById("phone-input").value;
-        
+
         console.log('Images:', images);
         console.log('Title Input:', titleInput);
         console.log('Description Input:', descriptionInput);
@@ -90,7 +91,7 @@
 
 
         var formdata = new FormData();
-        const data={
+        const data = {
             title: titleInput,
             product_description: descriptionInput,
             price: priceInput,
@@ -101,33 +102,74 @@
             // visiability: "private",
         }
         formdata.append("data", JSON.stringify(data));
-        images.forEach((image)=>{
+        images.forEach((image) => {
             formdata.append("photo", image.files[0]);
         })
 
         var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
         };
 
-        fetch(domain+"/api/v1/products", requestOptions)
-        .then(async (response) => {
+        fetch(domain + "/api/v1/products", requestOptions)
+            .then(async (response) => {
                 let result = await response.json();
                 result.status = response.status;
                 return result;
             })
-        .then(result => {
-            if (result.status != 200) {
-                throw new Error(result.message);
-            }
-            alert("Your product has been successfully listed on our marketplace. buyers can now view and purchase your item.");
-            window.location.href = domain + "/home";
-        })
-        .catch(error => {
-            alert(error.message);
-            console.log('error', error)
+            .then(result => {
+                if (result.status != 200) {
+                    throw new Error(result.message);
+                }
+                alert("Your product has been successfully listed on our marketplace. buyers can now view and purchase your item.");
+                window.location.href = domain + "/home";
+            })
+            .catch(error => {
+                alert(error.message);
+                console.log('error', error)
+            });
+
+    })
+
+    aiBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const descriptionInput = document.getElementById("textarea");
+        console.log(descriptionInput);
+        const aiBtnTextSave = aiBtn.innerText;
+        aiBtn.innerText = "⏳ Processing..."
+        let myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "description": descriptionInput.value
         });
-        
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            credentials: 'include',
+            redirect: 'follow'
+        };
+
+        fetch(domain+"/api/v1/ai/rewrite", requestOptions)
+            .then(async (response) => {
+                console.log(response)
+                let result = await response.json();
+                result.status = response.status;
+                return result;
+            })
+            .then(result => {
+                if (result.status != 200) {
+                    throw new Error(result.message);
+                }
+                aiBtn.innerText = aiBtnTextSave;
+                descriptionInput.value = result.message;
+            })
+            .catch(error => {
+                alert(error.message);
+                console.log('error', error)
+            });
     })
 })()

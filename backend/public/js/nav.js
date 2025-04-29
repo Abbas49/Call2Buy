@@ -13,8 +13,8 @@
             navLoginBtn.style.display = "none";
             navRegisterBtn.style.display = "none";
             navUsername.innerText = `👤${name}`
-            navLogoutBtn.style.display = "list-item";
-            navUsername.style.display = "list-item";
+            navLogoutBtn.style.display = "flex";
+            navUsername.style.display = "flex";
         }
 
         var requestOptions = {
@@ -33,8 +33,8 @@
                 navLoginBtn.style.display = "none";
                 navRegisterBtn.style.display = "none";
                 navUsername.innerText = `👤${name}`
-                navLogoutBtn.style.display = "list-item";
-                navUsername.style.display = "list-item";
+                navLogoutBtn.style.display = "flex";
+                navUsername.style.display = "flex";
                 sessionStorage.setItem("UserName", name);
             })
             .catch(error => {
@@ -47,8 +47,8 @@
 
     navLogoutBtn.addEventListener("click", (event) => {
         fetch(domain + "/api/v1/auth/logout").then((response) => {
-            navLoginBtn.style.display = "list-item";
-            navRegisterBtn.style.display = "list-item";
+            navLoginBtn.style.display = "flex";
+            navRegisterBtn.style.display = "flex";
             navLogoutBtn.style.display = "none";
             navUsername.style.display = "none";
             sessionStorage.removeItem("UserName");

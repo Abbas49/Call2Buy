@@ -28,6 +28,7 @@
         const search_query = document.getElementById("search-query").value;
         const min_price = document.getElementById("min-price").value;
         const max_price = document.getElementById("max-price").value;
+        const selectCategory = document.getElementById("select-category").value
         let myHeaders = new Headers();
 
         myHeaders.append("Content-Type", "application/json");
@@ -39,7 +40,7 @@
             redirect: 'follow'
         };
 
-        fetch(`${domain}/api/v1/products?search_query=${search_query}&min_price=${min_price}&max_price=${max_price}`, requestOptions)
+        fetch(`${domain}/api/v1/products?search_query=${search_query}&min_price=${min_price}&max_price=${max_price}&category=${selectCategory}`, requestOptions)
             .then(async (response) => {
                 console.log(response)
                 let result = await response.json();

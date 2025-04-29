@@ -79,6 +79,18 @@ app.get("/api/v1/categories", async (req, res, next)=>{
     }
 })
 
+import aiRewrite from "./utils/aiRewrite.js"
+app.post("/api/v1/ai/rewrite", async (req, res, next)=>{
+    try{
+        const {description} = req.body;
+
+        const rewrite = await aiRewrite(description);
+        res.json({message: rewrite})
+    }catch(err){
+        next(err);
+    }
+})
+
 app.use(errorHandler);
 
 app.listen(port, ()=>{
