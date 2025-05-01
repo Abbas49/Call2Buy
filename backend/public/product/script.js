@@ -9,3 +9,12 @@ submitBtn.addEventListener("click",()=>{
         hid.style.display = "flex" 
     }
 })
+
+let mainImg = document.getElementById("main-img")
+let supImg = document.querySelectorAll(".some img")
+
+supImg.forEach((img)=>{
+img.addEventListener("click", () => {
+    mainImg.src = img.src;
+});
+});

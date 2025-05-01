@@ -188,6 +188,7 @@ hr {
   transition-duration: 0.2s;
   object-fit: cover;
   background: var(--background);
+cursor: pointer;
   /* width: 150px; */
 }
 
