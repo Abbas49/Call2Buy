@@ -48,4 +48,9 @@
             console.log('error', error)
         });
     })
+
+let forgetPassword = document.querySelector(".forget-password")
+forgetPassword.addEventListener("click",()=>{
+ alert("forget-password")
+})
 })()

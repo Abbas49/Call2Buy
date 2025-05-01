@@ -21,7 +21,7 @@
             method: 'GET',
             cache: 'no-store'
         };
-        fetch("http://localhost:3000/", requestOptions)
+        fetch(domain, requestOptions)
             .then(response => {
                 if (response.status != 200) {
                     throw new Error("User is not logged in");
@@ -39,6 +39,10 @@
             })
             .catch(error => {
                 console.log('error', error)
+                if(location.pathname.startsWith("/sell-item")){
+                    alert("You are not logged in. Please login to continue.");
+                    window.location.href = "/login";
+                }
                 sessionStorage.removeItem("UserName");
             });
     })
