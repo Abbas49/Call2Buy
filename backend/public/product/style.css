@@ -209,6 +209,7 @@ hr {
 
 .left-container .description pre {
   margin-left: 40px;
+  text-wrap: auto;
 }
 
 .left-container .details {
