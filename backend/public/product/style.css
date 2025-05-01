@@ -182,17 +182,16 @@ hr {
 
 .left-container .pictures .some img {
   width: 20%;
-  margin: 0px 10px ;
+  margin: 0px 10px;
   border-radius: 20px;
   aspect-ratio: 1/1;
   transition-duration: 0.2s;
   object-fit: cover;
   background: var(--background);
-cursor: pointer;
-  /* width: 150px; */
+  cursor: pointer;
 }
 
-.left-container .pictures .some img:hover{
+.left-container .pictures .some img:hover {
   transform: translate(0px, -5px);
 }
 
@@ -200,7 +199,7 @@ cursor: pointer;
   background-color: var(--card-bg);
   margin: 20px;
   border-radius: 20px;
-  padding:10px;
+  padding: 10px;
   border: 2px solid var(--card-border)
 }
 
