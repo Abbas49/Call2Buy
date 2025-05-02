@@ -71,6 +71,7 @@ export const login = async (req, res) =>{
     }
 }
 
+
 export const logout = async (req, res)=>{
     res.set({
         'Cache-Control': 'no-store, no-cache, must-revalidate',
