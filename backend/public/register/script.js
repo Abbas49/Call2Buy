@@ -8,6 +8,9 @@ form.addEventListener("submit", (event)=>{
     const fullName = document.getElementById("fullname").value
     const password = document.getElementById("password").value
     const confirmPassword = document.getElementById("password").value
+    const registerBtn = document.getElementById("register-btn")
+    registerBtn.innerText = "Creating your account..."
+
     if(password != confirmPassword){
         alert("Passwords do not match. Please make sure both fields are identical.");
     }
@@ -40,8 +43,11 @@ form.addEventListener("submit", (event)=>{
         }
         alert("Welcome!");
         window.location.href = domain + "/login";
+        registerBtn.innerText = "Register"
+
     })
     .catch(error =>{
+        registerBtn.innerText = "Register"
         alert(error.message);
         console.log('error', error)
     });

@@ -9,6 +9,8 @@
         const email = document.getElementById("email-input").value
         const password = document.getElementById("password-input").value
         const checkBtn = document.querySelector("#remember-me").checked
+        const loginBtn = document.getElementById("login-btn")
+        loginBtn.innerText = `Logging in...`
         console.log(email);
         console.log(password);
 
@@ -42,8 +44,10 @@
             }
             alert("Welcome!");
             window.location.href = domain + "/home";
+            loginBtn.innerText = `Login`
         })
         .catch(error =>{
+            loginBtn.innerText = `Login`
             alert(error.message);
             console.log('error', error)
         });

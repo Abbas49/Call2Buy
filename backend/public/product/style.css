@@ -210,6 +210,7 @@ hr {
 .left-container .description pre {
   margin-left: 40px;
   text-wrap: auto;
+  font-family: 'Inter';
 }
 
 .left-container .details {
