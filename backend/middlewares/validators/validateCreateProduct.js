@@ -16,6 +16,13 @@ const validateCreateProdcut = async (req, res, next)=>{
         if(!categories){
             throw createError("You need to add at least one category to the product", 400);
         }
+        const validImageTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
+        photos.forEach((photo)=>{
+            console.log(photo.mimetype)
+            if(!validImageTypes.includes(photo.mimetype)){
+                throw createError("Invalid image type. Only JPEG, JPG and PNG are allowed.", 400)
+            }
+        })
 
 
         // make sure all the categories are in the db
