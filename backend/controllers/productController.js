@@ -70,7 +70,7 @@ export const createProduct = async (req, res, next)=>{
         let URLs = [];
         for(let index = 0; index < images.length; index++){
             const image = images[index];
-            const fileName = `${product_id}-${index}-${image.originalname}`;
+            const fileName = `${product_id}-${index}.${image.originalname.split(".").pop()}`;
             const {data, error} = await supabase.storage.from("product-images").upload(fileName, image.buffer);
             if(error){
                 throw createError(error.message, 500);
