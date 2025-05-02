@@ -73,6 +73,7 @@ export const createProduct = async (req, res, next)=>{
             const fileName = `${product_id}-${index}.${image.originalname.split(".").pop()}`;
             const {data, error} = await supabase.storage.from("product-images").upload(fileName, image.buffer);
             if(error){
+                await supabase.from("products").delete().eq("product_id", product_id);
                 throw createError(error.message, 500);
             }
             const URL = (await supabase.storage.from("product-images").getPublicUrl(fileName)).data.publicUrl;
