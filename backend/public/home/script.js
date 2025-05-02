@@ -114,6 +114,11 @@
         filterBtn.innerText = "Apply Filters";
     })
 
-    
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            document.getElementById("filter-btn").click();
+        }
+    });
 
 })()
