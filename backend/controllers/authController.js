@@ -6,9 +6,14 @@ import jwt from "jsonwebtoken";
 export const register = async (req, res) =>{
     try{
         const {email, password, phone, user_address, full_name} = req.body;
+        if(!email){
+            throw createError("Email is required", 400);
+        }
+
+        const normalizedEmail = email.toLowerCase().trim();
 
         // Check if email exists in the database
-        const user = await supabase.from("users").select().eq("email", email);
+        const user = await supabase.from("users").select().eq("email", normalizedEmail);
         if(user.data && user.data.length != 0){
             throw createError("The provided email is already registered. Please use a different email or log in", 409);
         }
@@ -16,7 +21,7 @@ export const register = async (req, res) =>{
         // Hash the password and insert user data into the database
         const hashedPassword = await bcrypt.hash(password, 10);
         const result = await supabase.from("users").insert({
-            email: email,
+            email: normalizedEmail,
             password_hash: hashedPassword,
             full_name: full_name,
             phone: phone,
@@ -38,7 +43,10 @@ export const login = async (req, res) =>{
         if(!email || !password){
             throw createError("Email and password are required", 400);
         }
-        const user = (await supabase.from("users").select().eq("email", email)).data.at(0);
+
+        const normalizedEmail = email.toLowerCase().trim();
+
+        const user = (await supabase.from("users").select().eq("email", normalizedEmail)).data.at(0);
         if(!user){
             throw createError("Wrong email or password", 401);
         }
