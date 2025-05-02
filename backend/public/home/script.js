@@ -24,7 +24,7 @@
         document.getElementById("products-container").appendChild(element);
     }
 
-    function loadProducts(){
+    async function loadProducts(){
         const search_query = document.getElementById("search-query").value;
         const min_price = document.getElementById("min-price").value;
         const max_price = document.getElementById("max-price").value;
@@ -40,7 +40,7 @@
             redirect: 'follow'
         };
 
-        fetch(`${domain}/api/v1/products?search_query=${search_query}&min_price=${min_price}&max_price=${max_price}&category=${selectCategory}`, requestOptions)
+        await fetch(`${domain}/api/v1/products?search_query=${search_query}&min_price=${min_price}&max_price=${max_price}&category=${selectCategory}`, requestOptions)
             .then(async (response) => {
                 console.log(response)
                 let result = await response.json();
@@ -105,10 +105,13 @@
             });
     })
 
-    document.getElementById("filter-btn").addEventListener("click", (e)=>{
+    document.getElementById("filter-btn").addEventListener("click", async (e)=>{
         e.preventDefault();
         document.getElementById("products-container").innerHTML = "";
-        loadProducts();
+        const filterBtn = document.getElementById("filter-btn");
+        filterBtn.innerText = "Loading...";
+        await loadProducts();
+        filterBtn.innerText = "Apply Filters";
     })
 
     

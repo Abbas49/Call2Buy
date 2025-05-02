@@ -15,7 +15,6 @@ export const getProducts = async (req, res, next)=>{
         }else{
             if(max_price) query.lte("price", max_price);
             if(min_price) query.gte("price", min_price);
-            if(category) query.eq("categories.category_name", category)
             if(search_query){
                 query.textSearch('title', search_query, {
                     type: 'websearch',
@@ -27,7 +26,6 @@ export const getProducts = async (req, res, next)=>{
         if(titleSearchError){
             throw createError(titleSearchError.message, 500);
         }
-
         products.forEach((product)=>{
             delete product.views;
             delete product.seller;
@@ -35,7 +33,11 @@ export const getProducts = async (req, res, next)=>{
             product.categories = product.categories.map((e) => e.category_name);
             product.images = product.images.map((e) => e.image_url);
         })
-        res.json({products: products});
+        let filteredProducts = products;
+        if(category && category !== "All Categories"){
+            filteredProducts = products.filter((product)=> product.categories.includes(category));
+        }
+        res.json({products: filteredProducts});
     }catch(err){
         next(err);
     }
