@@ -1,45 +1,60 @@
-body{
-    background-color: var(--background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .form-group label{
-    font-weight: 600;
-    color: var(--text-primary);
+body {
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
 }
- .form-con{
-   margin-top: 150px;
-  }
-  .description ,.password-hint{
-color: var(--text-secondary);
+nav{
+margin-left:-20px ;
 }
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-con {
+  margin-top: 150px;
+  align-self: center;
+}
+
+.description,
+.password-hint {
+  color: var(--text-secondary);
+}
+
 .terms-checkbox {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    color: var(--text-primary);
-     margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  color: var(--text-primary);
+  margin-top: 20px;
 }
+
 .terms-checkbox #terms {
   transform: scale(.5);
   width: 10%;
   accent-color: var(--accent);
   /* margin-right: 5px; */
-    
+
 }
-.terms-checkbox a{
-    color: var(--accent);
-    font-weight: 600;
+
+.terms-checkbox a {
+  color: var(--accent);
+  font-weight: 600;
 }
-.submit-btn{
-    margin-top: 30px;
+
+.submit-btn {
+  margin-top: 30px;
 }
-.auth-footer{
-    color: var(--text-secondary);
-    text-align: center;
+
+.auth-footer {
+  color: var(--text-secondary);
+  text-align: center;
 }
-.auth-footer a{
-    color: var(--accent);
-}
+
+.auth-footer a {
+  color: var(--accent);
+} 
