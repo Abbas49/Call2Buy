@@ -36,8 +36,8 @@ An online marketplace platform for buying and selling used items. Users can list
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/pay-and-pray.git
-   cd pay-and-pray
+   git clone https://github.com/Abbas49/Web-Project.git
+   cd Web-Project
    ```
 
 2. Install dependencies
@@ -52,7 +52,7 @@ An online marketplace platform for buying and selling used items. Users can list
    JWT_SECRET=your_jwt_secret
    SUPABASE_URL=your_supabase_url
    SUPABASE_KEY=your_supabase_key
-   GOOGLE_API_KEY=your_google_api_key (if using AI features)
+   GEMINI_KEY=your_google_api_key (if using AI features)
    ```
 
 4. Set up the database
