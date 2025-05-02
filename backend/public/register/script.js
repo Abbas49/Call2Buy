@@ -28,7 +28,7 @@ form.addEventListener("submit", (event)=>{
         redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/api/v1/auth/register", requestOptions)
+    fetch(domain + "/api/v1/auth/register", requestOptions)
     .then(async (response) =>{
         let result = await response.json();
         result.status = response.status;

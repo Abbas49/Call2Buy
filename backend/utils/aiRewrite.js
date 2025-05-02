@@ -5,14 +5,10 @@ const aiRewrite = async (text)=>{
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",
     contents: `
-You are an expert in writing product descriptions for online marketplaces.
-Rewrite the following description to improve grammar, spelling, and clarity, while keeping the original meaning exactly the same.
-Do not add, invent, or assume any new information.
-Only output the improved description, nothing else.
+Improve the following used-item description to make it clearer, more engaging, and more persuasive—while keeping all of the original details. Do not add anything new or remove any facts; just enhance the language. Output **only** the improved description.
 
-Original description:
-    ${text}
-    `,
+“${text}”
+`,
   });
   return response.text;
 }

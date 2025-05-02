@@ -21,7 +21,7 @@
             method: 'GET',
             cache: 'no-store'
         };
-        fetch(domain, requestOptions)
+        fetch(domain + "/api/v1/username", requestOptions)
             .then(response => {
                 if (response.status != 200) {
                     throw new Error("User is not logged in");

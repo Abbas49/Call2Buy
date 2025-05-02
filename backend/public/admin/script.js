@@ -1,19 +1,17 @@
 async function addProduct(name, price, file){
+    const domain = window.location.origin;
     const formData = new FormData();
     formData.append("name", name);
     formData.append("price", price);
     formData.append("image", file);
     console.log(formData);
     let response;
-    await fetch("http://localhost:3000/addProduct", {
+    await fetch(domain + "/addProduct", {
         method: "POST",
         body: formData
     }).then((e)=> e.text()).then(e=> response=e);
     return response;
 }
-
-
-
 
 document.querySelector("form").addEventListener("submit", async (event) => {
     event.preventDefault();

@@ -36,7 +36,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/products", productRoutes);
 
-app.get("/", requireAuth , (req, res)=>{
+
+app.get("/", (req, res)=>{
+    res.redirect("/home");
+})
+app.get("/api/v1/username", requireAuth , (req, res)=>{
     res.send({message: req.user.full_name});
 })
 
