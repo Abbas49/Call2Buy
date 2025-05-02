@@ -81,6 +81,7 @@
         const phoneInput = document.getElementById("phone-input").value;
         const listProductBtn = document.getElementById("list-product-btn");
         listProductBtn.innerText = "Listing...";
+        listProductBtn.disabled = true;
 
         console.log('Images:', images);
         console.log('Title Input:', titleInput);
@@ -127,9 +128,11 @@
                 alert("Your product has been successfully listed on our marketplace. buyers can now view and purchase your item.");
                 window.location.href = domain + "/home";
                 listProductBtn.innerText = "List Your Product";
+                listProductBtn.disabled = false;
             })
             .catch(error => {
                 listProductBtn.innerText = "List Your Product";
+                listProductBtn.disabled = false;
                 alert(error.message);
                 console.log('error', error)
             });
