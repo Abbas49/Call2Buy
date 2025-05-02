@@ -72,6 +72,11 @@ export const login = async (req, res) =>{
 }
 
 export const logout = async (req, res)=>{
+    res.set({
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+    });
     res.clearCookie("token");
     res.json({message: "Done"});
 }
