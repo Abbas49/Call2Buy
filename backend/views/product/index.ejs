@@ -56,13 +56,13 @@
     <div class="right-container">
       <div class="price-card">
         <div class="proudct-price">
-          <h1><%= locals.price %>$</h1>
+          <h1><%= locals.price || "" %>$</h1>
         </div>
         <div class="proudct-title">
-          <h1> <%= locals.title %></h1>
+          <h1> <%= locals.title || "" %></h1>
         </div>
         <div class="listing-data">
-          listed at <%= locals.created_at.split("T")[0] %>
+          listed at <%= locals.created_at.split("T")[0] || "" %>
         </div>
       </div>
       <div class="seller-card">
@@ -73,8 +73,8 @@
         <div class="seller-profile">
 
           <div class="discription">
-            <h3><%= locals.users.full_name %></h3>
-            <p>Member scince <%= locals.users.created_at.split("-")[0] %></p>
+            <h3><%= locals.users ? locals.users.full_name || "" : "" %></h3>
+            <p>Member scince <%= locals.users ? locals.users.created_at.split("-")[0] || "" : "" %></p>
           </div>
           <div class="photo">
             <i class="fa-solid fa-user"></i>
@@ -83,8 +83,8 @@
         <div class="contact-btn">
           <button class="submit-btn">Contact the seller</button>
           <div class="num">
-            <p>You can contact <%= locals.users.full_name %> at:</p>
-            <p><%= locals.phone %></p>
+            <p>You can contact <%= locals.users ? locals.users.full_name || "" : "" %> at:</p>
+            <p><%= locals.phone || "" %></p>
           </div>
         </div>
         <div class="safty">
@@ -112,7 +112,7 @@
             const images = locals.images;
             if(images){
             for(let i = 0; i < images.length; i++){
-              result+=`<img src="${images[i]}" alt="Product image">`;
+              result+=`<img src="${images[i] || "https://placehold.co/600x400"}" alt="Product image">`;
             }
             }
           %>
@@ -122,7 +122,7 @@
       <div class="description">
         <h2>Description</h2>
         <hr>
-        <pre><%= locals.product_description %></pre>
+        <pre><%= locals.product_description || "" %></pre>
       </div>
       <div class="details">
         <h2>Details</h2>
@@ -131,19 +131,19 @@
           <table cellpadding="20px">
             <tr>
               <td>Condition</td>
-              <td> <%= locals.condition %></td>
+              <td> <%= locals.condition || "" %></td>
             </tr>
             <tr>
               <td>Category</td>
-              <td> <%= locals.categories[0] %></td>
+              <td> <%= locals.categories[0] || "" %></td>
             </tr>
             <!-- <tr>
               <td>Brand</td>
-              <td> <%= locals.brand %></td>
+              <td> <%= locals.brand || "" %></td>
             </tr> -->
             <tr>
               <td>Posted</td>
-              <td> <%= locals.created_at.split("T")[0] %></td>
+              <td> <%= locals.created_at.split("T")[0] || "" %></td>
             </tr>
           </table>
         </div>
