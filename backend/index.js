@@ -9,6 +9,7 @@ import { fileURLToPath } from "url"
 
 import authRoutes from "./routes/authRoutes.js"
 import productRoutes from "./routes/productRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
 import { requireAuth } from "./middlewares/cookieJwtAuth.js"
 import errorHandler from "./middlewares/errorHandler.js"
 import allowExternalImages from "./utils/allowExternalImages.js"
@@ -35,6 +36,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/products", productRoutes);
+app.use("/api/v1/users", userRoutes);
+
 
 
 app.get("/", (req, res)=>{

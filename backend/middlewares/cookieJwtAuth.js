@@ -12,6 +12,7 @@ export const requireAuth = async (req, res, next) =>{
             JWTerror = err;
             return decoded;
         });
+        console.log(decoded)
         if(JWTerror){
             throw createError("Unauthorized access. Please log in again.", 401);
         }
@@ -19,7 +20,9 @@ export const requireAuth = async (req, res, next) =>{
         if(!user){
             throw createError("User no longer exists", 400);
         }
-
+        user.iat = decoded.iat
+        user.exp = decoded.exp
+        user.expiresIn = decoded.exp-Math.floor(Date.now()/1000)
         req.user = user;
         next();
     } catch(err){

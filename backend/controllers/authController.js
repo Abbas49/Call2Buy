@@ -59,20 +59,17 @@ export const login = async (req, res) =>{
             user_id: user.user_id,
             email: user.email,
             full_name: user.full_name
-        }, process.env.JWT_SECRET, {expiresIn: "30d"})
-        
-        if(remember_me){
-            res.cookie("token", token, {
-                httpOnly: true, 
-                sameSite: "strict",
-                maxAge: 30 * 24 * 60 * 60 * 1000 // 30 day
-            });
-        }else{
-            res.cookie("token", token, {
-                httpOnly: true,
-                sameSite: "strict"
-            });
+        }, process.env.JWT_SECRET, {expiresIn: (remember_me?"30d":"5h")})
+
+        const cookieOptions = {
+            httpOnly: true, 
+            sameSite: "strict",
         }
+        if(remember_me)
+            cookieOptions.maxAge = 30 * 24 * 60 * 60 * 1000 // 30 day
+
+        res.cookie("token", token, cookieOptions);
+
         res.status(200).json({message: "Login successful!"});
     }catch(err){
         res.status(err.statusCode || 500).json({message: err.message});
