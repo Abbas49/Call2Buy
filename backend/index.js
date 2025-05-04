@@ -10,6 +10,7 @@ import { fileURLToPath } from "url"
 import authRoutes from "./routes/authRoutes.js"
 import productRoutes from "./routes/productRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
+import viewRouter from "./routes/viewRoutes.js"
 import { requireAuth } from "./middlewares/cookieJwtAuth.js"
 import errorHandler from "./middlewares/errorHandler.js"
 import allowExternalImages from "./utils/allowExternalImages.js"
@@ -37,6 +38,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/users", userRoutes);
+app.use("/", viewRouter)
 
 
 
@@ -47,29 +49,8 @@ app.get("/api/v1/username", requireAuth , (req, res)=>{
     res.send({message: req.user.full_name});
 })
 
+
 import { supabase } from "./config/db.js"
-import createError from "./utils/createError.js"
-app.get("/products/:id", async (req, res, next)=>{
-    try{
-    const product_id = req.params.id;
-    console.log(product_id)
-    const {data, error} = await supabase.from("products").select(`*, users(full_name, created_at), categories(category_name), images(image_url)`).eq("product_id", product_id).single();
-    data.categories = data.categories.map((e) => e.category_name);
-    data.images = data.images.map((e) => e.image_url);
-
-    if(error){
-        throw createError(error, 500);
-    }
-    console.log(data);
-    if(!data){
-        throw createError("Invalid product ID", 400);
-    }
-    res.render("product/index", data);
-    }catch (err){
-        next(err)
-    }
-})
-
 app.get("/api/v1/categories", async (req, res, next)=>{
     try{
         const {data, err} = await supabase.from("categories").select();

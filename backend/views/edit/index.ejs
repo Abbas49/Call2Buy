@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/nav.css" />
-  <link rel="stylesheet" href="../css/form-styles.css" />
-  <link rel="stylesheet" href="../css/footer.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="../css/basics.css" />
-  <link rel="stylesheet" href="../css/normlize.css" />
-  <link rel="stylesheet" href="../css/all.min.css" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/form-styles.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/sell-item/style.css" />
+  <link rel="stylesheet" href="/css/basics.css" />
+  <link rel="stylesheet" href="/css/normlize.css" />
+  <link rel="stylesheet" href="/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -52,11 +52,11 @@
   </nav>
   <div class="container">
     <form action="">
-      <h1 class="title">sell Your Product</h1>
+      <h1 class="title">Edit Your Product</h1>
       <p class="container-p">
         Fill out the form below to list your item for sale on Pay&pray.
       </p>
-      <div class="imgs">
+      <div class="imgs" style="display: none;">
         <h3>📸 Product Images</h3>
         <p>
           Upload up to 4 images of your product. First image will be the main
@@ -78,33 +78,29 @@
 
         <div class="product-title" id="same">
           <label for="">Product Title</label>
-          <input type="text" placeholder="Enter a descriptive title for your product" class="input-proudct" id="title-input" />
+          <input type="text" placeholder="Enter a descriptive title for your product" class="input-proudct"
+            id="title-input" value="<%= locals.title %>" />
         </div>
         <div class="product-discription" id="same">
           <label for="textarea">Product Description</label>
         </div>
         <div class="ai">
           <textarea name="" id="textarea" class="input-proudct"
-            placeholder="Describe your product in detail - condition,features,reason"></textarea>
+            placeholder="Describe your product in detail - condition,features,reason"><%= locals.product_description %></textarea>
           <button type="button" class="ai-btn" id="ai-btn">✨ Ai Help</button>
         </div>
         <div class="product-Category" id="same">
           <label for="">Product Category</label>
-          <select class="input-proudct" id="select-category" required>
+          <select class="input-proudct" id="select-category" data-default="<%= locals.categories[0] %>" required>
             <option value="" disabled selected>Select product category</option>
-            <!-- <option value="Electronics">Electronics</option>
-              <option value="Cars">Cars</option>
-              <option value="Clothes">Clothes</option>
-              <option value="Tools">Tools</option>
-              <option value="Books">Books</option>
-              <option value="Sports">Sports</option>
-              <option value="Art">Art</option>
-              <option value="other">other</option> -->
+            <% dbCategories.forEach(category => { %>
+              <option value="<%= category %>"><%= category %></option>
+            <% }); %>
           </select>
         </div>
         <div class="product-condition" id="same">
           <label for="">Product Condition</label>
-          <select class="input-proudct" id="select-condition" required>
+          <select class="input-proudct" id="select-condition" data-default="<%= locals.condition %>" required>
             <option value="" disabled selected>Select product condition</option>
             <option value="New">New</option>
             <option value="Used-like New">Used-like New</option>
@@ -115,7 +111,8 @@
         </div>
         <div class="product-price" id="same">
           <label for="">Price</label>
-          <input type="number" placeholder="Enter Your Price" class="input-proudct" step="0.01" id="price-input" required />
+          <input value="<%= locals.price %>" type="number" placeholder="Enter Your Price" class="input-proudct" step="0.01" id="price-input"
+            required />
         </div>
       </div>
       <div class="Seller-Contact-Information">
@@ -123,11 +120,13 @@
 
         <div class="address" id="same">
           <label for="">Address</label>
-          <input type="text" placeholder="Enter your address or genral location" class="input-proudct" id="address-input" required />
+          <input value="<%= locals.product_address %>" type="text" placeholder="Enter your address or genral location" class="input-proudct"
+            id="address-input" required />
         </div>
         <div class="phone-num" id="same">
           <label for="">Phone Number</label>
-          <input type="text" placeholder="Enter your address or genral location" class="input-proudct" pattern="[+[0-9]]*" id="phone-input" required />
+          <input value="<%= locals.phone %>" type="text" placeholder="Enter your address or genral location" class="input-proudct"
+            pattern="[+[0-9]]*" id="phone-input" required />
         </div>
       </div>
       <button class="submit-btn" id="list-product-btn">List Your Product</button>
@@ -157,11 +156,11 @@
     </div>
   </footer>
 
-  <script src="../js/nav.js"></script>
-  <script src="listItem.js"></script>
-  <script src="script.js"></script>
-  <script src="categories.js"></script>
-  <script src="../js/toggle-theme.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/sell-item/editProduct.js"></script>
+  <script src="/sell-item/script.js"></script>
+  <script src="/js/toggle-theme.js"></script>
+  <script src="/sell-item/selectDefault.js"></script>
 </body>
 
 </html>
