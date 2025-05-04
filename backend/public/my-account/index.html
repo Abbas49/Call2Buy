@@ -80,13 +80,60 @@
       <h2>Account Information</h2>
       <button>Edit Info</button>
     </div>
+    <div class="hidden" style="display: none;">
+    <form action=""class="edit-form">
+    <div class="edit-info">
+      <div class="edit-item">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" value="" />  
+      </div>
+      <div class="edit-item">
+        <label for="email">Email</label>
+        <input type="email" id="email" value="">
+    </div>
+      <div class="edit-item">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" value="" />
+      </div>
+      <div class="edit-item">
+        <label for="location">Location</label>
+        <input type="text" id="location" value="" />
+      </div>
+    </div>
+    <div class="edit-buttons">
+      <button type="button" class="cancel-button">Cancel</button>
+      <button type="submit" class="save-button">Save Changes</button>
+    </div>
+  </form>
+  <hr>
+  <div class="ubdate-password">
+    <h2>Update Password</h2>
+    <form action="" class="update-password-form">
+      <div class="password-item">
+        <label for="current-password">Current Password</label>
+        <input type="password" id="current-password" required />
+      </div>
+      <div class="new-password">
+      <div class="password-item">
+        <label for="new-password">New Password</label>
+        <input type="password" id="new-password" required />
+      </div>
+      <div class="password-item">
+        <label for="confirm-password">Confirm New Password</label>
+        <input type="password" id="confirm-password" required />
+      </div>
+    </div>
+      <button type="submit" class="update-button">Update Password</button>
+    </form>
+  </div>
+</div>
       <div class="info-item">
         <div class="items">
         <label for="fullname">Full Name</label>
         <p>John Doe</p>
       </div>
       
-      <div class="items">
+      <div class="items" >
         <label for="email">Email</label>
         <p>john.doe@example.com</p>
       </div>

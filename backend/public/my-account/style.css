@@ -1,25 +1,29 @@
-body{
+body {
     background-color: var(--background);
     padding: 20px;
 }
-nav{
+
+nav {
     margin-left: -20px;
 }
-.container{
+
+.container {
     margin: 100px auto;
     display: flex;
     flex-direction: column;
     max-width: 1100px;
     justify-self: start;
 }
-.container .profile{
-    margin:20px 0px 20px;
+
+.container .profile {
+    margin: 20px 0px 20px;
     color: white;
     display: flex;
     gap: 10px;
     align-self: flex-start;
 }
-.container .profile i{
+
+.container .profile i {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -30,13 +34,16 @@ nav{
     font-size: 40px;
     color: var(--accent);
 }
-.container .profile h3{
-color: var(--text-primary);
+
+.container .profile h3 {
+    color: var(--text-primary);
 }
-.container .profile p{
-color: var(--text-secondary);
+
+.container .profile p {
+    color: var(--text-secondary);
 }
-.container .pages button{
+
+.container .pages button {
     background-color: var(--background);
     border: none;
     padding: 10px 20px;
@@ -45,83 +52,209 @@ color: var(--text-secondary);
     cursor: pointer;
 
 }
-.container .pages button:hover{
+
+.container .pages button:hover {
     border-bottom: 3px solid var(--card-border);
     color: var(--text-primary);
 }
-.container .account-info{
+
+.container .account-info {
     background-color: var(--card-bg);
     display: flex;
     flex-direction: column;
-    border-radius:20px ;
+    border-radius: 20px;
     margin-top: 20px;
 }
-.container .account-info .edit{
+
+.container .account-info .edit {
     display: flex;
     justify-content: space-between;
     margin: 20px;
 }
-.container .account-info .edit h2{
-color: var(--text-primary);
+
+.container .account-info .edit h2 {
+    color: var(--text-primary);
 }
-.container .account-info .edit button{
-background-color: var(--input-bg);
-border: none;
-border-radius: 8px;
-padding: 10px 20px;
-color: var(--text-secondary);
-height: 35px;
-cursor: pointer;
-transition: .3s;
+
+.container .account-info .edit button {
+    background-color: var(--input-bg);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: var(--text-secondary);
+    height: 35px;
+    cursor: pointer;
+    transition: .3s;
 }
-.container .account-info .edit button:hover{
+
+.container .account-info .edit button:hover {
     background-color: var(--accent-light);
     color: var(--accent);
     transform: translateY(-5px);
 }
-.container .account-info .info-item{
-display: grid;
-grid-template-columns:repeat(3, 1fr);
-margin: 0px 0px 0px 20px;
+
+.container .account-info .info-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0px 0px 0px 20px;
 
 }
-.container .account-info .info-item .items{
-margin-bottom: 30px;
+
+.container .account-info .info-item .items {
+    margin-bottom: 30px;
 }
-.container .account-info .info-item label{
-color: var(--text-secondary);
+
+.container .account-info .info-item label {
+    color: var(--text-secondary);
 }
-.container .account-info .info-item p{
-color: var(--text-primary);
-font-weight: 600;
+
+.container .account-info .info-item p {
+    color: var(--text-primary);
+    font-weight: 600;
 }
-hr{
+
+hr {
     width: 100%;
 }
-.container .delete-zone{
+
+.container .delete-zone {
     display: flex;
-flex-direction: column;
+    flex-direction: column;
     margin: 20px;
     background-color: var(--card-bg);
     border-radius: 20px;
     padding: 20px;
     padding-top: 50px;
 }
-.container .delete-zone h2{
+
+.container .delete-zone h2 {
     color: #ef4444;
 }
-.container .delete-zone p{
-color: var(--text-secondary);
-margin: 10px;
+
+.container .delete-zone p {
+    color: var(--text-secondary);
+    margin: 10px;
 }
-.container .delete-zone button{
-    background-color:rgba(239, 68, 68, 0.1);
+
+.container .delete-zone button {
+    background-color: rgba(239, 68, 68, 0.1);
     border: 2px solid rgba(239, 68, 68, 0.3);
     border-radius: 8px;
-    padding:10px 20px;
+    padding: 10px 20px;
     color: #ef4444;
     cursor: pointer;
     transition: .3s;
-    margin-top: 20px; 
+    margin-top: 20px;
 
+}
+.container .edit-info{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0px 0px 20px 20px;
+    gap: 20px;
+    padding: 20px;
+}
+.container .edit-info .edit-item{
+display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-primary);
+}
+.container .edit-info .edit-item input{
+    background-color: var(--input-bg);
+    border: 2px solid var(--input-border);
+    height: 40px;
+    border-radius: 15px;
+    color: var(--text-primary);
+    padding: 10px;
+    transition: .3s;
+}
+.container .edit-info .edit-item input:focus{
+    outline: none;
+    border-color: var(--accent);
+}
+.container .account-info form .edit-buttons {
+    display: flex;
+    margin: 0px 0px 30px 40px;
+    gap: 20px;
+}
+.container .account-info form .edit-buttons  button:first-child{
+    background-color: var(--input-bg);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: .3s;
+
+}
+.container .account-info form .edit-buttons  button:first-child:hover{
+    background-color: var(--accent-light);
+    color: var(--accent);
+    transform: translateY(-5px);
+}
+.container .account-info form .edit-buttons  button:last-child{
+    background-color: var(--accent);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: .3s;
+}
+.container .account-info form .edit-buttons  button:last-child:hover{
+    background-color: var(--accent-hover);
+    transform: translateY(-5px);
+}
+
+.container .ubdate-password{
+    display: grid;
+}
+.container .ubdate-password h2{
+margin: 20px;
+color: var(--text-primary);
+}
+.container .update-password-form .password-item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-primary);
+    margin: 20px;
+    width: 90%;
+}
+.container .update-password-form .password-item input{
+    background-color: var(--input-bg);
+    border: 2px solid var(--input-border);
+    height: 50px;
+    border-radius: 15px;
+    color: var(--text-primary);
+    padding: 10px;
+    width: 100%;
+    align-self: center;
+    transition: .3s;
+
+}
+.container .update-password-form .password-item input:focus{
+    outline: none;
+    border-color: var(--accent);
+}
+.container .ubdate-password .new-password{
+display: flex;
+}
+.container .update-password-form button{
+    background-color: var(--accent);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: .3s;
+    margin: 20px;
+}
+.container .update-password-form button:hover{
+    background-color: var(--accent-hover);
+    transform: translateY(-5px);
+}
+.hidden hr{
+    width: 90%;
 }
