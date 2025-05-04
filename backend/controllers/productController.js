@@ -107,6 +107,9 @@ export const createProduct = async (req, res, next)=>{
 export const updateProduct = async (req, res, next)=>{
     try{
         const {product_id, product_description, product_address, title, price, phone, visibility, condition, categories} = req.body;
+        if(!product_id){
+            throw createError("Product ID is required to update the product.")
+        }
         const user = req.user;
 
         await supabase.from("product_categories").delete().eq("product_id", product_id);
@@ -146,7 +149,7 @@ export const updateProduct = async (req, res, next)=>{
             throw createError(updateError.message, 500);
         }
 
-        res.json({message:"done"});
+        res.json({message: "Product updated successfully."});
     }catch(err){
         next(err);
     }
