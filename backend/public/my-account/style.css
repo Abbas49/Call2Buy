@@ -83,6 +83,7 @@ nav {
     padding: 10px 20px;
     color: var(--text-secondary);
     height: 35px;
+    width: 150px;
     cursor: pointer;
     transition: .3s;
 }
@@ -257,4 +258,25 @@ display: flex;
 }
 .hidden hr{
     width: 90%;
+}
+@media (max-width:860px) {
+.container .account-info .info-item {
+grid-template-columns: repeat(2, 1fr);
+}
+.container .edit-info{
+grid-template-columns: repeat(2, 1fr);
+}
+    
+}
+@media (max-width:610px) {
+.container .account-info .info-item {
+grid-template-columns:1fr;
+}
+.container .edit-info{
+grid-template-columns:1fr;
+}
+.container .ubdate-password .new-password{
+flex-direction: column;
+}
+    
 }
