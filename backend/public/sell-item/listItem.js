@@ -13,7 +13,7 @@
         const addressInput = document.getElementById("address-input").value;
         const phoneInput = document.getElementById("phone-input").value;
         const listProductBtn = document.getElementById("list-product-btn");
-        listProductBtn.innerText = "Listing...";
+        listProductBtn.innerText = "Editing...";
         listProductBtn.disabled = true;
 
         console.log('Images:', images);
@@ -60,11 +60,11 @@
                 }
                 alert("Your product has been successfully listed on our marketplace. buyers can now view and purchase your item.");
                 window.location.href = domain + "/home";
-                listProductBtn.innerText = "List Your Product";
+                listProductBtn.innerText = "Edit Your Product";
                 listProductBtn.disabled = false;
             })
             .catch(error => {
-                listProductBtn.innerText = "List Your Product";
+                listProductBtn.innerText = "Edit Your Product";
                 listProductBtn.disabled = false;
                 alert(error.message);
                 console.log('error', error)
