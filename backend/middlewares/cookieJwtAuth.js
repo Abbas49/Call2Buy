@@ -12,7 +12,7 @@ export const requireAuth = async (req, res, next) =>{
             JWTerror = err;
             return decoded;
         });
-        console.log(decoded)
+
         if(JWTerror){
             throw createError("Unauthorized access. Please log in again.", 401);
         }

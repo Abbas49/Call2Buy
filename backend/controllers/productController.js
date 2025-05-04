@@ -48,6 +48,11 @@ export const createProduct = async (req, res, next)=>{
         const {product_description, product_address, title, price, phone, visibility, condition, categories} = JSON.parse(req.body.data);
         const seller = req.user.user_id;
         const images = req.files;
+
+        if(!price || !title){
+            throw createError("Missing required information: 'price' and 'title' must be included.", 400)
+        }
+
         const product = await supabase.from("products").insert({
             seller: seller,
             product_description: product_description,
@@ -58,13 +63,20 @@ export const createProduct = async (req, res, next)=>{
             visibility: visibility,
             condition: condition
         }).select();
+
+        if(product.error){
+            throw createError(product.error, 500);
+        }
         const product_id = product.data[0].product_id;
         let product_categories = [];
         categories.forEach(category=> {
             const id = req.body.dbCategories.find((obj)=> obj.category_name === category).category_id;
             product_categories.push({product_id: product_id, category_id: id})
         });
-        await supabase.from("product_categories").insert(product_categories);
+        const {error: categoriesError} = await supabase.from("product_categories").insert(product_categories);
+        if(categoriesError){
+            throw createError(categories.message, 500);
+        }
 
         // upload images
         let URLs = [];
@@ -92,10 +104,74 @@ export const createProduct = async (req, res, next)=>{
     }
 }
 
-export const updateProduct = async (req, res)=>{
+export const updateProduct = async (req, res, next)=>{
+    try{
+        const {product_id, product_description, product_address, title, price, phone, visibility, condition, categories} = req.body;
+        const user = req.user;
 
+        await supabase.from("product_categories").delete().eq("product_id", product_id);
+        let product_categories = [];
+        categories.forEach(category=> {
+            const id = req.body.dbCategories.find((obj)=> obj.category_name === category).category_id;
+            product_categories.push({product_id: product_id, category_id: id})
+        });
+        const {error: categoriesError} = await supabase.from("product_categories").insert(product_categories);
+        if(categoriesError){
+            throw createError(categories.message, 500);
+        }
+
+        const {data: product, error: selectError} = await supabase.from("products").select().eq("product_id", product_id).single();
+        if(selectError){
+            if(selectError.details === "The result contains 0 rows"){
+                throw createError("The product you are trying to delete does not exist or has already been removed.", 404);
+            }
+            throw createError(selectError.message, 500);
+        }
+
+        if(product.seller != user.user_id){
+            throw createError("Unauthorized: You do not have permission to update this product.", 401);
+        }
+
+        const {data: updatedProduct, error: updateError} = await supabase.from("products").update({
+            product_description: product_description || product.product_description,
+            product_address: product_address || product.product_address,
+            title: title || product.title,
+            price: price || product.price,
+            phone: phone ||  product.phone,
+            visibility: visibility || product.visibility,
+            condition: condition || product.condition 
+        }).eq("product_id", product_id);
+
+        if(updateError){
+            throw createError(updateError.message, 500);
+        }
+
+        res.json({message:"done"});
+    }catch(err){
+        next(err);
+    }
 }
 
-export const deleteProduct = async (req, res)=>{
+export const deleteProduct = async (req, res, next)=>{
+    try{
+        const {product_id} = req.body;
+        const user = req.user;
 
+        const {data: product, error} = await supabase.from("products").select().eq("product_id", product_id).single();
+        if(error){
+            if(error.details == "The result contains 0 rows"){
+                throw createError("The product you are trying to delete does not exist or has already been removed.", 404);
+            }
+            throw createError(error.message, 500);
+        }
+
+        if(product.seller !== user.user_id){
+            throw createError("Unauthorized: You do not have permission to delete this product.", 401);
+        }
+
+        const {data, error: deleteError} = await supabase.from("products").delete().eq("product_id", product_id);
+        res.status(200).json({message: "Product successfully deleted."})
+    }catch(err){
+        next(err);
+    }
 }
