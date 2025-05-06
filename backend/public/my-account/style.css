@@ -43,6 +43,16 @@ nav {
     color: var(--text-secondary);
 }
 
+.primary-button{
+    background-color: var(--accent);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: .3s;
+}
+
 .container .pages button {
     background-color: var(--background);
     border: none;
@@ -121,7 +131,7 @@ hr {
 .container .delete-zone {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 20px 0px;
     background-color: var(--card-bg);
     border-radius: 20px;
     padding: 20px;
@@ -148,20 +158,23 @@ hr {
     margin-top: 20px;
 
 }
-.container .edit-info{
+
+.container .edit-info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 0px 0px 20px 20px;
     gap: 20px;
     padding: 20px;
 }
-.container .edit-info .edit-item{
-display: flex;
+
+.container .edit-info .edit-item {
+    display: flex;
     flex-direction: column;
     gap: 10px;
     color: var(--text-primary);
 }
-.container .edit-info .edit-item input{
+
+.container .edit-info .edit-item input {
     background-color: var(--input-bg);
     border: 2px solid var(--input-border);
     height: 40px;
@@ -170,16 +183,19 @@ display: flex;
     padding: 10px;
     transition: .3s;
 }
-.container .edit-info .edit-item input:focus{
+
+.container .edit-info .edit-item input:focus {
     outline: none;
     border-color: var(--accent);
 }
+
 .container .account-info form .edit-buttons {
     display: flex;
     margin: 0px 0px 30px 40px;
     gap: 20px;
 }
-.container .account-info form .edit-buttons  button:first-child{
+
+.container .account-info form .edit-buttons button:first-child {
     background-color: var(--input-bg);
     border: none;
     border-radius: 8px;
@@ -189,12 +205,14 @@ display: flex;
     transition: .3s;
 
 }
-.container .account-info form .edit-buttons  button:first-child:hover{
+
+.container .account-info form .edit-buttons button:first-child:hover {
     background-color: var(--accent-light);
     color: var(--accent);
     transform: translateY(-5px);
 }
-.container .account-info form .edit-buttons  button:last-child{
+
+.container .account-info form .edit-buttons button:last-child {
     background-color: var(--accent);
     border: none;
     border-radius: 8px;
@@ -203,19 +221,22 @@ display: flex;
     cursor: pointer;
     transition: .3s;
 }
-.container .account-info form .edit-buttons  button:last-child:hover{
+
+.container .account-info form .edit-buttons button:last-child:hover {
     background-color: var(--accent-hover);
     transform: translateY(-5px);
 }
 
-.container .ubdate-password{
+.container .ubdate-password {
     display: grid;
 }
-.container .ubdate-password h2{
-margin: 20px;
-color: var(--text-primary);
+
+.container .ubdate-password h2 {
+    margin: 20px;
+    color: var(--text-primary);
 }
-.container .update-password-form .password-item{
+
+.container .update-password-form .password-item {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -223,7 +244,8 @@ color: var(--text-primary);
     margin: 20px;
     width: 90%;
 }
-.container .update-password-form .password-item input{
+
+.container .update-password-form .password-item input {
     background-color: var(--input-bg);
     border: 2px solid var(--input-border);
     height: 50px;
@@ -235,14 +257,17 @@ color: var(--text-primary);
     transition: .3s;
 
 }
-.container .update-password-form .password-item input:focus{
+
+.container .update-password-form .password-item input:focus {
     outline: none;
     border-color: var(--accent);
 }
-.container .ubdate-password .new-password{
-display: flex;
+
+.container .ubdate-password .new-password {
+    display: flex;
 }
-.container .update-password-form button{
+
+.container .update-password-form button {
     background-color: var(--accent);
     border: none;
     border-radius: 8px;
@@ -252,31 +277,129 @@ display: flex;
     transition: .3s;
     margin: 20px;
 }
-.container .update-password-form button:hover{
+
+.container .update-password-form button:hover {
     background-color: var(--accent-hover);
     transform: translateY(-5px);
 }
-.hidden hr{
+
+.hidden hr {
     width: 90%;
 }
+
 @media (max-width:860px) {
-.container .account-info .info-item {
-grid-template-columns: repeat(2, 1fr);
+    .container .account-info .info-item {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container .edit-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
-.container .edit-info{
-grid-template-columns: repeat(2, 1fr);
-}
-    
-}
+
 @media (max-width:610px) {
-.container .account-info .info-item {
-grid-template-columns:1fr;
+    .container .account-info .info-item {
+        grid-template-columns: 1fr;
+    }
+
+    .container .edit-info {
+        grid-template-columns: 1fr;
+    }
+
+    .container .ubdate-password .new-password {
+        flex-direction: column;
+    }
+
 }
-.container .edit-info{
-grid-template-columns:1fr;
+
+
+.my-products-section{
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    margin-top: 20px;
 }
-.container .ubdate-password .new-password{
-flex-direction: column;
+
+.my-products-section .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
-    
+
+.my-products-section .header h2{
+    color: var(--text-primary);
+}
+
+.products-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-item{
+    display: flex ;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 95%;
+    background-color: var(--card-bg);
+    /* height: 450px; */
+    height: fit-content;
+    border-radius: 20px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    border: 1px solid var(--card-border);
+    height: 98%;
+    overflow: hidden;
+}
+
+.product-item img{
+    height: 220px;
+    height: 100%;
+    width: 100%;
+    border-radius: 10% 10% 0 0;
+    object-fit: contain;
+    background-color: var(--background);
+}
+
+.product-item h3{
+    font-size: 20px;
+    margin: 10px;
+    color: var(--text-primary);
+}
+
+.product-item p{
+    font-size: 17px;
+    margin: 10px;
+    color: var(--text-primary);
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.product-item button{
+    width: 50%;
+}
+
+
+.edit-product-button{
+    background-color: var(--accent-light);
+    color: var(--accent);
+}
+.delete-product-button{
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444; 
+}
+
+@media (max-width: 370px) {
+    .products-list{
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -71,94 +72,162 @@
       </div>
     </div>
     <div class="pages">
-      <button>Profile</button>
-      <button>My Products</button>
+      <button id="profile-page-btn">Profile</button>
+      <button id="my-products-page-btn">My Products</button>
     </div>
     <hr>
-    <div class="account-info">
-      <div class="edit">
-      <h2>Account Information</h2>
-      <button>Edit Info</button>
-    </div>
-    <div class="hidden" style="display: none;">
-    <form action=""class="edit-form">
-    <div class="edit-info">
-      <div class="edit-item">
-        <label for="fullname">Full Name</label>
-        <input type="text" id="fullname" value="" />  
-      </div>
-      <div class="edit-item">
-        <label for="email">Email</label>
-        <input type="email" id="email" value="">
-    </div>
-      <div class="edit-item">
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" value="" />
-      </div>
-      <div class="edit-item">
-        <label for="location">Location</label>
-        <input type="text" id="location" value="" />
-      </div>
-    </div>
-    <div class="edit-buttons">
-      <button type="button" class="cancel-button">Cancel</button>
-      <button type="submit" class="save-button">Save Changes</button>
-    </div>
-  </form>
-  <hr>
-  <div class="ubdate-password">
-    <h2>Update Password</h2>
-    <form action="" class="update-password-form">
-      <div class="password-item">
-        <label for="current-password">Current Password</label>
-        <input type="password" id="current-password" required />
-      </div>
-      <div class="new-password">
-      <div class="password-item">
-        <label for="new-password">New Password</label>
-        <input type="password" id="new-password" required />
-      </div>
-      <div class="password-item">
-        <label for="confirm-password">Confirm New Password</label>
-        <input type="password" id="confirm-password" required />
-      </div>
-    </div>
-      <button type="submit" class="update-button">Update Password</button>
-    </form>
-  </div>
-</div>
-      <div class="info-item">
-        <div class="items">
-        <label for="fullname">Full Name</label>
-        <p>John Doe</p>
-      </div>
-      
-      <div class="items" >
-        <label for="email">Email</label>
-        <p>john.doe@example.com</p>
-      </div>
-      <div class="items">
-        <label for="phone">Phone</label>
-        <p>+1 555-123-4567</p>
-      </div>
-      <div class="items">
-        <label for="location">Location</label>
-        <p>New York, NY</p>
-      </div>
-    </div>
-    </div>
-<div class="delete-zone">
-  <hr>
-  <div class="delete-account">
-    <h2>Delete Account</h2>
-    <p>Deleting your account will permanently remove all your data, including your profile information and all product listings. This action cannot be undone.</p>
-    <button class="delete-button">🗑️ Delete Account</button>
-</div>
+    <div class="profile-section">
+      <div class="account-info">
+        <div class="edit">
+          <h2>Account Information</h2>
+          <button>Edit Info</button>
+        </div>
+        <div class="hidden" style="display: none;">
+          <form action="" class="edit-form">
+            <div class="edit-info">
+              <div class="edit-item">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="full-name-input" value="" />
+              </div>
+              <div class="edit-item">
+                <label for="email">Email</label>
+                <input type="email" id="email-input" value="">
+              </div>
+              <div class="edit-item">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone-input" value="" />
+              </div>
+              <div class="edit-item">
+                <label for="location">Location</label>
+                <input type="text" id="location-input" value="" />
+              </div>
+            </div>
+            <div class="edit-buttons">
+              <button type="button" class="cancel-button" id="cancel-btn">Cancel</button>
+              <button type="submit" class="save-button" id="save-btn">Save Changes</button>
+            </div>
+          </form>
+          <hr>
+          <div class="ubdate-password" id="update-password-btn">
+            <h2>Update Password</h2>
+            <form action="" class="update-password-form">
+              <div class="password-item">
+                <label for="current-password">Current Password</label>
+                <input type="password" id="current-password" required />
+              </div>
+              <div class="new-password">
+                <div class="password-item">
+                  <label for="new-password">New Password</label>
+                  <input type="password" id="new-password" required />
+                </div>
+                <div class="password-item">
+                  <label for="confirm-password">Confirm New Password</label>
+                  <input type="password" id="confirm-password" required />
+                </div>
+              </div>
+              <button type="submit" class="update-button">Update Password</button>
+            </form>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="items">
+            <label for="fullname">Full Name</label>
+            <p id="full-name">John Doe</p>
+          </div>
 
+          <div class="items">
+            <label for="email">Email</label>
+            <p id="email">john.doe@example.com</p>
+          </div>
+          <div class="items">
+            <label for="phone">Phone</label>
+            <p id="phone">+1 555-123-4567</p>
+          </div>
+          <div class="items">
+            <label for="location">Location</label>
+            <p id="location">New York, NY</p>
+          </div>
+        </div>
+      </div>
+      <div class="delete-zone">
+        <hr>
+        <div class="delete-account">
+          <h2>Delete Account</h2>
+          <p>Deleting your account will permanently remove all your data, including your profile information and all
+            product listings. This action cannot be undone.</p>
+          <button class="delete-button">🗑️ Delete Account</button>
+        </div>
+
+      </div>
+    </div>
+  <div class="my-products-section" style="display: none;">
+    <div class="header">
+      <h2>My Products</h2>
+      <button class="add-product-button primary-button">+ Add Product</button>
+    </div>
+    <div class="products-list">
+      <div class="product-item">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&h=350&fit=crop" alt="Product 1" />
+        <h3>Product 1</h3>
+        <p>$100</p>
+        <div class="buttons-container">
+          <button class="edit-product-button primary-button">Edit</button>
+          <button class="delete-product-button primary-button">Delete</button>
+        </div>
+      </div>
+      <div class="product-item">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&h=350&fit=crop" alt="Product 1" />
+        <h3>Product 1</h3>
+        <p>$100</p>
+        <div class="buttons-container">
+          <button class="edit-product-button primary-button">Edit</button>
+          <button class="delete-product-button primary-button">Delete</button>
+        </div>
+      </div>
+      <div class="product-item">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&h=350&fit=crop" alt="Product 1" />
+        <h3>Product 1</h3>
+        <p>$100</p>
+        <div class="buttons-container">
+          <button class="edit-product-button primary-button">Edit</button>
+          <button class="delete-product-button primary-button">Delete</button>
+        </div>
+      </div>
+      <div class="product-item">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&h=350&fit=crop" alt="Product 1" />
+        <h3>Product 1</h3>
+        <p>$100</p>
+        <div class="buttons-container">
+          <button class="edit-product-button primary-button">Edit</button>
+          <button class="delete-product-button primary-button">Delete</button>
+        </div>
+      </div>
+      <div class="product-item">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&h=350&fit=crop" alt="Product 1" />
+        <h3>Product 1</h3>
+        <p>$100</p>
+        <div class="buttons-container">
+          <button class="edit-product-button primary-button">Edit</button>
+          <button class="delete-product-button primary-button">Delete</button>
+        </div>
+      </div>
+      <div class="product-item">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&h=350&fit=crop" alt="Product 1" />
+        <h3>Product 1</h3>
+        <p>$100</p>
+        <div class="buttons-container">
+          <button class="edit-product-button primary-button">Edit</button>
+          <button class="delete-product-button primary-button">Delete</button>
+        </div>
+      </div>
+
+    </div>
   </div>
-  
-   
-<!-- <footer>
+
+
+
+
+  <!-- <footer>
   <div class="contact">
     <div class="About">
       <h3>About Us</h2>
@@ -181,8 +250,9 @@
     <p>&copy; 2025 Used Market. All rights reserved.</p>
   </div>
 </footer> -->
-<script src="../js/toggle-theme.js"></script>
+  <script src="../js/toggle-theme.js"></script>
   <script src="../js/nav.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
