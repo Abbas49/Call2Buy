@@ -12,7 +12,7 @@
         if (name) {
             navLoginBtn.style.display = "none";
             navRegisterBtn.style.display = "none";
-            navUsername.innerText = `👤${name}`
+            navUsername.querySelector('a').innerText = `👤${name}`
             navLogoutBtn.style.display = "flex";
             navUsername.style.display = "flex";
         }
@@ -32,7 +32,7 @@
                 const name = result.message.split(" ")[0];
                 navLoginBtn.style.display = "none";
                 navRegisterBtn.style.display = "none";
-                navUsername.innerText = `👤${name}`
+                navUsername.querySelector('a').innerText = `👤${name}`
                 navLogoutBtn.style.display = "flex";
                 navUsername.style.display = "flex";
                 sessionStorage.setItem("UserName", name);
