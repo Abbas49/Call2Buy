@@ -56,3 +56,37 @@ export const editProductPage = async (req, res, next)=>{
         next(err)
     }
 }
+
+export const myAccountPage = async (req, res, next) => {
+    try {
+        const user = req.user;
+        if(!user){
+            res.redirect("/login");
+            return;
+        }
+        const { data: userData, error } = await supabase.from("users").select(`*`).eq("user_id", user.user_id).single();
+        if(error){
+            throw createError(error.message, 500);
+        }
+        delete userData.password_hash;
+
+        const { data: userProducts, error: errorProducts } = await supabase.from("products").select(`*, images(image_url)`).eq("seller", user.user_id);
+        if(errorProducts){
+            throw createError(errorProducts.message, 500);
+        }
+        userProducts.forEach((product)=>{
+            product.images = product.images.map((e) => e.image_url);
+            product.mainImage = product.images[0];
+        })
+
+
+        const data = {
+            user: userData,
+            products: userProducts
+        }
+        console.log(data);
+        res.render("my-account/index", data);
+    } catch (err) {
+        next(err)
+    }
+}
