@@ -3,6 +3,7 @@ import multer from "multer";
 import bodyParser from "body-parser";
 import { insertProduct, fetchProduct } from "./src/database/db.js";
 
+
 const app = express();
 const port = 3000;
 
