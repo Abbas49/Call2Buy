@@ -6,11 +6,18 @@ import jwt from "jsonwebtoken"
 
 export const updateUser = async (req, res, next)=>{
     try{
-        const {email, password, phone, user_address, full_name} = req.body;
+        const {email, password, current_password, phone, user_address, full_name} = req.body;
         const user = req.user;
         let hashedPassword;
         if(password){
             hashedPassword = await bcrypt.hash(password, 10);
+        }
+
+        if(password && current_password){
+            const match = await bcrypt.compare(current_password, user.password_hash);
+            if(!match){
+                throw createError("Wrong password", 401);
+            }
         }
 
         const {data, error} = await supabase.from("users").update({
@@ -21,7 +28,12 @@ export const updateUser = async (req, res, next)=>{
             user_address: user_address || user.user_address
         }).eq("user_id", user.user_id).select().single();
 
+        
+
         if(error){
+            if(error.code == "23505"){
+                throw createError("The email address you entered is already associated with another account. Please use a different email.", 400);
+            }
             throw createError(error.message, 500)
         }
 

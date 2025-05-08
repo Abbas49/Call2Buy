@@ -83,7 +83,7 @@
           <button>Edit Info</button>
         </div>
         <div class="hidden" style="display: none;">
-          <form action="" class="edit-form">
+          <form action="" class="edit-form" id="edit-form">
             <div class="edit-info">
               <div class="edit-item">
                 <label for="fullname">Full Name</label>
@@ -108,24 +108,24 @@
             </div>
           </form>
           <hr>
-          <div class="ubdate-password" id="update-password-btn">
+          <div class="ubdate-password">
             <h2>Update Password</h2>
-            <form action="" class="update-password-form">
+            <form action="" class="update-password-form" id="update-password-form">
               <div class="password-item">
                 <label for="current-password">Current Password</label>
-                <input type="password" id="current-password" required />
+                <input type="password" id="current-password" minlength="8" required />
               </div>
               <div class="new-password">
                 <div class="password-item">
                   <label for="new-password">New Password</label>
-                  <input type="password" id="new-password" required />
+                  <input type="password" id="new-password" minlength="8" required />
                 </div>
                 <div class="password-item">
                   <label for="confirm-password">Confirm New Password</label>
-                  <input type="password" id="confirm-password" required />
+                  <input type="password" id="confirm-password" minlength="8" required />
                 </div>
               </div>
-              <button type="submit" class="update-button">Update Password</button>
+              <button type="submit" class="update-button" id="update-password-btn">Update Password</button>
             </form>
           </div>
         </div>
@@ -155,7 +155,7 @@
           <h2>Delete Account</h2>
           <p>Deleting your account will permanently remove all your data, including your profile information and all
             product listings. This action cannot be undone.</p>
-          <button class="delete-button">🗑️ Delete Account</button>
+          <button class="delete-button" id="delete-account-btn">🗑️ Delete Account</button>
         </div>
 
       </div>
@@ -163,7 +163,7 @@
   <div class="my-products-section" style="display: none;">
     <div class="header">
       <h2>My Products</h2>
-      <button class="add-product-button primary-button">+ Add Product</button>
+      <a href="/sell-item" style="text-decoration: none;" class="add-product-button primary-button">+ Add Product</a>
     </div>
     <div class="products-list">
       <% locals.products.forEach(product => { %>
@@ -172,8 +172,8 @@
         <h3><%= product.title%></h3>
         <p>$<%= product.price %></p>
         <div class="buttons-container">
-          <button class="edit-product-button primary-button">Edit</button>
-          <button class="delete-product-button primary-button">Delete</button>
+          <a href="/edit/<%= product.product_id %>" class="edit-product-button primary-button">Edit</a>
+          <button class="delete-product-button primary-button" data-product-id="<%= product.product_id %>">Delete</button>
         </div>
       </div>
       <% }) %>

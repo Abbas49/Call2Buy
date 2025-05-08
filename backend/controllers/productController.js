@@ -173,6 +173,10 @@ export const deleteProduct = async (req, res, next)=>{
         }
 
         const {data, error: deleteError} = await supabase.from("products").delete().eq("product_id", product_id);
+        if(deleteError){
+            throw createError(deleteError.message, 500);
+        }
+        
         res.status(200).json({message: "Product successfully deleted."})
     }catch(err){
         next(err);

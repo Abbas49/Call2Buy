@@ -383,8 +383,10 @@ hr {
     padding-top: 15px;
 }
 
-.product-item button{
+.product-item button, .product-item a{
+    text-align: center;
     width: 50%;
+    text-decoration: none;
 }
 
 
