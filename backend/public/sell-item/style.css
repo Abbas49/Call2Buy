@@ -48,6 +48,10 @@ form {
     color: var(--text-secondary);
 }
 
+form label{
+    color: var(--text-primary)
+}
+
 .container form .imgs .addimg input {
     display: none;
 }
@@ -128,7 +132,7 @@ form {
     height: 150px;
     resize: vertical;
     width: 95%;
-
+    padding-right: 100px;
 }
 
 .container form .product-information .ai .ai-btn {

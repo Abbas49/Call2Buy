@@ -1,22 +1,22 @@
 :root {
   /* Light mode variables */
-  --background: #f8fafc;
-  --text-primary: #1a202c;
-  --text-secondary: #4b5563;
-  --card-bg: white;
-  --card-border: #f1f5f9;
-  --header-bg: rgba(255, 255, 255, 0.95);
+  --background: #e2e8f0;
+  --text-primary: #334155;
+  --text-secondary: #64748b;
+  --card-bg: #f8fafc;
+  --card-border: #cbd5e1;
+  --header-bg: rgba(248, 250, 252, 0.95);
   --header-shadow: rgba(0, 0, 0, 0.06);
-  --input-bg: #f8fafc;
-  --input-border: #979b9e;
-  --accent: #4f46e5;
-  --accent-hover: #4338ca;
-  --accent-light: rgba(124, 58, 237, 0.08);
-  --accent-light-active: rgba(124, 58, 237, 0.12);
-  --skeleton-bg: #e2e8f0;
-  --footer-bg: #1e293b;
-  --footer-text: #cbd5e1;
-  --footer-border: #334155;
+  --input-bg: #f1f5f9;
+  --input-border: #94a3b8;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-light: rgba(99, 102, 241, 0.12);
+  --accent-light-active: rgba(99, 102, 241, 0.2);
+  --skeleton-bg: #cbd5e1;
+  --footer-bg: #334155;
+  --footer-text: #e2e8f0;
+  --footer-border: #475569;
 }
 
 [data-theme="dark"] {
