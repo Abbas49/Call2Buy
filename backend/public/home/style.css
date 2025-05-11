@@ -37,6 +37,7 @@ border-radius: 15px;
 padding: 10px;
 border: 2px solid var(--input-border);
 transition: .3s;
+transition-property: border-color;
 }
 aside .filter-categores select:focus{
     outline: none;
@@ -62,6 +63,7 @@ aside .price .num input{
     color: var(--text-primary);
     padding: 10px;
     transition: .3s;
+    transition-property: border-color;
 }
 aside .price .num input:focus{
     outline: none;
@@ -104,6 +106,7 @@ width: 90%;
 padding: 20px;
 color: var(--text-primary);
 transition: .3s;
+transition-property: border-color;
 }
 .search input:focus{
     outline: none;
