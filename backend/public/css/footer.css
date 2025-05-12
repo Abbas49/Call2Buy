@@ -1,13 +1,56 @@
-.contact{
-    color: var(--text-primary);
+footer {
+    padding: 20px;
     display: flex;
-    flex-direction: row;
- justify-content: space-around;
- margin-top: 100px;
- margin-bottom: 50px;
-}
-footer{
-    color: var(--text-secondary);
+    flex-direction: column;
     text-align: center;
+    border-top: 1px solid var(--card-border);
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     margin: 10px;
+}
+
+footer .footer-content .fotter-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer .footer-content .fotter-links a:hover {
+    color: var(--accent-hover);
+}
+
+footer .footer-content .footer-sochal {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+footer .footer-content .footer-sochal .social-icon {
+    width: 30px;
+    height: 30px;
+    transition: .5s;
+}
+
+footer .footer-content .footer-sochal .social-icon:hover {
+    transform: scale(1.2);
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer .footer-bottom {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin: 10px;
+    border-top: 1px solid var(--card-border);
+}
+
+footer .footer-bottom a:hover {
+    text-decoration: underline;
 }

@@ -1,128 +1,144 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/nav.css" />
-  <link rel="stylesheet" href="../css/form-styles.css" />
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="../css/basics.css" />
-  <link rel="stylesheet" href=  "../css/normlize.css" />
-  <link rel="stylesheet" href="../css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/form-styles.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/basics.css" />
+    <link rel="stylesheet" href="../css/normlize.css" />
+    <link rel="stylesheet" href="../css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <title>Call2Buy</title>
-</head>
+    <title>Call2Buy</title>
+  </head>
 
-<body>
-  <nav>
-    <div class="nav-con">
-      <div class="logo"><a href="../home">Call2Buy</a></div>
-      <div class="right-side">
-        <input type="checkbox" id="bars" class="nav-checkbox">
-        <ul>
-          <li>
-            <a href="../home">
-              🏠Home
-            </a>
-          </li>
-          <li>
-            <a href="../sell-item">
-              📦Sell Item
-            </a>
-          </li>
-          <li id="nav-login">
-
-            <a href="../login">
-              🔑Login
-            </a>
-          </li>
-          <li id="nav-register">
-            <a href="../register">
-              📃Register
-            </a>
-          </li>
-          <li id="nav-username" style="display: none;">
-            <a href="../my-account">
-            </a>
-          </li>
-          <li id="nav-logout" style="display: none;">
-            <a href="#">
-              🚪Logout
-            </a>
-          </li>
-        </ul>
-        <button class="toggle-theme">🔆</button>
-        <label for="bars" class="bars-icon">
-          <i class="fa-solid fa-bars bars"></i>
-        </label>
+  <body>
+    <nav>
+      <div class="nav-con">
+        <div class="logo"><a href="../home">Call2Buy</a></div>
+        <div class="right-side">
+          <input type="checkbox" id="bars" class="nav-checkbox" />
+          <ul>
+            <li>
+              <a href="../home"> 🏠Home </a>
+            </li>
+            <li>
+              <a href="../sell-item"> 📦Sell Item </a>
+            </li>
+            <li id="nav-login">
+              <a href="../login"> 🔑Login </a>
+            </li>
+            <li id="nav-register">
+              <a href="../register"> 📃Register </a>
+            </li>
+            <li id="nav-username" style="display: none">
+              <a href="../my-account"> </a>
+            </li>
+            <li id="nav-logout" style="display: none">
+              <a href="#"> 🚪Logout </a>
+            </li>
+          </ul>
+          <button class="toggle-theme">🔆</button>
+          <label for="bars" class="bars-icon">
+            <i class="fa-solid fa-bars bars"></i>
+          </label>
+        </div>
       </div>
-    </div>
-  </nav>
-  <div class="content-container">
-    <aside>
-      <h2 class="filter-title">Filters</h2>
-      <form action="">
-        <div class="filter-categores">
-          <h3>Categories</h3>
-          <select name="" id="select-category">
-            <option value="All Categories">All Categories</option>
-            <!-- <option value="Electroncs">Electroncs</option>
+    </nav>
+    <div class="content-container">
+      <aside>
+        <h2 class="filter-title">Filters</h2>
+        <form action="">
+          <div class="filter-categores">
+            <h3>Categories</h3>
+            <select name="" id="select-category">
+              <option value="All Categories">All Categories</option>
+              <!-- <option value="Electroncs">Electroncs</option>
             <option value="Clothing">Clothing</option>
             <option value="Books">Books</option>
             <option value="Furniture">Furniture</option>
             <option value="BMW">BMW</option> -->
-          </select>
-        </div>
-        <div class="price">
-          <h3>Price Range</h3>
-          <div class="num">
-            <input type="number" placeholder="Min" id="min-price" />
-            <input type="number" placeholder="Max" id="max-price" />
+            </select>
           </div>
+          <div class="price">
+            <h3>Price Range</h3>
+            <div class="num">
+              <input type="number" placeholder="Min" id="min-price" />
+              <input type="number" placeholder="Max" id="max-price" />
+            </div>
+          </div>
+          <button class="submit-btn" id="filter-btn">Apply Filters</button>
+        </form>
+      </aside>
+      <div class="content">
+        <div class="search">
+          <h2>Search Products</h2>
+          <input
+            id="search-query"
+            type="search"
+            placeholder="Search for items..."
+          />
         </div>
-        <button class="submit-btn" id="filter-btn">Apply Filters</button>
-      </form>
-    </aside>
-    <div class="content">
-      <div class="search">
-        <h2>Search Products</h2>
-        <input id="search-query" type="search" placeholder="Search for items..." />
-      </div>
-      <div class="proudcts" id="products-container">
+        <div class="proudcts" id="products-container"></div>
       </div>
     </div>
-  </div>
-  <footer>
-    <div class="contact">
-      <div class="About">
-        <h3>About Us</h2>
-          <p>About used Market</p>
-          <p>How it Works</p>
-      </div>
-      <div class="Support">
-        <h3>Support</h2>
-          <p>Contact Us</p>
-          <p>FAQ</p>
-      </div>
-      <div class="legal">
-        <h3>Legal</h2>
-          <p>Terms of Service</p>
-          <p>Privacy Policy</p>
-      </div>
-    </div>
-    <hr>
-    <div class="copyright">
-      <p>&copy; 2025 Used Market. All rights reserved.</p>
-    </div>
-  </footer>
 
-  <script src="../js/toggle-theme.js"></script>
-  <script src="../js/nav.js"></script>
-  <script src="script.js"></script>
-</body>
+    <footer>
+      <div class="footer-content">
+        <div class="fotter-links">
+          <a href="">About</a>
+          <a href="">Contact</a>
+          <a href="">Privacy</a>
+          <a href="">Terms</a>
+        </div>
+        <div class="footer-sochal">
+          <a href="">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733561.png"
+              alt="LinkedIn"
+              class="social-icon"
+            />
+          </a>
+          <a href="https://github.com/Abbas49/Web-Project" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+              alt="GitHub"
+              class="social-icon"
+            />
+          </a>
+          <a href="">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+              alt="Facebook"
+              class="social-icon"
+            />
+          </a>
+          <a href="">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+              alt="Instagram"
+              class="social-icon"
+            />
+          </a>
+        </div>
+      </div>
 
+      <div class="footer-bottom">
+        <p>&copy; 2025 Call2Buy. All rights reserved.</p>
+        <p>Designed with ❤️ by <a href="">Call2Buy Team</a></p>
+      </div>
+    </footer>
+
+    <script src="../js/toggle-theme.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
