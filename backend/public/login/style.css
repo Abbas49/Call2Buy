@@ -4,7 +4,7 @@ body{
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 0px 20px 0px 20px;
 }
 nav{
 margin-left: -20px;
