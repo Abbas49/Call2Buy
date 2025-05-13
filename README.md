@@ -1,8 +1,8 @@
-# Pay&Pray - Online Marketplace
+# Call2Buy - Online Marketplace
 
 An online marketplace platform for buying and selling used items. Users can list products, browse listings, apply filters, and contact sellers.
 
-**Live Demo**: [https://pay-and-pray.vercel.app/home/](https://pay-and-pray.vercel.app/home/)
+**Live Demo**: [https://call2buy.vercel.app](https://call2buy.vercel.app)
 
 ## 🚀 Features
 
