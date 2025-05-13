@@ -4,7 +4,7 @@ import createError from "../utils/createError.js";
 export const productPage = async (req, res, next) => {
     try {
         const product_id = req.params.id;
-        console.log(product_id)
+        // console.log(product_id)
         const { data, error } = await supabase.from("products").select(`*, users(full_name, created_at), categories(category_name), images(image_url)`).eq("product_id", product_id).single();
         if(error){
             res.redirect("/home");
@@ -12,7 +12,7 @@ export const productPage = async (req, res, next) => {
         }
         data.categories = data.categories.map((e) => e.category_name);
         data.images = data.images.map((e) => e.image_url);
-        console.log(data);
+        // console.log(data);
 
         if (!data) {
             throw createError("Invalid product ID", 400);
@@ -31,7 +31,7 @@ export const editProductPage = async (req, res, next)=>{
             res.redirect("/home");
             return;
         }
-        console.log(product_id)
+        // console.log(product_id)
         const { data, error } = await supabase.from("products").select(`*, users(full_name, created_at), categories(category_name), images(image_url)`).eq("product_id", product_id).eq("seller", user.user_id).single();
         if(error){
             res.redirect("/home");
@@ -84,7 +84,7 @@ export const myAccountPage = async (req, res, next) => {
             user: userData,
             products: userProducts
         }
-        console.log(data);
+        // console.log(data);
         res.render("my-account/index", data);
     } catch (err) {
         next(err)
