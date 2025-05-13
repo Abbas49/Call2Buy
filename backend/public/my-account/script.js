@@ -32,10 +32,10 @@
         main.style.display = "block";
         accountInfo.style.display = "none";
 
-        fullNameInput.value = fullName.innerText;
-        emailInput.value = email.innerText;
-        phoneInput.value = phone.innerText;
-        locationInput.value = location.innerText;
+        fullNameInput.value = fullName.innerText.trim();
+        emailInput.value = email.innerText.trim();
+        phoneInput.value = phone.innerText.trim();
+        locationInput.value = location.innerText.trim();
     })
 
     cancel.addEventListener("click", (e) => {
