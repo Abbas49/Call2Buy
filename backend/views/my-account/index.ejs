@@ -70,7 +70,7 @@
         <h2>
           <%= locals.user.full_name %>
         </h2>
-        <p>Member since January 2025</p>
+        <p>Member since <%= locals.user.created_at?.split("T")[0] %></p>
       </div>
     </div>
     <div class="pages">
