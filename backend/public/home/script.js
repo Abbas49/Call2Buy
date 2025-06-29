@@ -4,25 +4,60 @@
     function listProduct(product) {
         let element = document.createElement("div");
         element.classList.add("one-proudct");
-        element.innerHTML = `
-          <div class="proimg">
-            <img src="${product.images[0]}" alt="Product image">
-          </div>
-          <div class="proinfo">
-            <h3>${product.title}</h3>
-            <div class="prometa">
-              <div class="e">
-                <p ${!product.condition?"style='visibility: hidden;'":""}>${product.condition}</p>
-              </div>
-            </div>
-          </div>
-          <div class="pric">
-            <h4>$${product.price}</h4>
-          </div>
-          <a href="/products/${product.product_id}"><button class="submit-btn">Buy Now</button></a>
-    `
+
+        let proimg = document.createElement("div");
+        proimg.classList.add("proimg");
+        let img = document.createElement("img");
+        img.src = product.images[0];
+        img.alt = "Product image";
+        proimg.appendChild(img);
+
+        let proinfo = document.createElement("div");
+        proinfo.classList.add("proinfo");
+
+        let title = document.createElement("h3");
+        title.textContent = product.title;
+
+        let prometa = document.createElement("div");
+        prometa.classList.add("prometa");
+
+        let eDiv = document.createElement("div");
+        eDiv.classList.add("e");
+
+        let condition = document.createElement("p");
+        if (!product.condition) {
+            condition.style.visibility = 'hidden';
+        } else {
+            condition.textContent = product.condition;
+        }
+
+        eDiv.appendChild(condition);
+        prometa.appendChild(eDiv);
+        proinfo.appendChild(title);
+        proinfo.appendChild(prometa);
+
+        let pric = document.createElement("div");
+        pric.classList.add("pric");
+
+        let price = document.createElement("h4");
+        price.textContent = `$${product.price}`;
+        pric.appendChild(price);
+
+        let link = document.createElement("a");
+        link.href = `/products/${encodeURIComponent(product.product_id)}`;
+        let button = document.createElement("button");
+        button.classList.add("submit-btn");
+        button.textContent = "Buy Now";
+        link.appendChild(button);
+
+        element.appendChild(proimg);
+        element.appendChild(proinfo);
+        element.appendChild(pric);
+        element.appendChild(link);
+
         document.getElementById("products-container").appendChild(element);
     }
+
 
     async function loadProducts(){
         const search_query = document.getElementById("search-query").value;
