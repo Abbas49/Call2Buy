@@ -16,12 +16,39 @@
 }
 
 .terms-row input[type="checkbox"] {
-  accent-color: var(--accent);
-  width: 16px;
-  height: 16px;
-  margin-top: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0 0;
+  border-radius: 5px;
+  background-color: var(--input-bg);
+  border: 1.5px solid var(--input-border);
   cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
+  position: relative;
+}
+
+.terms-row input[type="checkbox"]:hover {
+  border-color: var(--accent);
+  background-color: var(--card-bg);
+}
+
+.terms-row input[type="checkbox"]:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.terms-row input[type="checkbox"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-light-active);
 }
 
 .terms-row label {
