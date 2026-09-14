@@ -1,188 +1,198 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Listing - Call2Buy Marketplace</title>
+  <link rel="stylesheet" href="/css/basics.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/form-styles.css" />
   <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/sell-item/style.css" />
-  <link rel="stylesheet" href="/css/basics.css" />
-  <link rel="stylesheet" href="/css/normlize.css" />
   <link rel="stylesheet" href="/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <title>Call2Buy/Sell-item</title>
+  <link rel="stylesheet" href="/sell-item/style.css" />
 </head>
 
 <body>
   <nav>
     <div class="nav-con">
-      <div class="logo"><a href="../home">Call2Buy</a></div>
+      <div class="logo">
+        <a href="/home">Call<span class="brand-accent">2</span>Buy<span class="logo-dot"></span></a>
+      </div>
       <div class="right-side">
         <input type="checkbox" id="bars" class="nav-checkbox" />
         <ul>
           <li>
-            <a href="../home"> 🏠Home </a>
+            <a href="/home"><i class="fa-solid fa-house"></i> Home</a>
           </li>
-          <li>
-            <a href="../sell-item"> 📦Sell Item </a>
+          <li class="nav-sell">
+            <a href="/sell-item"><i class="fa-solid fa-plus"></i> Sell Item</a>
           </li>
           <li id="nav-login">
-            <a href="../login"> 🔑Login </a>
+            <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
           </li>
           <li id="nav-register">
-            <a href="../register"> 📃Register </a>
+            <a href="/register"><i class="fa-solid fa-user-plus"></i> Register</a>
           </li>
           <li id="nav-username" style="display: none">
-            <a href="../my-account"> </a>
+            <a href="/my-account"><i class="fa-solid fa-circle-user"></i> <span></span></a>
           </li>
           <li id="nav-logout" style="display: none">
-            <a href="#"> 🚪Logout </a>
+            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
           </li>
         </ul>
-        <button class="toggle-theme">🔆</button>
-        <label for="bars" class="bars-icon">
-          <i class="fa-solid fa-bars bars"></i>
+        <button class="toggle-theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <label for="bars" class="bars-icon" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
         </label>
       </div>
     </div>
   </nav>
-  <div class="container">
-    <form action="">
-      <h1 class="title">Edit Your Product</h1>
-      <p class="container-p">
-        Fill out the form below to edit your item.
-      </p>
-      <div class="imgs" style="display: none;">
-        <h3>📸 Product Images</h3>
-        <p>
-          Upload up to 4 images of your product. First image will be the main
-          display image.
+
+  <main class="sell-container">
+    <div class="sell-card">
+      <div class="sell-header">
+        <h1 class="sell-title">Edit Listing</h1>
+        <p class="sell-subtitle">
+          Update the price, description, or seller contact information for this listing.
         </p>
-        <div class="addimg">
-          <label for="file">Upload Image</label>
-          <input type="file" class="image-input" accept="image/jpeg, image/png, image/jpg, image/webp" id="file" />
-          <label for="file1">Upload Image</label>
-          <input type="file" class="image-input" accept="image/jpeg, image/png, image/jpg, image/webp" id="file1" />
-          <label for="file2">Upload Image</label>
-          <input type="file" class="image-input" accept="image/jpeg, image/png, image/jpg, image/webp" id="file2" />
-          <label for="file3">Upload Image</label>
-          <input type="file" class="image-input" accept="image/jpeg, image/png, image/jpg, image/webp" id="file3" />
-        </div>
       </div>
-      <div class="product-information">
-        <h2>📝 Product Information</h2>
 
-        <div class="product-title" id="same">
-          <label for="">Product Title</label>
-          <input type="text" placeholder="Enter a descriptive title for your product" class="input-proudct"
-            id="title-input" value="<%= locals.title %>" />
-        </div>
-        <div class="product-discription" id="same">
-          <label for="textarea">Product Description</label>
-        </div>
-        <div class="ai">
-          <textarea name="" id="textarea" class="input-proudct"
-            placeholder="Describe your product in detail - condition,features,reason"><%= locals.product_description %></textarea>
-          <button type="button" class="ai-btn" id="ai-btn">✨ Ai Help</button>
-        </div>
-        <div class="product-Category" id="same">
-          <label for="">Product Category</label>
-          <select class="input-proudct" id="select-category" data-default="<%= locals.categories[0] %>" required>
-            <option value="" disabled selected>Select product category</option>
-            <% dbCategories.forEach(category => { %>
-              <option value="<%= category %>"><%= category %></option>
-            <% }); %>
-          </select>
-        </div>
-        <div class="product-condition" id="same">
-          <label for="">Product Condition</label>
-          <select class="input-proudct" id="select-condition" data-default="<%= locals.condition %>" required>
-            <option value="" disabled selected>Select product condition</option>
-            <option value="New">New</option>
-            <option value="Used-like New">Used-like New</option>
-            <option value="Used-Good">Used-Good</option>
-            <option value="Used - Acceptable">Used - Acceptable</option>
-            <option value="For Parts or Not Working">For Parts or Not Working</option>
-          </select>
-        </div>
-        <div class="product-price" id="same">
-          <label for="">Price</label>
-          <input value="<%= locals.price %>" type="number" placeholder="Enter Your Price" class="input-proudct" step="0.01" id="price-input"
-            required />
-        </div>
-      </div>
-      <div class="Seller-Contact-Information">
-        <h3>📍Seller Contact Information</h3>
+      <form id="edit-form" autocomplete="off">
+        <!-- Details Section -->
+        <section class="form-section product-information">
+          <div class="section-title-row">
+            <h2><i class="fa-solid fa-file-lines"></i> Item Specifications</h2>
+          </div>
 
-        <div class="address" id="same">
-          <label for="">Address</label>
-          <input value="<%= locals.product_address %>" type="text" placeholder="Enter your address or genral location" class="input-proudct"
-            id="address-input" required />
+          <div class="form-group product-title" id="same">
+            <label for="title-input">Listing Title</label>
+            <input
+              type="text"
+              class="input-proudct"
+              id="title-input"
+              value="<%= locals.title %>"
+              required
+            />
+          </div>
+
+          <div class="form-group product-discription" id="same">
+            <div class="desc-label-row">
+              <label for="textarea">Item Description</label>
+              <button type="button" class="ai-btn" id="ai-btn">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> AI Refine
+              </button>
+            </div>
+            <textarea
+              id="textarea"
+              class="input-proudct"
+              rows="5"
+              required
+            ><%= locals.product_description %></textarea>
+          </div>
+
+          <div class="form-row-2col">
+            <div class="form-group product-Category" id="same">
+              <label for="select-category">Category</label>
+              <select class="input-proudct" id="select-category" data-default="<%= locals.categories[0] %>" required>
+                <option value="" disabled>Select category</option>
+                <% dbCategories.forEach(category => { %>
+                  <option value="<%= category %>"><%= category %></option>
+                <% }); %>
+              </select>
+            </div>
+
+            <div class="form-group product-condition" id="same">
+              <label for="select-condition">Condition</label>
+              <select class="input-proudct" id="select-condition" data-default="<%= locals.condition %>" required>
+                <option value="" disabled>Select condition</option>
+                <option value="New">New (Unopened / Boxed)</option>
+                <option value="Used-like New">Used - Like New (Flawless)</option>
+                <option value="Used-Good">Used - Good (Minor wear)</option>
+                <option value="Used - Acceptable">Used - Acceptable (Functional)</option>
+                <option value="For Parts or Not Working">For Parts or Repair</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group product-price" id="same">
+            <label for="price-input">Asking Price ($ USD)</label>
+            <input
+              value="<%= locals.price %>"
+              type="number"
+              step="0.01"
+              min="0"
+              class="input-proudct"
+              id="price-input"
+              required
+            />
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="form-section Seller-Contact-Information">
+          <div class="section-title-row">
+            <h2><i class="fa-solid fa-address-book"></i> Seller Contact Details</h2>
+          </div>
+
+          <div class="form-row-2col">
+            <div class="form-group address" id="same">
+              <label for="address-input">Location / City</label>
+              <input
+                value="<%= locals.product_address %>"
+                type="text"
+                class="input-proudct"
+                id="address-input"
+                required
+              />
+            </div>
+
+            <div class="form-group phone-num" id="same">
+              <label for="phone-input">Contact Phone Number</label>
+              <input
+                value="<%= locals.phone %>"
+                type="tel"
+                class="input-proudct"
+                id="phone-input"
+                required
+              />
+            </div>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-btn" id="list-product-btn">
+            <i class="fa-solid fa-check"></i> Save Listing Changes
+          </button>
         </div>
-        <div class="phone-num" id="same">
-          <label for="">Phone Number</label>
-          <input value="<%= locals.phone %>" type="text" placeholder="Enter your address or genral location" class="input-proudct"
-            pattern="[+[0-9]]*" id="phone-input" required />
-        </div>
-      </div>
-      <button class="submit-btn" id="list-product-btn">Edit Your Product</button>
-    </form>
-  </div>
+      </form>
+    </div>
+  </main>
+
   <footer>
-      <div class="footer-content">
-        <div class="fotter-links">
-          <a href="">About</a>
-          <a href="">Contact</a>
-          <a href="">Privacy</a>
-          <a href="">Terms</a>
-        </div>
-        <div class="footer-sochal">
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733561.png"
-              alt="LinkedIn"
-              class="social-icon"
-            />
-          </a>
-          <a href="https://github.com/Abbas49/Web-Project" target="_blank">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
-              alt="GitHub"
-              class="social-icon"
-            />
-          </a>
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-              alt="Facebook"
-              class="social-icon"
-            />
-          </a>
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
-              alt="Instagram"
-              class="social-icon"
-            />
-          </a>
-        </div>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="/home">Marketplace</a>
+        <a href="#">Safety Guidelines</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Call2Buy. All rights reserved.</p>
-        <p>Developed with ❤️ by <a href="">Call2Buy Team</a></p>
+      <div class="footer-social">
+        <a href="https://github.com/Abbas49/Web-Project" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
       </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Call2Buy. Direct-contact secondhand marketplace.</p>
+    </div>
+  </footer>
 
-  <script src="/js/nav.js"></script>
-  <script src="/sell-item/editProduct.js"></script>
-  <script src="/sell-item/script.js"></script>
   <script src="/js/toggle-theme.js"></script>
+  <script src="/js/nav.js"></script>
   <script src="/sell-item/selectDefault.js"></script>
+  <script src="/sell-item/script.js"></script>
+  <script src="/sell-item/editProduct.js"></script>
 </body>
-
 </html>

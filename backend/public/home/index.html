@@ -3,142 +3,148 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/nav.css" />
-    <link rel="stylesheet" href="../css/form-styles.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="../css/basics.css" />
-    <link rel="stylesheet" href="../css/normlize.css" />
-    <link rel="stylesheet" href="../css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Call2Buy</title>
+    <title>Call2Buy - Modern Secondhand Marketplace</title>
+    <meta name="description" content="Discover, buy, and sell quality used items directly with trusted local sellers on Call2Buy." />
+    <link rel="stylesheet" href="/css/basics.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/form-styles.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/home/style.css" />
   </head>
 
   <body>
     <nav>
       <div class="nav-con">
-        <div class="logo"><a href="../home">Call2Buy</a></div>
+        <div class="logo">
+          <a href="../home">Call<span class="brand-accent">2</span>Buy<span class="logo-dot"></span></a>
+        </div>
         <div class="right-side">
           <input type="checkbox" id="bars" class="nav-checkbox" />
-          <ul>
+          <ul id="nav-menu">
             <li>
-              <a href="../home"> 🏠Home </a>
+              <a href="/home" class="active"><i class="fa-solid fa-house"></i> Home</a>
             </li>
-            <li>
-              <a href="../sell-item"> 📦Sell Item </a>
+            <li class="nav-sell">
+              <a href="../sell-item"><i class="fa-solid fa-plus"></i> Sell Item</a>
             </li>
             <li id="nav-login">
-              <a href="../login"> 🔑Login </a>
+              <a href="../login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
             </li>
             <li id="nav-register">
-              <a href="../register"> 📃Register </a>
+              <a href="../register"><i class="fa-solid fa-user-plus"></i> Register</a>
             </li>
             <li id="nav-username" style="display: none">
-              <a href="../my-account"> </a>
+              <a href="../my-account"><i class="fa-solid fa-circle-user"></i> <span></span></a>
             </li>
             <li id="nav-logout" style="display: none">
-              <a href="#"> 🚪Logout </a>
+              <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
             </li>
           </ul>
-          <button class="toggle-theme">🔆</button>
-          <label for="bars" class="bars-icon">
-            <i class="fa-solid fa-bars bars"></i>
+          <button class="toggle-theme" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+          <label for="bars" class="bars-icon" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
           </label>
         </div>
       </div>
     </nav>
-    <div class="content-container">
-      <aside>
-        <h2 class="filter-title">Filters</h2>
-        <form action="">
-          <div class="filter-categores">
-            <h3>Categories</h3>
-            <select name="" id="select-category">
-              <option value="All Categories">All Categories</option>
-              <!-- <option value="Electroncs">Electroncs</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Books">Books</option>
-            <option value="Furniture">Furniture</option>
-            <option value="BMW">BMW</option> -->
-            </select>
-          </div>
-          <div class="price">
-            <h3>Price Range</h3>
-            <div class="num">
-              <input type="number" placeholder="Min" id="min-price" />
-              <input type="number" placeholder="Max" id="max-price" />
+
+    <main class="content-container">
+      <!-- Filter Sidebar -->
+      <aside class="filters-sidebar">
+        <div class="filter-header">
+          <h2><i class="fa-solid fa-sliders"></i> Filters</h2>
+        </div>
+        <form class="filter-form" onsubmit="return false;">
+          <div class="filter-group">
+            <label for="select-category">Category</label>
+            <div class="select-wrapper">
+              <select id="select-category">
+                <option value="All Categories">All Categories</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-icon"></i>
             </div>
           </div>
-          <button class="submit-btn" id="filter-btn">Apply Filters</button>
+
+          <div class="filter-group">
+            <label>Price Range</label>
+            <div class="price-inputs">
+              <div class="price-field">
+                <span class="currency-symbol">$</span>
+                <input type="number" placeholder="Min" id="min-price" min="0" />
+              </div>
+              <span class="price-separator">—</span>
+              <div class="price-field">
+                <span class="currency-symbol">$</span>
+                <input type="number" placeholder="Max" id="max-price" min="0" />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn filter-submit-btn" id="filter-btn">
+            <i class="fa-solid fa-filter"></i> Apply Filters
+          </button>
         </form>
       </aside>
-      <div class="content">
-        <div class="search">
-          <h2>Search Products</h2>
-          <input
-            id="search-query"
-            type="search"
-            placeholder="Search for items..."
-          />
+
+      <!-- Main Marketplace Grid -->
+      <section class="catalog-section">
+        <div class="search-bar-container">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input
+              id="search-query"
+              type="search"
+              placeholder="Search listings by title or keyword..."
+              autocomplete="off"
+            />
+          </div>
         </div>
-        <div class="proudcts" id="products-container"></div>
-      </div>
-    </div>
+
+        <div class="catalog-header">
+          <h1 class="catalog-title">Explore Marketplace Listings</h1>
+          <span class="results-count" id="results-count">Showing verified items</span>
+        </div>
+
+        <div class="proudcts products-grid" id="products-container"></div>
+      </section>
+    </main>
 
     <footer>
       <div class="footer-content">
-        <div class="fotter-links">
-          <a href="">About</a>
-          <a href="">Contact</a>
-          <a href="">Privacy</a>
-          <a href="">Terms</a>
+        <div class="footer-links">
+          <a href="#">About Call2Buy</a>
+          <a href="#">Safety Tips</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Contact Support</a>
         </div>
-        <div class="footer-sochal">
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733561.png"
-              alt="LinkedIn"
-              class="social-icon"
-            />
+        <div class="footer-social">
+          <a href="https://github.com/Abbas49/Web-Project" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
           </a>
-          <a href="https://github.com/Abbas49/Web-Project" target="_blank">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
-              alt="GitHub"
-              class="social-icon"
-            />
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
           </a>
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-              alt="Facebook"
-              class="social-icon"
-            />
+          <a href="#" class="social-link" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
-              alt="Instagram"
-              class="social-icon"
-            />
+          <a href="#" class="social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
           </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 Call2Buy. All rights reserved.</p>
-        <p>Developed with ❤️ by <a href="">Call2Buy Team</a></p>
+        <p>&copy; 2025 Call2Buy. Direct-contact secondhand marketplace.</p>
+        <p>Crafted for fast, trusted local trade.</p>
       </div>
     </footer>
 
-    <script src="../js/toggle-theme.js"></script>
-    <script src="../js/nav.js"></script>
-    <script src="script.js"></script>
+    <script src="/js/toggle-theme.js"></script>
+    <script src="/js/nav.js"></script>
+    <script src="/home/script.js"></script>
   </body>
 </html>

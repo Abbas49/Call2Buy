@@ -1,235 +1,252 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account - Call2Buy Marketplace</title>
+  <link rel="stylesheet" href="/css/basics.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/form-styles.css" />
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/my-account/style.css" />
-  <link rel="stylesheet" href="/css/basics.css" />
-  <link rel="stylesheet" href="/css/normlize.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <title>Call2Buy</title>
+  <link rel="stylesheet" href="/my-account/style.css" />
 </head>
 
 <body>
   <nav>
     <div class="nav-con">
-      <div class="logo"><a href="../home">Call2Buy</a></div>
+      <div class="logo">
+        <a href="/home">Call<span class="brand-accent">2</span>Buy<span class="logo-dot"></span></a>
+      </div>
       <div class="right-side">
-        <input type="checkbox" id="bars" class="nav-checkbox">
+        <input type="checkbox" id="bars" class="nav-checkbox" />
         <ul>
           <li>
-            <a href="../home">
-              🏠Home
-            </a>
+            <a href="/home"><i class="fa-solid fa-house"></i> Home</a>
           </li>
-          <li>
-            <a href="../sell-item">
-              📦Sell Item
-            </a>
+          <li class="nav-sell">
+            <a href="/sell-item"><i class="fa-solid fa-plus"></i> Sell Item</a>
           </li>
           <li id="nav-login">
-
-            <a href="../login">
-              🔑Login
-            </a>
+            <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
           </li>
           <li id="nav-register">
-            <a href="../register">
-              📃Register
-            </a>
+            <a href="/register"><i class="fa-solid fa-user-plus"></i> Register</a>
           </li>
           <li id="nav-username" style="display: none;">
-            <a href="#">
-            </a>
+            <a href="/my-account" class="active"><i class="fa-solid fa-circle-user"></i> <span></span></a>
           </li>
           <li id="nav-logout" style="display: none;">
-            <a href="#">
-              🚪Logout
-            </a>
+            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
           </li>
         </ul>
-        <button class="toggle-theme">🔆</button>
-        <label for="bars" class="bars-icon">
-          <i class="fa-solid fa-bars bars"></i>
+        <button class="toggle-theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <label for="bars" class="bars-icon" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
         </label>
       </div>
     </div>
   </nav>
-  <div class="container">
-    <div class="profile">
-      <i class="fa-solid fa-user"></i>
-      <div class="info">
-        <h2>
-          <%= locals.user.full_name %>
-        </h2>
-        <p>Member since January 2025</p>
+
+  <main class="account-container container">
+    <!-- User Profile Header Banner -->
+    <header class="profile-header profile">
+      <div class="profile-avatar avatar-circle">
+        <i class="fa-solid fa-user"></i>
       </div>
-    </div>
-    <div class="pages">
-      <button id="profile-page-btn">Profile</button>
-      <button id="my-products-page-btn">My Products</button>
-    </div>
-    <hr>
-    <div class="profile-section">
-      <div class="account-info">
-        <div class="edit">
-          <h2>Account Information</h2>
-          <button>Edit Info</button>
+      <div class="profile-info info">
+        <h1 class="user-display-name"><%= locals.user ? locals.user.full_name : "User Profile" %></h1>
+        <div class="profile-meta-badges">
+          <span class="badge-tag verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Member</span>
+          <span class="badge-tag tenure-badge"><i class="fa-regular fa-calendar"></i> Member since <%= locals.user && locals.user.created_at ? locals.user.created_at.split("-")[0] : "2025" %></span>
         </div>
-        <div class="hidden" style="display: none;">
-          <form action="" class="edit-form" id="edit-form">
-            <div class="edit-info">
-              <div class="edit-item">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="full-name-input" value="" />
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="account-tabs pages">
+      <button type="button" class="tab-btn active" id="profile-page-btn">
+        <i class="fa-solid fa-user-gear"></i> Profile & Security
+      </button>
+      <button type="button" class="tab-btn" id="my-products-page-btn">
+        <i class="fa-solid fa-box-archive"></i> My Active Listings
+      </button>
+    </div>
+
+    <!-- Section 1: Profile & Security -->
+    <div class="profile-section">
+      <!-- Account Info Card -->
+      <section class="account-card account-info">
+        <div class="card-header edit">
+          <h2><i class="fa-solid fa-address-card"></i> Account Information</h2>
+          <button type="button" class="secondary-btn edit-trigger-btn">
+            <i class="fa-solid fa-pen-to-square"></i> Edit Details
+          </button>
+        </div>
+
+        <!-- Read-only View -->
+        <div class="info-item info-grid">
+          <div class="info-cell items">
+            <span class="info-label">Full Name</span>
+            <p class="info-value" id="full-name"><%= locals.user ? locals.user.full_name : "" %></p>
+          </div>
+          <div class="info-cell items">
+            <span class="info-label">Email Address</span>
+            <p class="info-value" id="email"><%= locals.user ? locals.user.email : "" %></p>
+          </div>
+          <div class="info-cell items">
+            <span class="info-label">Phone Number</span>
+            <p class="info-value" id="phone"><%= locals.user ? locals.user.phone || "Not set" : "" %></p>
+          </div>
+          <div class="info-cell items">
+            <span class="info-label">Primary Location</span>
+            <p class="info-value" id="location"><%= locals.user ? locals.user.user_address || "Not set" : "" %></p>
+          </div>
+        </div>
+
+        <!-- Inline Edit Form -->
+        <div class="hidden edit-form-wrapper" style="display: none;">
+          <form class="edit-form" id="edit-form">
+            <div class="form-grid edit-info">
+              <div class="form-group edit-item">
+                <label for="full-name-input">Full Name</label>
+                <input type="text" id="full-name-input" value="" required />
               </div>
-              <div class="edit-item">
-                <label for="email">Email</label>
-                <input type="email" id="email-input" value="">
+              <div class="form-group edit-item">
+                <label for="email-input">Email Address</label>
+                <input type="email" id="email-input" value="" required />
               </div>
-              <div class="edit-item">
-                <label for="phone">Phone</label>
+              <div class="form-group edit-item">
+                <label for="phone-input">Phone Number</label>
                 <input type="tel" id="phone-input" value="" />
               </div>
-              <div class="edit-item">
-                <label for="location">Location</label>
+              <div class="form-group edit-item">
+                <label for="location-input">Primary Location</label>
                 <input type="text" id="location-input" value="" />
               </div>
             </div>
-            <div class="edit-buttons">
-              <button type="button" class="cancel-button" id="cancel-btn">Cancel</button>
-              <button type="submit" class="save-button" id="save-btn">Save Changes</button>
+            <div class="form-btn-group edit-buttons">
+              <button type="button" class="secondary-btn cancel-button" id="cancel-btn">Cancel</button>
+              <button type="submit" class="submit-btn save-button" id="save-btn">
+                <i class="fa-solid fa-check"></i> Save Changes
+              </button>
             </div>
           </form>
-          <hr>
-          <div class="ubdate-password">
-            <h2>Update Password</h2>
-            <form action="" class="update-password-form" id="update-password-form">
-              <div class="password-item">
+
+          <hr class="section-divider" />
+
+          <!-- Update Password Sub-card -->
+          <div class="update-password-box ubdate-password">
+            <div class="subcard-header">
+              <h3><i class="fa-solid fa-lock"></i> Change Password</h3>
+            </div>
+            <form class="update-password-form" id="update-password-form">
+              <div class="form-group password-item">
                 <label for="current-password">Current Password</label>
                 <input type="password" id="current-password" minlength="8" required />
               </div>
-              <div class="new-password">
-                <div class="password-item">
+              <div class="form-row-2col new-password">
+                <div class="form-group password-item">
                   <label for="new-password">New Password</label>
                   <input type="password" id="new-password" minlength="8" required />
                 </div>
-                <div class="password-item">
+                <div class="form-group password-item">
                   <label for="confirm-password">Confirm New Password</label>
                   <input type="password" id="confirm-password" minlength="8" required />
                 </div>
               </div>
-              <button type="submit" class="update-button" id="update-password-btn">Update Password</button>
+              <button type="submit" class="submit-btn update-button" id="update-password-btn">
+                <i class="fa-solid fa-key"></i> Update Password
+              </button>
             </form>
           </div>
         </div>
-        <div class="info-item">
-          <div class="items">
-            <label for="fullname">Full Name</label>
-            <p id="full-name">
-              <%= locals.user.full_name %>
-            </p>
-          </div>
+      </section>
 
-          <div class="items">
-            <label for="email">Email</label>
-            <p id="email">
-              <%= locals.user.email %>
-            </p>
-          </div>
-          <div class="items">
-            <label for="phone">Phone</label>
-            <p id="phone">
-              <%= locals.user.phone %>
-            </p>
-          </div>
-          <div class="items">
-            <label for="location">Location</label>
-            <p id="location">
-              <%= locals.user.user_address %>
-            </p>
-          </div>
+      <!-- Danger Zone -->
+      <section class="danger-zone-card delete-zone">
+        <div class="danger-header delete-account">
+          <h2><i class="fa-solid fa-triangle-exclamation"></i> Danger Zone</h2>
+          <p class="danger-desc">
+            Permanently delete your account, active listings, and associated data from Call2Buy. This action cannot be reversed.
+          </p>
+          <button type="button" class="danger-btn delete-button" id="delete-account-btn">
+            <i class="fa-solid fa-trash-can"></i> Delete Account
+          </button>
         </div>
-      </div>
-      <div class="delete-zone">
-        <hr>
-        <div class="delete-account">
-          <h2>Delete Account</h2>
-          <p>Deleting your account will permanently remove all your data, including your profile information and all
-            product listings. This action cannot be undone.</p>
-          <button class="delete-button" id="delete-account-btn">🗑️ Delete Account</button>
-        </div>
-
-      </div>
+      </section>
     </div>
+
+    <!-- Section 2: My Products -->
     <div class="my-products-section" style="display: none;">
-      <div class="header">
-        <h2>My Products</h2>
-        <a href="/sell-item" style="text-decoration: none;" class="add-product-button primary-button">+ Add Product</a>
+      <div class="section-top-bar header">
+        <div class="top-bar-title">
+          <h2><i class="fa-solid fa-box-open"></i> Your Active Listings</h2>
+          <span class="product-count"><%= (locals.products && locals.products.length) || 0 %> items</span>
+        </div>
+        <a href="/sell-item" class="submit-btn add-product-cta add-product-button primary-button">
+          <i class="fa-solid fa-plus"></i> List New Item
+        </a>
       </div>
-      <div class="products-list">
-        <% locals.products.forEach(product=> { %>
-          <div class="product-item">
-            <img src="<%= product.mainImage %>" alt="<%= product.title %>" />
-            <h3>
-              <%= product.title%>
-            </h3>
-            <p>$<%= product.price %>
-            </p>
-            <div class="buttons-container">
-              <a href="/edit/<%= product.product_id %>" class="edit-product-button primary-button">Edit</a>
-              <button class="delete-product-button primary-button"
-                data-product-id="<%= product.product_id %>">Delete</button>
-            </div>
-          </div>
+
+      <div class="my-products-grid products-list">
+        <% if (locals.products && locals.products.length > 0) { %>
+          <% locals.products.forEach(product => { %>
+            <article class="my-product-card product-item">
+              <div class="item-thumbnail-box">
+                <img src="<%= product.mainImage || 'https://placehold.co/400x300?text=Call2Buy' %>" alt="<%= product.title %>" />
+              </div>
+              <div class="item-content-box">
+                <h3 class="item-title"><%= product.title %></h3>
+                <span class="item-price-tag">$<%= product.price %></span>
+                <div class="item-action-buttons buttons-container">
+                  <a href="/edit/<%= product.product_id %>" class="action-btn edit-btn edit-product-button primary-button">
+                    <i class="fa-solid fa-pen"></i> Edit
+                  </a>
+                  <button type="button" class="action-btn delete-btn delete-product-button primary-button" data-product-id="<%= product.product_id %>">
+                    <i class="fa-solid fa-trash-can"></i> Delete
+                  </button>
+                </div>
+              </div>
+            </article>
           <% }) %>
+        <% } else { %>
+          <div class="empty-listings-state">
+            <i class="fa-solid fa-inbox"></i>
+            <h3>No Active Listings Yet</h3>
+            <p>You haven't listed any secondhand items for sale. Post an item to start receiving local inquiries.</p>
+            <a href="/sell-item" class="submit-btn empty-cta">
+              <i class="fa-solid fa-plus"></i> Create Your First Listing
+            </a>
+          </div>
+        <% } %>
       </div>
     </div>
-  </div>
-
-
-
+  </main>
 
   <footer>
     <div class="footer-content">
-      <div class="fotter-links">
-        <a href="">About</a>
-        <a href="">Contact</a>
-        <a href="">Privacy</a>
-        <a href="">Terms</a>
+      <div class="footer-links">
+        <a href="/home">Marketplace</a>
+        <a href="#">Safety Guidelines</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
       </div>
-      <div class="footer-sochal">
-        <a href="">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" class="social-icon" />
-        </a>
-        <a href="https://github.com/Abbas49/Web-Project" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="social-icon" />
-        </a>
-        <a href="">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="social-icon" />
-        </a>
-        <a href="">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="social-icon" />
+      <div class="footer-social">
+        <a href="https://github.com/Abbas49/Web-Project" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
         </a>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p>&copy; 2025 Call2Buy. All rights reserved.</p>
-      <p>Developed with ❤️ by <a href="">Call2Buy Team</a></p>
+      <p>&copy; 2025 Call2Buy. Direct-contact secondhand marketplace.</p>
     </div>
   </footer>
+
   <script src="/js/toggle-theme.js"></script>
   <script src="/js/nav.js"></script>
   <script src="/my-account/script.js"></script>
 </body>
-
 </html>

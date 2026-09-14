@@ -1,230 +1,339 @@
-body {
-    background-color: var(--background);
-    display: flex;
-    flex-direction: column;
+/* Sell Item Page Layout */
+.sell-container {
+  max-width: 880px;
+  margin: 96px auto 64px;
+  padding: 0 24px;
 }
 
-.container {
-    width: 90%;
-    margin: 100px auto;
-    background-color: var(--card-bg);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    max-width: 800px;
+.sell-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+.sell-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
 }
 
-.container form .title {
-    margin: 20px;
-    color: var(--text-primary);
-    padding-top: 20px;
+.sell-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
 }
 
-.container form .container-p {
-    margin: 0px 20px 20px 20px;
-    color: var(--text-secondary);
+.sell-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
-.container form .imgs {
-    background-color: var(--background);
-    margin: 30px;
-    border-radius: 20px;
-    padding-bottom: 20px;
+/* Form Sections */
+.form-section {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: border-color 0.2s ease;
 }
 
-.container form .imgs h3 {
-    margin: 20px;
-    color: var(--text-primary);
+.form-section:focus-within {
+  border-color: var(--border-strong);
 }
 
-.container form .imgs p {
-    margin: 20px;
-    color: var(--text-secondary);
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-form label{
-    color: var(--text-primary)
+.section-title-row h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.container form .imgs .addimg input {
-    display: none;
+.section-title-row h2 i {
+  color: var(--accent);
+  font-size: 14px;
 }
 
-.container form .imgs .addimg {
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* gap: 15px; */
-
+.section-hint {
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
-.container form .imgs .addimg label {
-    border: 2px dashed var(--input-border);
-    margin: 5px;
-    height: 150px;
-    transition: .3s;
-    border-radius: 10px;
-    padding: 60px;
-    color: var(--text-secondary);
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    text-align: center;
-    max-width: 250px;
+/* Photo Upload Grid */
+.photo-upload-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
-.container form .imgs .addimg label:hover {
-    outline: none;
-    border-color: var(--accent);
+.photo-upload-grid input[type="file"],
+.image-input {
+  display: none !important;
 }
 
-.container form .product-information {
-    background-color: var(--background);
-    margin: 30px;
-    border-radius: 20px;
+.photo-tile {
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 2px dashed var(--input-border);
+  border-radius: var(--radius-md);
+  background-color: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  user-select: none;
+  box-sizing: border-box;
 }
 
-.container form .product-information h2 {
-    margin: 20px;
-    color: var(--text-primary);
+.photo-tile i {
+  font-size: 24px;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.container form .product-information {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 30px;
+.photo-tile span {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  padding: 0 4px;
 }
 
-.container form .product-information label {
-    margin: 0px 20px 20px 20px;
+.photo-tile:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: var(--accent-light);
 }
 
-.container form .product-information .input-proudct {
-    height: 70px;
-    border-radius: 15px;
-    background-color: var(--background);
-    border: 2px solid var(--input-border);
-    padding: 20px;
-    margin: 0px 20px 0px 20px;
-    color: var(--text-primary);
+.photo-tile:hover i {
+  transform: scale(1.1);
 }
 
-.container form .product-information .input-proudct:focus {
-    outline: none;
-    border-color: var(--accent);
+.photo-tile.has-image {
+  border-style: solid;
+  border-color: var(--card-border);
+  color: transparent !important;
 }
 
-.container form .product-information .ai {
-    display: flex;
-    position: relative;
-}
-
-.container form .product-information .ai textarea {
-    overflow: auto;
-    padding: 10px;
-    height: 150px;
-    resize: vertical;
-    width: 95%;
-    padding-right: 100px;
-}
-
-.container form .product-information .ai .ai-btn {
-    position: absolute;
-    background-color: var(--accent);
-    border-radius: 7px;
-    right: 33px;
-    top: 0;
-    margin-top: 10px;
-    cursor: pointer;
-    color: white;
-    border: 2px solid var(--input-border);
-    height: 40px;
-    font-weight: 800;
-    font-size: 14px;
-    opacity: 0.5;
-}
-
-.container form .product-information .ai .ai-btn:hover {
-    opacity: 1;
-}
-
-.container form #same {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-.container form select {
-    color: var(--text-primary);
-}
-
-.container form .Seller-Contact-Information {
-    background-color: var(--background);
-    margin: 20px;
-    border-radius: 15px;
-    padding: 10px 0 40px 0;
-}
-
-.container form .Seller-Contact-Information h3 {
-    margin: 20px;
-    color: var(--text-primary);
-}
-
-.container form .Seller-Contact-Information label {
-    margin: 0px 20px 20px 20px;
-}
-
-.container form .Seller-Contact-Information .input-proudct {
-    height: 60px;
-    border-radius: 15px;
-    background-color: var(--background);
-    border: 2px solid var(--input-border);
-    padding: 20px;
-    margin: 0px 20px 0px 20px;
-    color: var(--text-primary);
-}
-
-.container form .Seller-Contact-Information .input-proudct:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-.container form .submit-btn {
-    width: 90%;
-    margin: 30px;
-    align-self: center;
-    cursor: pointer;
-    transition: .5s;
+.photo-tile.has-image i,
+.photo-tile.has-image span {
+  display: none;
 }
 
 .remove-image-btn {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 50%;
-    border: none;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
 }
 
-.container form .submit-btn:hover {
-    transform: translateY(-5px);
-    background-color: var(--accent-hover);
+.remove-image-btn:hover {
+  background-color: #ef4444;
+  transform: scale(1.1);
 }
 
-@media (max-width:767px) {
-    .container {
-        margin: 100px 20px;
-    }
+/* Inputs & Form Controls */
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
 
+.desc-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.desc-label-row label {
+  margin-bottom: 0;
+}
+
+/* AI Refine Button */
+.ai-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--accent-glow);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ai-btn i {
+  font-size: 12px;
+}
+
+.ai-btn:hover {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+.ai-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.input-proudct {
+  width: 100%;
+  height: 46px;
+  border-radius: var(--radius-md);
+  background-color: var(--card-bg);
+  border: 1px solid var(--input-border);
+  padding: 0 16px;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea.input-proudct {
+  height: auto;
+  min-height: 120px;
+  padding: 14px 16px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.input-proudct:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px var(--accent-light);
+  outline: none;
+}
+
+.form-actions {
+  margin-top: 32px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sell-container {
+    margin: 80px auto 40px;
+    padding: 0 16px;
+  }
+
+  .sell-card {
+    padding: 24px 16px;
+  }
+
+  .form-section {
+    padding: 20px 14px;
+  }
+
+  .photo-upload-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .sell-container {
+    margin: 72px auto 32px;
+    padding: 0 10px;
+  }
+
+  .sell-card {
+    padding: 16px 12px;
+  }
+
+  .sell-title {
+    font-size: 22px;
+  }
+
+  .sell-subtitle {
+    font-size: 13px;
+  }
+
+  .form-section {
+    padding: 16px 10px;
+    margin-bottom: 16px;
+  }
+
+  .section-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .section-title-row h2 {
+    font-size: 15px;
+  }
+
+  .photo-upload-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .photo-tile {
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .photo-tile i {
+    font-size: 20px;
+  }
+
+  .photo-tile span {
+    font-size: 11px;
+  }
+
+  .desc-label-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 }

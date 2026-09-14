@@ -1,58 +1,64 @@
-body{
-  background-color: var(--background);
+.auth-page-wrapper {
+  min-height: calc(100vh - 72px);
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 0px 20px 0px 20px;
-}
-nav{
-margin-left: -20px;
-}
-.form-con{
-  margin: 150px;
-  align-self: center;
-  height: fit-content;
+  padding: 104px 20px 64px;
 }
 
-form .description{
-  color: var(--text-secondary)
+.form-row-utility {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 13px;
 }
 
-form .form-group:first-of-type{
-  margin-top: 50px;
+.remember-me-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
-.register-msg{
+.remember-me-group input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.remember-me-group label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.forget-password {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forget-password:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.register-msg {
   color: var(--text-secondary);
   text-align: center;
+  font-size: 14px;
+  margin-top: 24px;
 }
-.register-msg a{
+
+.register-msg a {
   color: var(--accent);
   font-weight: 600;
 }
 
-.forget-password{
-  display: block;
-  margin: 10px;
-  text-align: right;
-  color: var(--accent);
-}
-
-.remember-me-group{
-  margin-top: 30px;
-}
-
-#remember-me{
-  accent-color: var(--accent);
-  margin-right: 5px;
-}
-
-.remember-me-group label{
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-.submit-btn{
-  margin-top: 15px;
+.register-msg a:hover {
+  text-decoration: underline;
 }

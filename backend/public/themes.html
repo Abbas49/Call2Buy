@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call2Buy - Theme Showcase & Design Studio</title>
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Base Reset & Fonts */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      /* Default: Obsidian Cobalt Dark */
+      --background: #08090c;
+      --card-bg: #101318;
+      --card-surface-raised: #181d26;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --input-bg: #181d26;
+      
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-light: rgba(59, 130, 246, 0.14);
+      --accent-glow: rgba(59, 130, 246, 0.30);
+      --accent-contrast: #08090c;
+      
+      --badge-bg: rgba(59, 130, 246, 0.14);
+      --badge-text: #60a5fa;
+      --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.35);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--background);
+      color: var(--text-primary);
+      line-height: 1.5;
+      padding-bottom: 80px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      letter-spacing: -0.025em;
+    }
+
+    /* Floating Studio Toolbar */
+    .studio-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      padding: 16px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .studio-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .studio-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 800;
+      font-family: var(--font-display);
+    }
+
+    .studio-brand span.dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .theme-selector-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .theme-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      background-color: var(--input-bg);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .theme-chip .color-preview {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 6px currentColor;
+    }
+
+    .theme-chip:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+    }
+
+    .theme-chip.active {
+      background-color: var(--accent-light);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .mode-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      background-color: var(--input-bg);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .mode-toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Container */
+    .showcase-container {
+      max-width: 1280px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+    }
+
+    .showcase-hero {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .showcase-hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .showcase-hero p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Swatches Grid */
+    .swatches-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .swatches-header {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .swatch-box {
+      background-color: var(--input-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .swatch-color-pill {
+      height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .swatch-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* Component Preview Cards */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .preview-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .preview-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+    }
+
+    /* Mock Navbar */
+    .mock-navbar {
+      background-color: var(--background);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mock-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+
+    .mock-logo span { color: var(--accent); }
+
+    .mock-nav-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .mock-nav-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .mock-nav-item.active {
+      background-color: var(--accent-light);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Mock Product Card */
+    .mock-product-card {
+      background-color: var(--input-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      max-width: 320px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .mock-product-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .mock-product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mock-card-content {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mock-condition-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--accent-light);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      align-self: flex-start;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .mock-condition-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--accent);
+    }
+
+    .mock-product-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .mock-product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .mock-price {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .mock-action-btn {
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      background-color: var(--accent);
+      color: var(--accent-contrast);
+      font-weight: 600;
+      font-size: 12px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px var(--accent-glow);
+    }
+
+    /* Controls Preview */
+    .controls-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mock-search-input {
+      width: 100%;
+      height: 48px;
+      border-radius: var(--radius-pill);
+      background-color: var(--input-bg);
+      border: 1px solid var(--card-border);
+      padding: 0 20px 0 46px;
+      color: var(--text-primary);
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .mock-search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .input-wrapper-rel {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-wrapper-rel i {
+      position: absolute;
+      left: 18px;
+      color: var(--text-muted);
+    }
+
+    .buttons-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-demo-primary {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      background-color: var(--accent);
+      color: var(--accent-contrast);
+      border: none;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+
+    .btn-demo-secondary {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      background-color: var(--input-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-demo-ghost {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      background-color: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent-glow);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* CSS Export Card */
+    .css-export-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .css-code-box {
+      background-color: var(--background);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-primary);
+      overflow-x: auto;
+      white-space: pre;
+      margin-top: 14px;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      background-color: var(--accent);
+      color: var(--accent-contrast);
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 840px) {
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Studio Header Toolbar -->
+  <header class="studio-bar">
+    <div class="studio-bar-inner">
+      <div class="studio-brand">
+        <a href="/home" style="color: inherit; text-decoration: none;">
+          Call<span style="color: var(--accent);">2</span>Buy
+        </a>
+        <span class="dot"></span>
+        <span style="font-size: 14px; color: var(--text-muted); font-weight: 600;">Theme Studio</span>
+      </div>
+
+      <div class="theme-selector-group">
+        <button class="theme-chip" data-theme-key="signal-amber">
+          <span class="color-preview" style="background-color: #ff7e36; color: #ff7e36;"></span>
+          Signal Amber
+        </button>
+
+        <button class="theme-chip" data-theme-key="nordic-petrol">
+          <span class="color-preview" style="background-color: #0ea5e9; color: #0ea5e9;"></span>
+          Nordic Petrol
+        </button>
+
+        <button class="theme-chip" data-theme-key="industrial-brass">
+          <span class="color-preview" style="background-color: #f59e0b; color: #f59e0b;"></span>
+          Industrial Brass
+        </button>
+
+        <button class="theme-chip" data-theme-key="circular-emerald">
+          <span class="color-preview" style="background-color: #10b981; color: #10b981;"></span>
+          Circular Emerald
+        </button>
+
+        <button class="theme-chip active" data-theme-key="obsidian-cobalt">
+          <span class="color-preview" style="background-color: #3b82f6; color: #3b82f6;"></span>
+          Obsidian Cobalt (Current)
+        </button>
+      </div>
+
+      <button class="mode-toggle-btn" id="mode-btn">
+        <i class="fa-solid fa-sun"></i> <span>Dark Mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="showcase-container">
+    <div class="showcase-hero">
+      <h1 id="theme-title">Obsidian Cobalt Theme</h1>
+      <p id="theme-description">
+        Razor-sharp precision, fast and modern (Linear / Raycast aesthetic applied to commerce).
+      </p>
+    </div>
+
+    <!-- Active Swatches Card -->
+    <section class="swatches-card">
+      <div class="swatches-header">
+        <h2>Active Color Palette Tokens</h2>
+        <span id="palette-meta" style="font-family: var(--font-mono); font-size: 13px; color: var(--text-muted);">Dark Mode Variables</span>
+      </div>
+
+      <div class="swatches-grid" id="swatches-container">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- UI Component Live Previews -->
+    <div class="preview-grid">
+      <!-- Preview 1: Navigation & Header -->
+      <section class="preview-card">
+        <h3 class="preview-title"><i class="fa-solid fa-bars"></i> Navbar & Active State</h3>
+        <div class="mock-navbar">
+          <div class="mock-logo">Call<span>2</span>Buy</div>
+          <div class="mock-nav-links">
+            <a href="#" class="mock-nav-item active"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#" class="mock-nav-item"><i class="fa-solid fa-plus"></i> Sell Item</a>
+            <a href="#" class="mock-nav-item"><i class="fa-solid fa-circle-user"></i> Robin</a>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: var(--text-secondary);">
+          Shows the subtle amber-tinted active pill and clean hover interactions.
+        </p>
+      </section>
+
+      <!-- Preview 2: Search & Controls -->
+      <section class="preview-card">
+        <h3 class="preview-title"><i class="fa-solid fa-sliders"></i> Inputs & Button States</h3>
+        <div class="controls-stack">
+          <div class="input-wrapper-rel">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="mock-search-input" placeholder="Search secondhand listings..." value="Vintage Sony Headphones" />
+          </div>
+
+          <div class="buttons-row">
+            <button class="btn-demo-primary"><i class="fa-solid fa-paper-plane"></i> Publish</button>
+            <button class="btn-demo-secondary">Cancel</button>
+            <button class="btn-demo-ghost"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Refine</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preview 3: Product Listing Card -->
+      <section class="preview-card">
+        <h3 class="preview-title"><i class="fa-solid fa-tag"></i> Product Listing Card</h3>
+        <div style="display: flex; justify-content: center;">
+          <div class="mock-product-card">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60" alt="Headphones" class="mock-product-img" />
+            <div class="mock-card-content">
+              <div class="mock-condition-pill">
+                <span class="dot"></span>
+                <span>Used - Like New</span>
+              </div>
+              <h4 class="mock-product-title">Audio-Technica ATH-M50x Professional Studio Headphones</h4>
+              <div class="mock-product-footer">
+                <span class="mock-price">$120.00</span>
+                <button class="mock-action-btn">
+                  <span>View Details</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preview 4: Code Export for basics.css -->
+      <section class="preview-card css-export-card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3 class="preview-title" style="border: none; padding: 0;"><i class="fa-solid fa-code"></i> CSS Code for basics.css</h3>
+          <button class="copy-btn" id="copy-css-btn"><i class="fa-solid fa-copy"></i> Copy CSS</button>
+        </div>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">
+          To apply this theme to Call2Buy, copy these variables into <code>basics.css</code>.
+        </p>
+        <div class="css-code-box" id="css-code-display"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/js/themes-demo.js"></script>
+</body>
+</html>

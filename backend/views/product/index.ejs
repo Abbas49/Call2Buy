@@ -1,210 +1,221 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= locals.title || "Product Listing" %> - Call2Buy Marketplace</title>
+  <link rel="stylesheet" href="/css/basics.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/form-styles.css" />
   <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/product/style.css" />
-  <link rel="stylesheet" href="/css/basics.css" />
-  <link rel="stylesheet" href="/css/normlize.css" />
   <link rel="stylesheet" href="/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <title>Call2Buy</title>
+  <link rel="stylesheet" href="/product/style.css" />
 </head>
 
 <body>
   <nav>
     <div class="nav-con">
       <div class="logo">
-        <a href="../home">Call2Buy</a>
+        <a href="/home">Call<span class="brand-accent">2</span>Buy<span class="logo-dot"></span></a>
       </div>
       <div class="right-side">
         <input type="checkbox" id="bars" class="nav-checkbox" />
         <ul>
           <li>
-            <a href="/home"> 🏠Home </a>
+            <a href="/home"><i class="fa-solid fa-house"></i> Home</a>
           </li>
-          <li>
-            <a href="/sell-item"> 📦Sell Item </a>
+          <li class="nav-sell">
+            <a href="/sell-item"><i class="fa-solid fa-plus"></i> Sell Item</a>
           </li>
           <li id="nav-login">
-            <a href="/login"> 🔑Login </a>
+            <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
           </li>
           <li id="nav-register">
-            <a href="/register"> 📃Register </a>
+            <a href="/register"><i class="fa-solid fa-user-plus"></i> Register</a>
           </li>
           <li id="nav-username" style="display: none">
-            <a href="/my-account"> </a>
+            <a href="/my-account"><i class="fa-solid fa-circle-user"></i> <span></span></a>
           </li>
           <li id="nav-logout" style="display: none">
-            <a href="#"> 🚪Logout </a>
+            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
           </li>
         </ul>
-        <button class="toggle-theme">🔆</button>
-        <label for="bars" class="bars-icon">
-          <i class="fa-solid fa-bars bars"></i>
+        <button class="toggle-theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <label for="bars" class="bars-icon" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
         </label>
       </div>
     </div>
   </nav>
-  <div class="main-container">
-    <div class="right-container">
-      <div class="price-card">
-        <div class="proudct-price">
-          <h1><%= locals.price || "" %>$</h1>
-        </div>
-        <div class="proudct-title">
-          <h1> <%= locals.title || "" %></h1>
-        </div>
-        <div class="listing-data">
-          listed at <%= locals.created_at.split("T")[0] || "" %>
-        </div>
-      </div>
-      <div class="seller-card">
-        <div class="seller-title">
-          <h2>Seller information</h2>
-        </div>
-        <hr>
-        <div class="seller-profile">
 
-          <div class="discription">
-            <h3><%= locals.users ? locals.users.full_name || "" : "" %></h3>
-            <p>Member scince <%= locals.users ? locals.users.created_at.split("-")[0] || "" : "" %></p>
-          </div>
-          <div class="photo">
-            <i class="fa-solid fa-user"></i>
-          </div>
-        </div>
-        <div class="contact-btn">
-          <button class="submit-btn">Contact the seller</button>
-          <div class="num">
-            <p>You can contact <%= locals.users ? locals.users.full_name || "" : "" %> at:</p>
-            <p><%= locals.phone || "" %></p>
-          </div>
-        </div>
-        <div class="safty">
-          <ul>
-            <h3>Safety Tips</h3>
-            <li>✔️ Meet in a public place</li>
-            <li>✔️ Check the item before paying</li>
-            <li>✔️ Pay only after inspecting the item</li>
-          </ul>
-        </div>
-      </div>
-      <div class="id-card">
-        <p>AD ID: 563435522 </p>
-        <a href="">Report this ad</a>
-      </div>
-    </div>
-    <div class="left-container">
-      <div class="pictures">
-        <div class="main-img">
-          <img id="main-img" src="<%= locals.images[0] || "https://placehold.co/600x400" %>" alt="Main product image">
-        </div>
-        <div class="some">
-          <% 
-            let result = "";
-            const images = locals.images;
-            if(images){
-            for(let i = 0; i < images.length; i++){
-              result+=`<img src="${images[i] || "https://placehold.co/600x400"}" alt="Product image">`;
-            }
-            }
-          %>
-          <%- result %>
-        </div>
-      </div>
-      <div class="description">
-        <h2>Description</h2>
-        <hr>
-        <pre><%= locals.product_description || "" %></pre>
-      </div>
-      <div class="details">
-        <h2>Details</h2>
-        <hr>
-        <div class="contant-datails">
-          <table cellpadding="20px">
-            <tr>
-              <td>Condition</td>
-              <td> <%= locals.condition || "" %></td>
-            </tr>
-            <tr>
-              <td>Category</td>
-              <td> <%= locals.categories[0] || "" %></td>
-            </tr>
-            <!-- <tr>
-              <td>Brand</td>
-              <td> <%= locals.brand || "" %></td>
-            </tr> -->
-            <tr>
-              <td>Posted</td>
-              <td> <%= locals.created_at.split("T")[0] || "" %></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
+  <main class="product-page-container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <a href="/home"><i class="fa-solid fa-house"></i> Home</a>
+      <span class="breadcrumb-separator">/</span>
+      <span><%= (locals.categories && locals.categories[0]) || "Marketplace" %></span>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current"><%= locals.title || "Item Details" %></span>
+    </nav>
 
-  </div>
+    <div class="product-layout-grid">
+      <!-- Left: Media & Description Gallery -->
+      <section class="gallery-column">
+        <div class="pictures media-showcase">
+          <div class="main-img showcase-main-wrapper">
+            <img
+              id="main-img"
+              src="<%= (locals.images && locals.images[0]) || 'https://placehold.co/800x600?text=Call2Buy' %>"
+              alt="<%= locals.title || 'Product Image' %>"
+            />
+          </div>
+          
+          <% if (locals.images && locals.images.length > 1) { %>
+            <div class="some thumbnail-strip">
+              <% for (let i = 0; i < locals.images.length; i++) { %>
+                <div class="thumb-wrapper <%= i === 0 ? 'active' : '' %>">
+                  <img src="<%= locals.images[i] %>" alt="Thumbnail <%= i + 1 %>" />
+                </div>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+
+        <!-- Description Box -->
+        <article class="description content-block">
+          <div class="block-header">
+            <h2><i class="fa-solid fa-align-left"></i> Description</h2>
+          </div>
+          <div class="desc-text-wrapper">
+            <p><%= locals.product_description || "No description provided by the seller." %></p>
+          </div>
+        </article>
+
+        <!-- Specifications Grid -->
+        <section class="details content-block">
+          <div class="block-header">
+            <h2><i class="fa-solid fa-list-check"></i> Item Specifications</h2>
+          </div>
+          <div class="contant-datails specs-grid">
+            <div class="spec-item">
+              <span class="spec-label">Condition</span>
+              <span class="spec-value condition-spec">
+                <span class="status-dot"></span>
+                <%= locals.condition || "Not Specified" %>
+              </span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Category</span>
+              <span class="spec-value"><%= (locals.categories && locals.categories[0]) || "General" %></span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Location</span>
+              <span class="spec-value"><%= locals.product_address || "Local Area" %></span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Listed On</span>
+              <span class="spec-value"><%= locals.created_at ? locals.created_at.split("T")[0] : "Recently" %></span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Right: Action & Seller Panel -->
+      <aside class="action-column right-container">
+        <!-- Price Card -->
+        <div class="price-card ticket-card">
+          <div class="ticket-header">
+            <span class="ticket-badge">Direct Seller Deal</span>
+            <span class="listing-data date-stamp">
+              <i class="fa-regular fa-clock"></i> <%= locals.created_at ? locals.created_at.split("T")[0] : "" %>
+            </span>
+          </div>
+
+          <div class="proudct-price price-display">
+            <span class="currency-sign">$</span>
+            <span class="amount-mono"><%= locals.price || "0" %></span>
+          </div>
+
+          <div class="proudct-title">
+            <h1 class="item-title"><%= locals.title || "" %></h1>
+          </div>
+
+          <div class="ticket-meta">
+            <div class="meta-pill">
+              <i class="fa-solid fa-location-dot"></i>
+              <span><%= locals.product_address || "Local Pickup" %></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seller Information Card -->
+        <div class="seller-card profile-card">
+          <div class="seller-title">
+            <h2><i class="fa-solid fa-shield-halved"></i> Seller Information</h2>
+          </div>
+
+          <div class="seller-profile">
+            <div class="photo avatar-circle">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="discription seller-meta-info">
+              <h3 class="seller-name"><%= locals.users ? locals.users.full_name || "Verified Seller" : "Call2Buy Member" %></h3>
+              <p class="seller-tenure">Member since <%= locals.users && locals.users.created_at ? locals.users.created_at.split("-")[0] : "2025" %></p>
+            </div>
+          </div>
+
+          <div class="contact-btn contact-action-wrapper">
+            <button type="button" class="submit-btn reveal-contact-btn">
+              <i class="fa-solid fa-phone"></i> Contact the Seller
+            </button>
+            <div class="num revealed-contact-box">
+              <p class="call-prompt">Reach <strong><%= locals.users ? locals.users.full_name || "the seller" : "the seller" %></strong> directly:</p>
+              <a href="tel:<%= locals.phone || '' %>" class="phone-link">
+                <i class="fa-solid fa-phone-volume"></i> <%= locals.phone || "No phone listed" %>
+              </a>
+            </div>
+          </div>
+
+          <div class="safty safety-checklist">
+            <h3><i class="fa-solid fa-shield-check"></i> Safe Trading Tips</h3>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> Meet in a well-lit, public location</li>
+              <li><i class="fa-solid fa-circle-check"></i> Thoroughly inspect the item before paying</li>
+              <li><i class="fa-solid fa-circle-check"></i> Never transfer funds in advance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="id-card listing-meta-footer">
+          <span class="ad-id">Listing Reference: #<%= locals.product_id || "74921" %></span>
+          <a href="#" class="report-link"><i class="fa-regular fa-flag"></i> Report this ad</a>
+        </div>
+      </aside>
+    </div>
+  </main>
 
   <footer>
-      <div class="footer-content">
-        <div class="fotter-links">
-          <a href="">About</a>
-          <a href="">Contact</a>
-          <a href="">Privacy</a>
-          <a href="">Terms</a>
-        </div>
-        <div class="footer-sochal">
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733561.png"
-              alt="LinkedIn"
-              class="social-icon"
-            />
-          </a>
-          <a href="https://github.com/Abbas49/Web-Project" target="_blank">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
-              alt="GitHub"
-              class="social-icon"
-            />
-          </a>
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-              alt="Facebook"
-              class="social-icon"
-            />
-          </a>
-          <a href="">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
-              alt="Instagram"
-              class="social-icon"
-            />
-          </a>
-        </div>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="/home">Marketplace</a>
+        <a href="#">Safety Guidelines</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Call2Buy. All rights reserved.</p>
-        <p>Developed with ❤️ by <a href="">Call2Buy Team</a></p>
+      <div class="footer-social">
+        <a href="https://github.com/Abbas49/Web-Project" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
       </div>
-    </footer>
-
-
-
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Call2Buy. Direct-contact secondhand marketplace.</p>
+    </div>
+  </footer>
 
   <script src="/js/toggle-theme.js"></script>
   <script src="/js/nav.js"></script>
   <script src="/product/script.js"></script>
-
 </body>
-
 </html>

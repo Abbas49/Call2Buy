@@ -2,7 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 import helmet from "helmet"
-import morgan, { format } from "morgan"
+import morgan from "morgan"
 import cookieParser from "cookie-parser"
 import path from "path"
 import { fileURLToPath } from "url"
@@ -17,7 +17,6 @@ import allowExternalImages from "./utils/allowExternalImages.js"
 
 dotenv.config();
 
-// Set up __dirname equivalent for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
