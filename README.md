@@ -2,7 +2,10 @@
 
 An online marketplace platform for buying and selling used items. Users can list products, browse listings, apply filters, and contact sellers.
 
+## Demo
 **Live Demo**: [https://call2buy.vercel.app](https://call2buy.vercel.app)
+
+https://github.com/user-attachments/assets/3a185cb0-bf1e-4f43-85c3-6fdce5276513
 
 ## 🚀 Features
 

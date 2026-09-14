@@ -12,79 +12,123 @@
         return "condition-good";
     }
 
-    function escapeHtml(str) {
-        if (!str) return "";
-        return String(str)
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    }
-
     function listProduct(product) {
         const element = document.createElement("div");
         element.classList.add("one-proudct", "product-card");
 
+        // 1. Media Container & Image
+        const proimg = document.createElement("div");
+        proimg.classList.add("proimg", "card-media");
+
+        const img = document.createElement("img");
         const imageSrc = product.images && product.images.length > 0 && product.images[0]
             ? product.images[0]
             : "https://placehold.co/600x400?text=No+Photo";
+        img.src = imageSrc;
+        img.alt = product.title || "Product image";
+        img.loading = "lazy";
+        img.onerror = () => {
+            img.src = "https://placehold.co/600x400?text=Call2Buy";
+        };
+        proimg.appendChild(img);
 
-        const conditionHtml = product.condition
-            ? `<div class="condition-badge ${getConditionClass(product.condition)}">
-                 <span class="status-dot"></span>
-                 <span>${escapeHtml(product.condition)}</span>
-               </div>`
-            : `<div></div>`;
+        // 2. Card Body
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
 
+        // Meta Bar & Condition Badge
+        const metaBar = document.createElement("div");
+        metaBar.classList.add("card-meta-bar");
+
+        if (product.condition) {
+            const badge = document.createElement("div");
+            badge.className = `condition-badge ${getConditionClass(product.condition)}`;
+
+            const dot = document.createElement("span");
+            dot.classList.add("status-dot");
+
+            const condText = document.createElement("span");
+            condText.textContent = product.condition;
+
+            badge.appendChild(dot);
+            badge.appendChild(condText);
+            metaBar.appendChild(badge);
+        }
+        cardBody.appendChild(metaBar);
+
+        // Title
+        const title = document.createElement("h3");
+        title.classList.add("card-title");
+        title.textContent = product.title || "Untitled Listing";
+        cardBody.appendChild(title);
+
+        // Footer Row with Price
+        const footerRow = document.createElement("div");
+        footerRow.classList.add("card-footer-row");
+
+        const priceSpan = document.createElement("span");
+        priceSpan.classList.add("card-price");
         const formattedPrice = Number(product.price || 0).toLocaleString("en-US", {
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
         });
+        priceSpan.textContent = `$${formattedPrice}`;
+        footerRow.appendChild(priceSpan);
+        cardBody.appendChild(footerRow);
 
-        element.innerHTML = `
-          <div class="proimg card-media">
-            <img src="${imageSrc}" alt="${escapeHtml(product.title)}" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Call2Buy'">
-          </div>
-          <div class="card-body">
-            <div class="card-meta-bar">
-              ${conditionHtml}
-            </div>
-            <h3 class="card-title">${escapeHtml(product.title)}</h3>
-            <div class="card-footer-row">
-              <span class="card-price">$${formattedPrice}</span>
-            </div>
-            <a href="/products/${product.product_id}" class="card-action-link">
-              <button type="button" class="card-action-btn">
-                <span>View Listing</span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </a>
-          </div>
-        `;
+        // Action Link & Button
+        const actionLink = document.createElement("a");
+        actionLink.classList.add("card-action-link");
+        actionLink.href = `/products/${encodeURIComponent(product.product_id)}`;
+
+        const actionBtn = document.createElement("button");
+        actionBtn.type = "button";
+        actionBtn.classList.add("card-action-btn");
+
+        const btnText = document.createElement("span");
+        btnText.textContent = "View Listing";
+
+        const btnIcon = document.createElement("i");
+        btnIcon.className = "fa-solid fa-arrow-right";
+
+        actionBtn.appendChild(btnText);
+        actionBtn.appendChild(btnIcon);
+        actionLink.appendChild(actionBtn);
+        cardBody.appendChild(actionLink);
+
+        element.appendChild(proimg);
+        element.appendChild(cardBody);
 
         document.getElementById("products-container").appendChild(element);
     }
 
     function renderEmptyState(container) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <i class="fa-solid fa-box-open"></i>
-            <h3>No Listings Found</h3>
-            <p>Try adjusting your search keywords or clearing price filters to discover more secondhand goods.</p>
-          </div>
-        `;
+        container.replaceChildren();
+        const emptyDiv = document.createElement("div");
+        emptyDiv.classList.add("empty-state");
+
+        const icon = document.createElement("i");
+        icon.className = "fa-solid fa-box-open";
+
+        const heading = document.createElement("h3");
+        heading.textContent = "No Listings Found";
+
+        const text = document.createElement("p");
+        text.textContent = "Try adjusting your search keywords or clearing price filters to discover more secondhand goods.";
+
+        emptyDiv.appendChild(icon);
+        emptyDiv.appendChild(heading);
+        emptyDiv.appendChild(text);
+        container.appendChild(emptyDiv);
     }
 
     function showLoadingShimmer(container) {
-        container.innerHTML = `
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
-        `;
+        container.replaceChildren();
+        for (let i = 0; i < 6; i++) {
+            const skeleton = document.createElement("div");
+            skeleton.classList.add("skeleton-card");
+            container.appendChild(skeleton);
+        }
     }
 
     async function loadProducts() {
@@ -115,11 +159,11 @@
                 throw new Error(result.message || "Failed to load listings");
             }
 
-            container.innerHTML = "";
+            container.replaceChildren();
             const products = result.products || [];
 
             if (countBadge) {
-                countBadge.innerText = `${products.length} ${products.length === 1 ? "item" : "items"} available`;
+                countBadge.textContent = `${products.length} ${products.length === 1 ? "item" : "items"} available`;
             }
 
             if (products.length === 0) {
@@ -131,13 +175,24 @@
                 listProduct(products[i]);
             }
         } catch (error) {
-            container.innerHTML = `
-              <div class="empty-state">
-                <i class="fa-solid fa-triangle-exclamation" style="color: var(--accent);"></i>
-                <h3>Unable to Load Listings</h3>
-                <p>${escapeHtml(error.message)}</p>
-              </div>
-            `;
+            container.replaceChildren();
+            const emptyDiv = document.createElement("div");
+            emptyDiv.classList.add("empty-state");
+
+            const icon = document.createElement("i");
+            icon.className = "fa-solid fa-triangle-exclamation";
+            icon.style.color = "var(--accent)";
+
+            const heading = document.createElement("h3");
+            heading.textContent = "Unable to Load Listings";
+
+            const msg = document.createElement("p");
+            msg.textContent = error.message || "An unexpected error occurred.";
+
+            emptyDiv.appendChild(icon);
+            emptyDiv.appendChild(heading);
+            emptyDiv.appendChild(msg);
+            container.appendChild(emptyDiv);
             console.error('Error fetching products:', error);
         }
     }

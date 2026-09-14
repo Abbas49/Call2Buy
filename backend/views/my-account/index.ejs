@@ -49,7 +49,6 @@
       </div>
     </div>
   </nav>
-
   <main class="account-container container">
     <!-- User Profile Header Banner -->
     <header class="profile-header profile">
@@ -60,7 +59,7 @@
         <h1 class="user-display-name"><%= locals.user ? locals.user.full_name : "User Profile" %></h1>
         <div class="profile-meta-badges">
           <span class="badge-tag verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Member</span>
-          <span class="badge-tag tenure-badge"><i class="fa-regular fa-calendar"></i> Member since <%= locals.user && locals.user.created_at ? locals.user.created_at.split("-")[0] : "2025" %></span>
+          <span class="badge-tag tenure-badge"><i class="fa-regular fa-calendar"></i> Member since <%= locals.user?.created_at ? locals.user.created_at.split("T")[0] : "2025" %></span>
         </div>
       </div>
     </header>
