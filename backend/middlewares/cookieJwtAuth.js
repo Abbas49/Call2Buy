@@ -16,7 +16,11 @@ export const requireAuth = async (req, res, next) =>{
         if(JWTerror){
             throw createError("Unauthorized access. Please log in again.", 401);
         }
-        const user = (await supabase.from("users").select().eq("email", decoded.email)).data.at(0);
+        const { data: userData, error: userError } = await supabase.from("users").select().eq("email", decoded.email);
+        if (userError) {
+            throw createError(userError.message, 503);
+        }
+        const user = userData && userData.length ? userData[0] : null;
         if(!user){
             throw createError("User no longer exists", 400);
         }
@@ -45,10 +49,12 @@ export const optionalAuth = async (req, res, next) =>{
                 next();
                 return;
             }
-            const user = (await supabase.from("users").select().eq("email", decoded.email)).data.at(0);
-            if(!user){
-                throw createError("User no longer exists", 400);
+            const { data: userData, error: userError } = await supabase.from("users").select().eq("email", decoded.email);
+            if (userError || !userData || !userData.length) {
+                next();
+                return;
             }
+            const user = userData[0];
             req.user = user;
         }
         next();

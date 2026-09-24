@@ -3,7 +3,7 @@ import bcrypt from "bcrypt"
 import createError from "../utils/createError.js";
 import jwt from "jsonwebtoken";
 
-export const register = async (req, res) =>{
+export const register = async (req, res, next) =>{
     try{
         const {email, password, phone, user_address, full_name} = req.body;
         if(!email){
@@ -14,6 +14,9 @@ export const register = async (req, res) =>{
 
         // Check if email exists in the database
         const user = await supabase.from("users").select().eq("email", normalizedEmail);
+        if(user.error){
+            throw createError(user.error.message, 500);
+        }
         if(user.data && user.data.length != 0){
             throw createError("The provided email is already registered. Please use a different email or log in", 409);
         }
@@ -28,16 +31,16 @@ export const register = async (req, res) =>{
             user_address: user_address
         });
         if(result.error){
-            throw new Error(result.error.message);
+            throw createError(result.error.message, 500);
         }
 
         res.status(200).json({message: "Your account has been successfully created"});
     }catch (err){
-        res.status(err.statusCode || 500).json({message: err.message});
+        next(err);
     }
 }
 
-export const login = async (req, res) =>{
+export const login = async (req, res, next) =>{
     try{
         const {email, password, remember_me} = req.body;
         if(!email || !password){
@@ -46,7 +49,11 @@ export const login = async (req, res) =>{
 
         const normalizedEmail = email.toLowerCase().trim();
 
-        const user = (await supabase.from("users").select().eq("email", normalizedEmail)).data.at(0);
+        const userQuery = await supabase.from("users").select().eq("email", normalizedEmail);
+        if(userQuery.error){
+            throw createError(userQuery.error.message, 500);
+        }
+        const user = userQuery.data && userQuery.data.length ? userQuery.data[0] : null;
         if(!user){
             throw createError("Wrong email or password", 401);
         }
@@ -72,7 +79,7 @@ export const login = async (req, res) =>{
 
         res.status(200).json({message: "Login successful!"});
     }catch(err){
-        res.status(err.statusCode || 500).json({message: err.message});
+        next(err);
     }
 }
 

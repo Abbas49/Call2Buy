@@ -49,15 +49,18 @@ app.get("/api/v1/username", requireAuth , (req, res)=>{
 })
 
 
+import createError from "./utils/createError.js"
 import { supabase } from "./config/db.js"
 app.get("/api/v1/categories", async (req, res, next)=>{
     try{
-        const {data, err} = await supabase.from("categories").select();
-        if(err){
-            throw createError(err.message);
+        const {data, error} = await supabase.from("categories").select();
+        if(error){
+            throw createError(error.message, 500);
+        }
+        if(!data){
+            return res.json({message: []});
         }
         const categories = data.map((e)=> e.category_name);
-        console.log(categories);
         res.json({message: categories})
     }catch(err){
         next(err);
